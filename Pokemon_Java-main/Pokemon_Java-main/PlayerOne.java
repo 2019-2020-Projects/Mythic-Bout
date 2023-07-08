@@ -22,174 +22,197 @@ import java.util.LinkedList;
 
 public class PlayerOne extends StartHere
 {
+    public static Button nickEnterBTN;
     //This method creates the Pokemon on the gui based on what buttons are clicked.
     public static void PCharOne()
     {
-        PokemonPanel.removeAll();
-        PokemonPanel.repaint();
+        Button charmanderBTN, charmeleonBTN, charizardBTN, bulbasaurBTN, squirtleBTN;
+        scratchBox = new JCheckBox();
+        emberBox = new JCheckBox();
+        dragonBreathBox = new JCheckBox();
+        fireFangBox = new JCheckBox();
+        slashBox = new JCheckBox();
+        flamethrowerBox = new JCheckBox();
+        fireSpinBox = new JCheckBox();
+        airSlashBox = new JCheckBox();
+        dragonClawBox = new JCheckBox();
+        infernoBox = new JCheckBox();
+        flareBlitzBox = new JCheckBox();
+        tackleBox = new JCheckBox();
+        vineWhipBox = new JCheckBox();
+        sleepPowderBox = new JCheckBox();
+        takeDownBox = new JCheckBox();
+        razorLeafBox = new JCheckBox();
+        bubbleBox = new JCheckBox();
+        waterGunBox = new JCheckBox();
+        biteBox = new JCheckBox();
+        bubbleBeamBox = new JCheckBox();
+
+        pokemonPanel.removeAll();
+        pokemonPanel.repaint();
         JLabel PokemonChooser = new JLabel("Choose your Pokemon:");
         PokemonChooser.setBounds(20,10,300,25);
         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 25));
-        PokemonPanel.add(PokemonChooser);
+        pokemonPanel.add(PokemonChooser);
 
-        //Create Bulbasaur select button.
-        Bulbasaur = new Button("Bulbasaur");
-        Bulbasaur.setBounds(20,55,160,85);
-        Bulbasaur.setBackground(Color.green);
-        Bulbasaur.setForeground(Color.white);
-        Bulbasaur.setFont(new Font("Arial", Font.BOLD, 25));
+        //Create bulbasaurBTN select button.
+        bulbasaurBTN = new Button("Bulbasaur");
+        bulbasaurBTN.setBounds(20,55,160,85);
+        bulbasaurBTN.setBackground(Color.green);
+        bulbasaurBTN.setForeground(Color.white);
+        bulbasaurBTN.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //If Bulbasaur button is clicked the game will continue to the nickname selection screen.
-        Bulbasaur.addActionListener(new ActionListener() {
+        //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
+        bulbasaurBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 //This sets what number of Pokemon in the pokedex player one will be.
-                PokemonNumber=1;
-                PokemonPanel.removeAll();
-                PokemonPanel.repaint();
+                pokemonNumber=1;
+                pokemonPanel.removeAll();
+                pokemonPanel.repaint();
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                 PokemonChooser.setBounds(5,5,600,50);
                 PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-                PokemonPanel.add(PokemonChooser);
+                pokemonPanel.add(PokemonChooser);
 
                 //Input your Pokemon nickname here.
-                PokeNickName = new JTextField();
-                PokeNickName.setBounds(175,150,250,50);
-                PokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+                pokeNickName = new JTextField();
+                pokeNickName.setBounds(175,150,250,50);
+                pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make Pokemon nickname entry only accept 12 characters.
-                PokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+                pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        if(PokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                        if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
 
                             evt.consume();
                         }
                     }
                 });
 
-                PokemonPanel.add(PokeNickName);
+                pokemonPanel.add(pokeNickName);
 
-                NickEnter = new Button("Enter");
-                NickEnter.setBounds(200,270,200,60);
-                NickEnter.setBackground(Color.green);
-                NickEnter.setForeground(Color.white);
-                NickEnter.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = new Button("Enter");
+                nickEnterBTN.setBounds(200,270,200,60);
+                nickEnterBTN.setBackground(Color.green);
+                nickEnterBTN.setForeground(Color.white);
+                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
-                NickEnter.addActionListener(new ActionListener() {
+                nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //This counts how many Pokemon Moves are checked.
-                        PokemonCount = 0;
+                        pokemonCount = 0;
 
-                        //This sets PokemonNick to equal the input of the nickname entry.
-                        PokemonNick=PokeNickName.getText();
+                        //This sets pokemonNick to equal the input of the nickname entry.
+                        pokemonNick = pokeNickName.getText();
 
-                        PokemonPanel.removeAll();
-                        PokemonPanel.repaint();
+                        pokemonPanel.removeAll();
+                        pokemonPanel.repaint();
 
                         JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                         PokemonChooser.setBounds(5,5,600,50);
                         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                        PokemonPanel.add(PokemonChooser);
+                        pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add tackle attack to the attacks list in the battle class.
-                        Tackle = new JCheckBox("Tackle");
-                        Tackle.setBounds(170,70,240,40);
-                        Tackle.setBackground(Color.lightGray);
-                        Tackle.setForeground(Color.white);
-                        Tackle.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Tackle);
-                        Tackle.setSelected(false);
+                        tackleBox = new JCheckBox("Tackle");
+                        tackleBox.setBounds(170,70,240,40);
+                        tackleBox.setBackground(Color.lightGray);
+                        tackleBox.setForeground(Color.white);
+                        tackleBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(tackleBox);
+                        tackleBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Tackle.addActionListener(new ActionListener() {
+                        tackleBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Tackle,5);
+                                MoveDisabler(tackleBox,5);
                             }
                         });
 
                         //Creates button to add vinewhip attack to the attacks list in the battle class.
-                        VineWhip = new JCheckBox("Vine Whip");
-                        VineWhip.setBounds(170,150,240,40);
-                        VineWhip.setBackground(Color.GREEN);
-                        VineWhip.setForeground(Color.white);
-                        VineWhip.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(VineWhip);
-                        VineWhip.setSelected(false);
+                        vineWhipBox = new JCheckBox("Vine Whip");
+                        vineWhipBox.setBounds(170,150,240,40);
+                        vineWhipBox.setBackground(Color.GREEN);
+                        vineWhipBox.setForeground(Color.white);
+                        vineWhipBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(vineWhipBox);
+                        vineWhipBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        VineWhip.addActionListener(new ActionListener() {
+                        vineWhipBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(VineWhip,5);
+                                MoveDisabler(vineWhipBox,5);
                             }
                         });
 
                         //Creates button to add sleeppowder attack to the attacks list in the battle class.
-                        SleepPowder= new JCheckBox("Sleep Powder");
-                        SleepPowder.setBounds(170,230,240,40);
-                        SleepPowder.setBackground(Color.GREEN);
-                        SleepPowder.setForeground(Color.white);
-                        SleepPowder.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(SleepPowder);
-                        SleepPowder.setSelected(false);
+                        sleepPowderBox = new JCheckBox("Sleep Powder");
+                        sleepPowderBox.setBounds(170,230,240,40);
+                        sleepPowderBox.setBackground(Color.GREEN);
+                        sleepPowderBox.setForeground(Color.white);
+                        sleepPowderBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(sleepPowderBox);
+                        sleepPowderBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        SleepPowder.addActionListener(new ActionListener() {
+                        sleepPowderBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(SleepPowder,5);
+                                MoveDisabler(sleepPowderBox,5);
                             }
                         });
 
                         //Creates button to add takedown attack to the attacks list in the battle class.
-                        TakeDown= new JCheckBox("Take Down");
-                        TakeDown.setBounds(170,310,240,40);
-                        TakeDown.setBackground(Color.LIGHT_GRAY);
-                        TakeDown.setForeground(Color.white);
-                        TakeDown.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(TakeDown);
-                        TakeDown.setSelected(false);
+                        takeDownBox = new JCheckBox("Take Down");
+                        takeDownBox.setBounds(170,310,240,40);
+                        takeDownBox.setBackground(Color.LIGHT_GRAY);
+                        takeDownBox.setForeground(Color.white);
+                        takeDownBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(takeDownBox);
+                        takeDownBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        TakeDown.addActionListener(new ActionListener() {
+                        takeDownBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(TakeDown,5);
+                                MoveDisabler(takeDownBox,5);
                             }
                         });
 
                         //Creates button to add razorleaf attack to the attacks list in the battle class.
-                        RazorLeaf= new JCheckBox("Razor Leaf");
-                        RazorLeaf.setBounds(170,390,240,40);
-                        RazorLeaf.setBackground(Color.GREEN);
-                        RazorLeaf.setForeground(Color.white);
-                        RazorLeaf.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(RazorLeaf);
-                        RazorLeaf.setSelected(false);
+                        razorLeafBox = new JCheckBox("Razor Leaf");
+                        razorLeafBox.setBounds(170,390,240,40);
+                        razorLeafBox.setBackground(Color.GREEN);
+                        razorLeafBox.setForeground(Color.white);
+                        razorLeafBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(razorLeafBox);
+                        razorLeafBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        RazorLeaf.addActionListener(new ActionListener() {
+                        razorLeafBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(RazorLeaf,5);
+                                MoveDisabler(razorLeafBox,5);
                             }
                         });
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
-                        DisableMoves = new LinkedList<JCheckBox>();
-                        DisableMoves.add(Tackle);
-                        DisableMoves.add(VineWhip);
-                        DisableMoves.add(SleepPowder);
-                        DisableMoves.add(TakeDown);
-                        DisableMoves.add(RazorLeaf);
+                        disableMoves = new LinkedList<JCheckBox>();
+                        disableMoves.add(tackleBox);
+                        disableMoves.add(vineWhipBox);
+                        disableMoves.add(sleepPowderBox);
+                        disableMoves.add(takeDownBox);
+                        disableMoves.add(razorLeafBox);
 
 
-                        DoneMoves = new Button("Continue");
-                        DoneMoves.setBounds(200,500,200,60);
-                        DoneMoves.setBackground(Color.green);
-                        DoneMoves.setForeground(Color.white);
-                        DoneMoves.setFont(new Font("Arial", Font.BOLD, 30));
+                        doneMoves = new Button("Continue");
+                        doneMoves.setBounds(200,500,200,60);
+                        doneMoves.setBackground(Color.green);
+                        doneMoves.setForeground(Color.white);
+                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
 
                         //Continue game to player two Pokemon selection screen.
-                        DoneMoves.addActionListener(new ActionListener() {
+                        doneMoves.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
 
@@ -197,174 +220,174 @@ public class PlayerOne extends StartHere
                                 PlayerTwo.PCharTwo();
                             }
                         });
-                        PokemonPanel.add(DoneMoves);
+                        pokemonPanel.add(doneMoves);
 
                     }
                 });
 
-                PokemonPanel.add(NickEnter);
+                pokemonPanel.add(nickEnterBTN);
             }
         });
-        PokemonPanel.add(Bulbasaur);
+        pokemonPanel.add(bulbasaurBTN);
 
 
         //Create Charmander select button.
-        Charmander = new Button("Charmander");
-        Charmander.setBounds(20,160,160,85);
-        Charmander.setBackground(Color.red);
-        Charmander.setForeground(Color.white);
-        Charmander.setFont(new Font("Arial", Font.BOLD, 25));
+        charmanderBTN = new Button("Charmander");
+        charmanderBTN.setBounds(20,160,160,85);
+        charmanderBTN.setBackground(Color.red);
+        charmanderBTN.setForeground(Color.white);
+        charmanderBTN.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //If Charmander button is clicked the game will continue to the nickname selection screen.
-        Charmander.addActionListener(new ActionListener() {
+        //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
+        charmanderBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                PokemonNumber=4;
-                PokemonPanel.removeAll();
-                PokemonPanel.repaint();
+                pokemonNumber=4;
+                pokemonPanel.removeAll();
+                pokemonPanel.repaint();
 
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                 PokemonChooser.setBounds(5,5,600,50);
                 PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-                PokemonPanel.add(PokemonChooser);
+                pokemonPanel.add(PokemonChooser);
 
                 //Input your Pokemon nickname here.
-                PokeNickName = new JTextField();
-                PokeNickName.setBounds(175,150,250,50);
-                PokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+                pokeNickName = new JTextField();
+                pokeNickName.setBounds(175,150,250,50);
+                pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make Pokemon nickname entry only accept 12 characters.
-                PokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+                pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        if(PokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                        if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
 
                             evt.consume();
                         }
                     }
                 });
 
-                PokemonPanel.add(PokeNickName);
+                pokemonPanel.add(pokeNickName);
 
-                NickEnter = new Button("Enter");
-                NickEnter.setBounds(200,270,200,60);
-                NickEnter.setBackground(Color.green);
-                NickEnter.setForeground(Color.white);
-                NickEnter.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = new Button("Enter");
+                nickEnterBTN.setBounds(200,270,200,60);
+                nickEnterBTN.setBackground(Color.green);
+                nickEnterBTN.setForeground(Color.white);
+                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
-                NickEnter.addActionListener(new ActionListener() {
+                nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //This counts how many Pokemon Moves are checked.
-                        PokemonCount = 0;
-                        //This sets PokemonNick to equal the input of the nickname entry.
-                        PokemonNick=PokeNickName.getText();
+                        pokemonCount = 0;
+                        //This sets pokemonNick to equal the input of the nickname entry.
+                        pokemonNick=pokeNickName.getText();
 
-                        PokemonPanel.removeAll();
-                        PokemonPanel.repaint();
+                        pokemonPanel.removeAll();
+                        pokemonPanel.repaint();
 
                         JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                         PokemonChooser.setBounds(5,5,600,50);
                         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                        PokemonPanel.add(PokemonChooser);
+                        pokemonPanel.add(PokemonChooser);
 
                         //Pokemon Move Button Selection
                         //Creates button to add scratch attack to the attacks list in the battle class.
-                        Scratch = new JCheckBox("Scratch");
-                        Scratch.setBounds(170,70,240,40);
-                        Scratch.setBackground(Color.lightGray);
-                        Scratch.setForeground(Color.white);
-                        Scratch.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Scratch);
-                        Scratch.setSelected(false);
+                        scratchBox = new JCheckBox("Scratch");
+                        scratchBox.setBounds(170,70,240,40);
+                        scratchBox.setBackground(Color.lightGray);
+                        scratchBox.setForeground(Color.white);
+                        scratchBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(scratchBox);
+                        scratchBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Scratch.addActionListener(new ActionListener() {
+                        scratchBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Scratch,5);
+                                MoveDisabler(scratchBox,5);
                             }
                         });
 
                         //Creates button to add ember attack to the attacks list in the battle class.
-                        Ember = new JCheckBox("Ember");
-                        Ember.setBounds(170,150,240,40);
-                        Ember.setBackground(Color.red);
-                        Ember.setForeground(Color.white);
-                        Ember.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Ember);
-                        Ember.setSelected(false);
+                        emberBox = new JCheckBox("Ember");
+                        emberBox.setBounds(170,150,240,40);
+                        emberBox.setBackground(Color.red);
+                        emberBox.setForeground(Color.white);
+                        emberBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(emberBox);
+                        emberBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Ember.addActionListener(new ActionListener() {
+                        emberBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Ember,5);
+                                MoveDisabler(emberBox,5);
                             }
                         });
 
                         //Creates button to add dragonbreath attack to the attacks list in the battle class.
-                        DragonBreath = new JCheckBox("Dragon Breath");
-                        DragonBreath.setBounds(170,230,240,40);
-                        DragonBreath.setBackground(Blueviolet);
-                        DragonBreath.setForeground(Color.white);
-                        DragonBreath.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(DragonBreath);
-                        DragonBreath.setSelected(false);
+                        dragonBreathBox = new JCheckBox("Dragon Breath");
+                        dragonBreathBox.setBounds(170,230,240,40);
+                        dragonBreathBox.setBackground(blueviolet);
+                        dragonBreathBox.setForeground(Color.white);
+                        dragonBreathBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(dragonBreathBox);
+                        dragonBreathBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        DragonBreath.addActionListener(new ActionListener() {
+                        dragonBreathBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(DragonBreath,5);
+                                MoveDisabler(dragonBreathBox,5);
                             }
                         });
 
                         //Creates button to add firefang attack to the attacks list in the battle class.
-                        FireFang = new JCheckBox("Fire Fang");
-                        FireFang.setBounds(170,310,240,40);
-                        FireFang.setBackground(Color.red);
-                        FireFang.setForeground(Color.white);
-                        FireFang.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(FireFang);
-                        FireFang.setSelected(false);
+                        fireFangBox = new JCheckBox("Fire Fang");
+                        fireFangBox.setBounds(170,310,240,40);
+                        fireFangBox.setBackground(Color.red);
+                        fireFangBox.setForeground(Color.white);
+                        fireFangBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(fireFangBox);
+                        fireFangBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        FireFang.addActionListener(new ActionListener() {
+                        fireFangBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                               MoveDisabler(FireFang,5);
+                               MoveDisabler(fireFangBox,5);
                             }
                         });
 
                         //Creates button to add slash attack to the attacks list in the battle class.
-                        Slash = new JCheckBox("Slash");
-                        Slash.setBounds(170,390,240,40);
-                        Slash.setBackground(Color.lightGray);
-                        Slash.setForeground(Color.white);
-                        Slash.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Slash);
-                        Slash.setSelected(false);
+                        slashBox = new JCheckBox("Slash");
+                        slashBox.setBounds(170,390,240,40);
+                        slashBox.setBackground(Color.lightGray);
+                        slashBox.setForeground(Color.white);
+                        slashBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(slashBox);
+                        slashBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Slash.addActionListener(new ActionListener() {
+                        slashBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Slash,5);
+                                MoveDisabler(slashBox,5);
                             }
                         });
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
-                        DisableMoves = new LinkedList<JCheckBox>();
-                        DisableMoves.add(Scratch);
-                        DisableMoves.add(Ember);
-                        DisableMoves.add(DragonBreath);
-                        DisableMoves.add(FireFang);
-                        DisableMoves.add(Slash);
+                        disableMoves = new LinkedList<JCheckBox>();
+                        disableMoves.add(scratchBox);
+                        disableMoves.add(emberBox);
+                        disableMoves.add(dragonBreathBox);
+                        disableMoves.add(fireFangBox);
+                        disableMoves.add(slashBox);
 
-                        DoneMoves = new Button("Continue");
-                        DoneMoves.setBounds(200,500,200,60);
-                        DoneMoves.setBackground(Color.green);
-                        DoneMoves.setForeground(Color.white);
-                        DoneMoves.setFont(new Font("Arial", Font.BOLD, 30));
+                        doneMoves = new Button("Continue");
+                        doneMoves.setBounds(200,500,200,60);
+                        doneMoves.setBackground(Color.green);
+                        doneMoves.setForeground(Color.white);
+                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
 
                         //Continue game to player two Pokemon selection screen.
-                        DoneMoves.addActionListener(new ActionListener() {
+                        doneMoves.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
 
@@ -372,171 +395,171 @@ public class PlayerOne extends StartHere
                                 PlayerTwo.PCharTwo();
                             }
                         });
-                        PokemonPanel.add(DoneMoves);
+                        pokemonPanel.add(doneMoves);
 
                     }
                 });
 
-                PokemonPanel.add(NickEnter);
+                pokemonPanel.add(nickEnterBTN);
             }
         });
-        //Add Pokemon Buttons to PokemonPanel here
-        PokemonPanel.add(Charmander);
+        //Add Pokemon Buttons to pokemonPanel here
+        pokemonPanel.add(charmanderBTN);
 
-        //Create Charmeleon select button.
-        Charmeleon = new Button("Charmeleon");
-        Charmeleon.setBounds(200,160,160,85);
-        Charmeleon.setBackground(Color.red);
-        Charmeleon.setForeground(Color.white);
-        Charmeleon.setFont(new Font("Arial", Font.BOLD, 25));
+        //Create charmeleonBTN select button.
+        charmeleonBTN = new Button("Charmeleon");
+        charmeleonBTN.setBounds(200,160,160,85);
+        charmeleonBTN.setBackground(Color.red);
+        charmeleonBTN.setForeground(Color.white);
+        charmeleonBTN.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //If Charmeleon button is clicked the game will continue to the nickname selection screen.
-        Charmeleon.addActionListener(new ActionListener() {
+        //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
+        charmeleonBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                PokemonNumber=5;
-                PokemonPanel.removeAll();
-                PokemonPanel.repaint();
+                pokemonNumber = 5;
+                pokemonPanel.removeAll();
+                pokemonPanel.repaint();
 
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                 PokemonChooser.setBounds(5,5,600,50);
                 PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-                PokemonPanel.add(PokemonChooser);
+                pokemonPanel.add(PokemonChooser);
 
                 //Input your Pokemon nickname here.
-                PokeNickName = new JTextField();
-                PokeNickName.setBounds(175,150,250,50);
-                PokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+                pokeNickName = new JTextField();
+                pokeNickName.setBounds(175,150,250,50);
+                pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make Pokemon nickname entry only accept 12 characters.
-                PokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+                pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        if(PokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                        if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
 
                             evt.consume();
                         }
                     }
                 });
-                PokemonPanel.add(PokeNickName);
+                pokemonPanel.add(pokeNickName);
 
-                NickEnter = new Button("Enter");
-                NickEnter.setBounds(200,270,200,60);
-                NickEnter.setBackground(Color.green);
-                NickEnter.setForeground(Color.white);
-                NickEnter.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = new Button("Enter");
+                nickEnterBTN.setBounds(200,270,200,60);
+                nickEnterBTN.setBackground(Color.green);
+                nickEnterBTN.setForeground(Color.white);
+                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
-                NickEnter.addActionListener(new ActionListener() {
+                nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //This counts how many Pokemon Moves are checked.
-                        PokemonCount = 0;
-                        //This sets PokemonNick to equal the input of the nickname entry.
-                        PokemonNick=PokeNickName.getText();
+                        pokemonCount = 0;
+                        //This sets pokemonNick to equal the input of the nickname entry.
+                        pokemonNick=pokeNickName.getText();
 
-                        PokemonPanel.removeAll();
-                        PokemonPanel.repaint();
+                        pokemonPanel.removeAll();
+                        pokemonPanel.repaint();
 
                         JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                         PokemonChooser.setBounds(5,5,600,50);
                         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                        PokemonPanel.add(PokemonChooser);
+                        pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add dragonbreath attack to the attacks list in the battle class.
-                        DragonBreath = new JCheckBox("Dragon Breath");
-                        DragonBreath.setBounds(170,70,240,40);
-                        DragonBreath.setBackground(Blueviolet);
-                        DragonBreath.setForeground(Color.white);
-                        DragonBreath.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(DragonBreath);
-                        DragonBreath.setSelected(false);
+                        dragonBreathBox = new JCheckBox("Dragon Breath");
+                        dragonBreathBox.setBounds(170,70,240,40);
+                        dragonBreathBox.setBackground(blueviolet);
+                        dragonBreathBox.setForeground(Color.white);
+                        dragonBreathBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(dragonBreathBox);
+                        dragonBreathBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        DragonBreath.addActionListener(new ActionListener() {
+                        dragonBreathBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(DragonBreath,5);
+                                MoveDisabler(dragonBreathBox,5);
                             }
                         });
 
                         //Creates button to add firefang attack to the attacks list in the battle class.
-                        FireFang = new JCheckBox("Fire Fang ");
-                        FireFang.setBounds(170,150,240,40);
-                        FireFang.setBackground(Color.red);
-                        FireFang.setForeground(Color.white);
-                        FireFang.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(FireFang);
-                        FireFang.setSelected(false);
+                        fireFangBox = new JCheckBox("Fire Fang ");
+                        fireFangBox.setBounds(170,150,240,40);
+                        fireFangBox.setBackground(Color.red);
+                        fireFangBox.setForeground(Color.white);
+                        fireFangBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(fireFangBox);
+                        fireFangBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        FireFang.addActionListener(new ActionListener() {
+                        fireFangBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(FireFang ,5);
+                                MoveDisabler(fireFangBox ,5);
                             }
                         });
 
                         //Creates button to add slash attack to the attacks list in the battle class.
-                        Slash = new JCheckBox("Slash");
-                        Slash.setBounds(170,230,240,40);
-                        Slash.setBackground(Color.lightGray);
-                        Slash.setForeground(Color.white);
-                        Slash.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Slash);
-                        Slash.setSelected(false);
+                        slashBox = new JCheckBox("Slash");
+                        slashBox.setBounds(170,230,240,40);
+                        slashBox.setBackground(Color.lightGray);
+                        slashBox.setForeground(Color.white);
+                        slashBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(slashBox);
+                        slashBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Slash.addActionListener(new ActionListener() {
+                        slashBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Slash,5);
+                                MoveDisabler(slashBox,5);
                             }
                         });
 
                         //Creates button to add flamethrower attack to the attacks list in the battle class.
-                        Flamethrower = new JCheckBox("Flamethrower");
-                        Flamethrower.setBounds(170,310,240,40);
-                        Flamethrower.setBackground(Color.red);
-                        Flamethrower.setForeground(Color.white);
-                        Flamethrower.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Flamethrower);
-                        Flamethrower.setSelected(false);
+                        flamethrowerBox = new JCheckBox("Flamethrower");
+                        flamethrowerBox.setBounds(170,310,240,40);
+                        flamethrowerBox.setBackground(Color.red);
+                        flamethrowerBox.setForeground(Color.white);
+                        flamethrowerBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(flamethrowerBox);
+                        flamethrowerBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Flamethrower.addActionListener(new ActionListener() {
+                        flamethrowerBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Flamethrower,5);
+                                MoveDisabler(flamethrowerBox,5);
                             }
                         });
 
                         //Creates button to add firespin attack to the attacks list in the battle class.
-                        FireSpin = new JCheckBox("Fire Spin");
-                        FireSpin.setBounds(170,390,240,40);
-                        FireSpin.setBackground(Color.red);
-                        FireSpin.setForeground(Color.white);
-                        FireSpin.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(FireSpin);
-                        FireSpin.setSelected(false);
+                        fireSpinBox = new JCheckBox("Fire Spin");
+                        fireSpinBox.setBounds(170,390,240,40);
+                        fireSpinBox.setBackground(Color.red);
+                        fireSpinBox.setForeground(Color.white);
+                        fireSpinBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(fireSpinBox);
+                        fireSpinBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        FireSpin.addActionListener(new ActionListener() {
+                        fireSpinBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(FireSpin,5);
+                                MoveDisabler(fireSpinBox,5);
                             }
                         });
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
-                        DisableMoves = new LinkedList<JCheckBox>();
-                        DisableMoves.add(DragonBreath);
-                        DisableMoves.add(FireFang);
-                        DisableMoves.add(Slash);
-                        DisableMoves.add(Flamethrower);
-                        DisableMoves.add(FireSpin);
+                        disableMoves = new LinkedList<JCheckBox>();
+                        disableMoves.add(dragonBreathBox);
+                        disableMoves.add(fireFangBox);
+                        disableMoves.add(slashBox);
+                        disableMoves.add(flamethrowerBox);
+                        disableMoves.add(fireSpinBox);
 
-                        DoneMoves = new Button("Continue");
-                        DoneMoves.setBounds(200,500,200,60);
-                        DoneMoves.setBackground(Color.green);
-                        DoneMoves.setForeground(Color.white);
-                        DoneMoves.setFont(new Font("Arial", Font.BOLD, 30));
+                        doneMoves = new Button("Continue");
+                        doneMoves.setBounds(200,500,200,60);
+                        doneMoves.setBackground(Color.green);
+                        doneMoves.setForeground(Color.white);
+                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
                         //Continue game to player two Pokemon selection screen.
-                        DoneMoves.addActionListener(new ActionListener() {
+                        doneMoves.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
 
@@ -544,171 +567,171 @@ public class PlayerOne extends StartHere
                                 PlayerTwo.PCharTwo();
                             }
                         });
-                        PokemonPanel.add(DoneMoves);
+                        pokemonPanel.add(doneMoves);
 
                     }
                 });
 
-                PokemonPanel.add(NickEnter);
+                pokemonPanel.add(nickEnterBTN);
             }
         });
-        //Add Pokemon Buttons to PokemonPanel here
-        PokemonPanel.add(Charmeleon);
+        //Add Pokemon Buttons to pokemonPanel here
+        pokemonPanel.add(charmeleonBTN);
 
 
 
-        //Create Charizard select button.
-        Charizard = new Button("Charizard");
-        Charizard.setBounds(380,160,160,85);
-        Charizard.setBackground(Color.red);
-        Charizard.setForeground(Color.white);
-        Charizard.setFont(new Font("Arial", Font.BOLD, 25));
-        //If Charizard button is clicked the game will continue to the nickname selection screen.
-        Charizard.addActionListener(new ActionListener() {
+        //Create charizardBTN select button.
+        charizardBTN = new Button("Charizard");
+        charizardBTN.setBounds(380,160,160,85);
+        charizardBTN.setBackground(Color.red);
+        charizardBTN.setForeground(Color.white);
+        charizardBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        //If charizardBTN button is clicked the game will continue to the nickname selection screen.
+        charizardBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                PokemonNumber=6;
-                PokemonPanel.removeAll();
-                PokemonPanel.repaint();
+                pokemonNumber=6;
+                pokemonPanel.removeAll();
+                pokemonPanel.repaint();
 
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                 PokemonChooser.setBounds(5,5,600,50);
                 PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-                PokemonPanel.add(PokemonChooser);
+                pokemonPanel.add(PokemonChooser);
 
                 //Input your Pokemon nickname here.
-                PokeNickName = new JTextField();
-                PokeNickName.setBounds(175,150,250,50);
-                PokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+                pokeNickName = new JTextField();
+                pokeNickName.setBounds(175,150,250,50);
+                pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make Pokemon nickname entry only accept 12 characters.
-                PokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+                pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        if(PokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                        if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
 
                             evt.consume();
                         }
                     }
                 });
-                PokemonPanel.add(PokeNickName);
+                pokemonPanel.add(pokeNickName);
 
-                NickEnter = new Button("Enter");
-                NickEnter.setBounds(200,270,200,60);
-                NickEnter.setBackground(Color.green);
-                NickEnter.setForeground(Color.white);
-                NickEnter.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = new Button("Enter");
+                nickEnterBTN.setBounds(200,270,200,60);
+                nickEnterBTN.setBackground(Color.green);
+                nickEnterBTN.setForeground(Color.white);
+                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make game continue to Pokemon move selection screen.
-                NickEnter.addActionListener(new ActionListener() {
+                nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //This counts how many Pokemon Moves are checked.
-                        PokemonCount = 0;
-                        //This sets PokemonNick to equal the input of the nickname entry.
-                        PokemonNick=PokeNickName.getText();
+                        pokemonCount = 0;
+                        //This sets pokemonNick to equal the input of the nickname entry.
+                        pokemonNick=pokeNickName.getText();
 
-                        PokemonPanel.removeAll();
-                        PokemonPanel.repaint();
+                        pokemonPanel.removeAll();
+                        pokemonPanel.repaint();
 
                         JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                         PokemonChooser.setBounds(5,5,600,50);
                         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                        PokemonPanel.add(PokemonChooser);
+                        pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add airslash attack to the attacks list in the battle class.
-                        AirSlash = new JCheckBox("Air Slash");
-                        AirSlash.setBounds(170,70,240,40);
-                        AirSlash.setBackground(Color.cyan);
-                        AirSlash.setForeground(Color.white);
-                        AirSlash.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(AirSlash);
-                        AirSlash.setSelected(false);
+                        airSlashBox = new JCheckBox("Air Slash");
+                        airSlashBox.setBounds(170,70,240,40);
+                        airSlashBox.setBackground(Color.cyan);
+                        airSlashBox.setForeground(Color.white);
+                        airSlashBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(airSlashBox);
+                        airSlashBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        AirSlash.addActionListener(new ActionListener() {
+                        airSlashBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(AirSlash,5);
+                                MoveDisabler(airSlashBox,5);
                             }
                         });
 
                         //Creates button to add dragonclaw attack to the attacks list in the battle class.
-                        DragonClaw = new JCheckBox("Dragon Claw");
-                        DragonClaw.setBounds(170,150,240,40);
-                        DragonClaw.setBackground(Blueviolet);
-                        DragonClaw.setForeground(Color.white);
-                        DragonClaw.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(DragonClaw);
-                        DragonClaw.setSelected(false);
+                        dragonClawBox = new JCheckBox("Dragon Claw");
+                        dragonClawBox.setBounds(170,150,240,40);
+                        dragonClawBox.setBackground(blueviolet);
+                        dragonClawBox.setForeground(Color.white);
+                        dragonClawBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(dragonClawBox);
+                        dragonClawBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        DragonClaw.addActionListener(new ActionListener() {
+                        dragonClawBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(DragonClaw ,5);
+                                MoveDisabler(dragonClawBox ,5);
                             }
                         });
 
                         //Creates button to add flamethrower attack to the attacks list in the battle class.
-                        Flamethrower = new JCheckBox("Flamethrower");
-                        Flamethrower.setBounds(170,230,240,40);
-                        Flamethrower.setBackground(Color.red);
-                        Flamethrower.setForeground(Color.white);
-                        Flamethrower.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Flamethrower);
-                        Flamethrower.setSelected(false);
+                        flamethrowerBox = new JCheckBox("Flamethrower");
+                        flamethrowerBox.setBounds(170,230,240,40);
+                        flamethrowerBox.setBackground(Color.red);
+                        flamethrowerBox.setForeground(Color.white);
+                        flamethrowerBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(flamethrowerBox);
+                        flamethrowerBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Flamethrower.addActionListener(new ActionListener() {
+                        flamethrowerBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Flamethrower,5);
+                                MoveDisabler(flamethrowerBox,5);
                             }
                         });
 
                         //Creates button to add inferno attack to the attacks list in the battle class.
-                        Inferno = new JCheckBox("Inferno");
-                        Inferno.setBounds(170,310,240,40);
-                        Inferno.setBackground(Color.red);
-                        Inferno.setForeground(Color.white);
-                        Inferno.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Inferno);
-                        Inferno.setSelected(false);
+                        infernoBox = new JCheckBox("Inferno");
+                        infernoBox.setBounds(170,310,240,40);
+                        infernoBox.setBackground(Color.red);
+                        infernoBox.setForeground(Color.white);
+                        infernoBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(infernoBox);
+                        infernoBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Inferno.addActionListener(new ActionListener() {
+                        infernoBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Inferno,5);
+                                MoveDisabler(infernoBox,5);
                             }
                         });
 
                         //Creates button to add flareblitz attack to the attacks list in the battle class.
-                        FlareBlitz = new JCheckBox("Flare Blitz");
-                        FlareBlitz.setBounds(170,390,240,40);
-                        FlareBlitz.setBackground(Color.red);
-                        FlareBlitz.setForeground(Color.white);
-                        FlareBlitz.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(FlareBlitz);
-                        FlareBlitz.setSelected(false);
+                        flareBlitzBox = new JCheckBox("Flare Blitz");
+                        flareBlitzBox.setBounds(170,390,240,40);
+                        flareBlitzBox.setBackground(Color.red);
+                        flareBlitzBox.setForeground(Color.white);
+                        flareBlitzBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(flareBlitzBox);
+                        flareBlitzBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        FlareBlitz.addActionListener(new ActionListener() {
+                        flareBlitzBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(FlareBlitz,5);
+                                MoveDisabler(flareBlitzBox,5);
                             }
                         });
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
-                        DisableMoves = new LinkedList<JCheckBox>();
-                        DisableMoves.add(AirSlash);
-                        DisableMoves.add(DragonClaw);
-                        DisableMoves.add(Flamethrower);
-                        DisableMoves.add(Inferno);
-                        DisableMoves.add(FlareBlitz);
+                        disableMoves = new LinkedList<JCheckBox>();
+                        disableMoves.add(airSlashBox);
+                        disableMoves.add(dragonClawBox);
+                        disableMoves.add(flamethrowerBox);
+                        disableMoves.add(infernoBox);
+                        disableMoves.add(flareBlitzBox);
 
-                        DoneMoves = new Button("Continue");
-                        DoneMoves.setBounds(200,500,200,60);
-                        DoneMoves.setBackground(Color.green);
-                        DoneMoves.setForeground(Color.white);
-                        DoneMoves.setFont(new Font("Arial", Font.BOLD, 30));
+                        doneMoves = new Button("Continue");
+                        doneMoves.setBounds(200,500,200,60);
+                        doneMoves.setBackground(Color.green);
+                        doneMoves.setForeground(Color.white);
+                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
                         //Continue game to player two Pokemon selection screen.
-                        DoneMoves.addActionListener(new ActionListener() {
+                        doneMoves.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
 
@@ -716,171 +739,171 @@ public class PlayerOne extends StartHere
                                 PlayerTwo.PCharTwo();
                             }
                         });
-                        PokemonPanel.add(DoneMoves);
+                        pokemonPanel.add(doneMoves);
 
                     }
                 });
 
-                PokemonPanel.add(NickEnter);
+                pokemonPanel.add(nickEnterBTN);
             }
         });
-        //Add Pokemon Buttons to PokemonPanel here
-        PokemonPanel.add(Charizard);
+        //Add Pokemon Buttons to pokemonPanel here
+        pokemonPanel.add(charizardBTN);
 
 
-        //Create Squirtle select button.
-        Squirtle = new Button("Squirtle");
-        Squirtle.setBounds(20,265,160,85);
-        Squirtle.setBackground(Color.blue);
-        Squirtle.setForeground(Color.white);
-        Squirtle.setFont(new Font("Arial", Font.BOLD, 25));
-        //If Squirtle button is clicked the game will continue to the nickname selection screen.
-        Squirtle.addActionListener(new ActionListener() {
+        //Create squirtleBTN select button.
+        squirtleBTN = new Button("Squirtle");
+        squirtleBTN.setBounds(20,265,160,85);
+        squirtleBTN.setBackground(Color.blue);
+        squirtleBTN.setForeground(Color.white);
+        squirtleBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
+        squirtleBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                PokemonNumber=7;
-                PokemonPanel.removeAll();
-                PokemonPanel.repaint();
+                pokemonNumber=7;
+                pokemonPanel.removeAll();
+                pokemonPanel.repaint();
 
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                 PokemonChooser.setBounds(5,5,600,50);
                 PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-                PokemonPanel.add(PokemonChooser);
+                pokemonPanel.add(PokemonChooser);
 
                 //Input your Pokemon nickname here.
-                PokeNickName = new JTextField();
-                PokeNickName.setBounds(175,150,250,50);
-                PokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+                pokeNickName = new JTextField();
+                pokeNickName.setBounds(175,150,250,50);
+                pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make Pokemon nickname entry only accept 12 characters.
-                PokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+                pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        if(PokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                        if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
 
                             evt.consume();
                         }
                     }
                 });
-                PokemonPanel.add(PokeNickName);
+                pokemonPanel.add(pokeNickName);
 
-                NickEnter = new Button("Enter");
-                NickEnter.setBounds(200,270,200,60);
-                NickEnter.setBackground(Color.green);
-                NickEnter.setForeground(Color.white);
-                NickEnter.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = new Button("Enter");
+                nickEnterBTN.setBounds(200,270,200,60);
+                nickEnterBTN.setBackground(Color.green);
+                nickEnterBTN.setForeground(Color.white);
+                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
                 //Make game continue to Pokemon move selection screen.
-                NickEnter.addActionListener(new ActionListener() {
+                nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //This counts how many Pokemon Moves are checked.
-                        PokemonCount = 0;
+                        pokemonCount = 0;
 
-                        //This sets PokemonNick to equal the input of the nickname entry.
-                        PokemonNick=PokeNickName.getText();
+                        //This sets pokemonNick to equal the input of the nickname entry.
+                        pokemonNick=pokeNickName.getText();
 
-                        PokemonPanel.removeAll();
-                        PokemonPanel.repaint();
+                        pokemonPanel.removeAll();
+                        pokemonPanel.repaint();
 
                         JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                         PokemonChooser.setBounds(5,5,600,50);
                         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                        PokemonPanel.add(PokemonChooser);
+                        pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add tackle attack to the attacks list in the battle class.
-                        Tackle = new JCheckBox("Tackle");
-                        Tackle.setBounds(170,70,240,40);
-                        Tackle.setBackground(Color.lightGray);
-                        Tackle.setForeground(Color.white);
-                        Tackle.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Tackle);
-                        Tackle.setSelected(false);
+                        tackleBox = new JCheckBox("Tackle");
+                        tackleBox.setBounds(170,70,240,40);
+                        tackleBox.setBackground(Color.lightGray);
+                        tackleBox.setForeground(Color.white);
+                        tackleBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(tackleBox);
+                        tackleBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Tackle.addActionListener(new ActionListener() {
+                        tackleBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Tackle,5);
+                                MoveDisabler(tackleBox,5);
                             }
                         });
 
                         //Creates button to add bubble attack to the attacks list in the battle class.
-                        Bubble = new JCheckBox("Bubble");
-                        Bubble.setBounds(170,150,240,40);
-                        Bubble.setBackground(Color.blue);
-                        Bubble.setForeground(Color.white);
-                        Bubble.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Bubble);
-                        Bubble.setSelected(false);
+                        bubbleBox = new JCheckBox("Bubble");
+                        bubbleBox.setBounds(170,150,240,40);
+                        bubbleBox.setBackground(Color.blue);
+                        bubbleBox.setForeground(Color.white);
+                        bubbleBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(bubbleBox);
+                        bubbleBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Bubble.addActionListener(new ActionListener() {
+                        bubbleBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Bubble,5);
+                                MoveDisabler(bubbleBox,5);
                             }
                         });
 
                         //Creates button to add watergun attack to the attacks list in the battle class.
-                        WaterGun = new JCheckBox("Water Gun");
-                        WaterGun.setBounds(170,230,240,40);
-                        WaterGun.setBackground(Color.blue);
-                        WaterGun.setForeground(Color.white);
-                        WaterGun.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(WaterGun);
-                        WaterGun.setSelected(false);
+                        waterGunBox = new JCheckBox("Water Gun");
+                        waterGunBox.setBounds(170,230,240,40);
+                        waterGunBox.setBackground(Color.blue);
+                        waterGunBox.setForeground(Color.white);
+                        waterGunBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(waterGunBox);
+                        waterGunBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        WaterGun.addActionListener(new ActionListener() {
+                        waterGunBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(WaterGun,5);
+                                MoveDisabler(waterGunBox,5);
                             }
                         });
 
                         //Creates button to add bite attack to the attacks list in the battle class.
-                        Bite = new JCheckBox("Bite");
-                        Bite.setBounds(170,310,240,40);
-                        Bite.setBackground(Color.black);
-                        Bite.setForeground(Color.white);
-                        Bite.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(Bite);
-                        Bite.setSelected(false);
+                        biteBox = new JCheckBox("Bite");
+                        biteBox.setBounds(170,310,240,40);
+                        biteBox.setBackground(Color.black);
+                        biteBox.setForeground(Color.white);
+                        biteBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(biteBox);
+                        biteBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        Bite.addActionListener(new ActionListener() {
+                        biteBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(Bite,5);
+                                MoveDisabler(biteBox,5);
                             }
                         });
 
                         //Creates button to add bubblebeam attack to the attacks list in the battle class.
-                        BubbleBeam = new JCheckBox("Bubble Beam");
-                        BubbleBeam.setBounds(170,390,240,40);
-                        BubbleBeam.setBackground(Color.blue);
-                        BubbleBeam.setForeground(Color.white);
-                        BubbleBeam.setFont(new Font("Arial", Font.BOLD, 30));
-                        PokemonPanel.add(BubbleBeam);
-                        BubbleBeam.setSelected(false);
+                        bubbleBeamBox = new JCheckBox("Bubble Beam");
+                        bubbleBeamBox.setBounds(170,390,240,40);
+                        bubbleBeamBox.setBackground(Color.blue);
+                        bubbleBeamBox.setForeground(Color.white);
+                        bubbleBeamBox.setFont(new Font("Arial", Font.BOLD, 30));
+                        pokemonPanel.add(bubbleBeamBox);
+                        bubbleBeamBox.setSelected(false);
                         //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        BubbleBeam.addActionListener(new ActionListener() {
+                        bubbleBeamBox.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                MoveDisabler(BubbleBeam,5);
+                                MoveDisabler(bubbleBeamBox,5);
                             }
                         });
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
-                        DisableMoves = new LinkedList<JCheckBox>();
-                        DisableMoves.add(Tackle);
-                        DisableMoves.add(Bubble);
-                        DisableMoves.add(WaterGun);
-                        DisableMoves.add(Bite);
-                        DisableMoves.add(BubbleBeam);
+                        disableMoves = new LinkedList<JCheckBox>();
+                        disableMoves.add(tackleBox);
+                        disableMoves.add(bubbleBox);
+                        disableMoves.add(waterGunBox);
+                        disableMoves.add(biteBox);
+                        disableMoves.add(bubbleBeamBox);
 
-                        DoneMoves = new Button("Continue");
-                        DoneMoves.setBounds(200,500,200,60);
-                        DoneMoves.setBackground(Color.green);
-                        DoneMoves.setForeground(Color.white);
-                        DoneMoves.setFont(new Font("Arial", Font.BOLD, 30));
+                        doneMoves = new Button("Continue");
+                        doneMoves.setBounds(200,500,200,60);
+                        doneMoves.setBackground(Color.green);
+                        doneMoves.setForeground(Color.white);
+                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
                         //Continue game to player two Pokemon selection screen.
-                        DoneMoves.addActionListener(new ActionListener() {
+                        doneMoves.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
 
@@ -888,16 +911,16 @@ public class PlayerOne extends StartHere
                                 PlayerTwo.PCharTwo();
                             }
                         });
-                        PokemonPanel.add(DoneMoves);
+                        pokemonPanel.add(doneMoves);
 
                     }
                 });
 
-                PokemonPanel.add(NickEnter);
+                pokemonPanel.add(nickEnterBTN);
             }
         });
-        //Add Pokemon Buttons to PokemonPanel here
-        PokemonPanel.add(Squirtle);
+        //Add Pokemon Buttons to pokemonPanel here
+        pokemonPanel.add(squirtleBTN);
     }
 
 
@@ -908,20 +931,20 @@ public class PlayerOne extends StartHere
         try {
             //This for loop enables all attack buttons.
             for (int x = 0; x < MoveNum; x++) {
-                DisableMoves.get(x).setEnabled(true);
+                disableMoves.get(x).setEnabled(true);
             }
-            //The PokemonCount will count how many moves are selected.
+            //The pokemonCount will count how many moves are selected.
             if (Checker.isSelected()) {
-                PokemonCount++;
+                pokemonCount++;
             }
             if (!Checker.isSelected()) {
-                PokemonCount--;
+                pokemonCount--;
             }
             //If there are four Pokemon Moves selected all the attack buttons will get disabled.
-            if (PokemonCount == 4) {
+            if (pokemonCount == 4) {
                 for (int x = 0; x < MoveNum; x++) {
-                    if (!DisableMoves.get(x).isSelected()) {
-                        DisableMoves.get(x).setEnabled(false);
+                    if (!disableMoves.get(x).isSelected()) {
+                        disableMoves.get(x).setEnabled(false);
                     }
                 }
             }

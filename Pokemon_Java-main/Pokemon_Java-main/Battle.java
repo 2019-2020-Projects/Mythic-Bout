@@ -214,28 +214,28 @@ public class Battle extends StartHere
 
             //Add attacks to player one's Bulbasaur if selected.
             final List<Attack> bulbasaurAttacks = new ArrayList<>();
-            if(Tackle.isSelected())
+            if(tackleBox.isSelected())
             {
                 bulbasaurAttacks.add(tackle);
             }
-            if(VineWhip.isSelected())
+            if(vineWhipBox.isSelected())
             {
-                VineWhip.setSelected(false);
+                vineWhipBox.setSelected(false);
                 bulbasaurAttacks.add(vinewhip);
             }
-            if(SleepPowder.isSelected())
+            if(sleepPowderBox.isSelected())
             {
-                SleepPowder.setSelected(false);
+                sleepPowderBox.setSelected(false);
                 bulbasaurAttacks.add(sleeppowder);
             }
-            if(TakeDown.isSelected())
+            if(takeDownBox.isSelected())
             {
-                TakeDown.setSelected(false);
+                takeDownBox.setSelected(false);
                 bulbasaurAttacks.add(takedown);
             }
-            if(RazorLeaf.isSelected())
+            if(razorLeafBox.isSelected())
             {
-                RazorLeaf.setSelected(false);
+                razorLeafBox.setSelected(false);
                 bulbasaurAttacks.add(razorleaf);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -247,35 +247,35 @@ public class Battle extends StartHere
             //Create Bulbasaur for player one.
             Pokemon_Abilities bulbasaur = new Pokemon_Abilities("Bulbasaur", PokemonType.GRASS,PokemonType.POISON, 294, bulbasaurAttacks,"Overgrow");
             //If nickname entry for player one is blank the Pokemon will take its original name.
-            if(PokemonNick != null && !PokemonNick.isEmpty())
+            if(pokemonNick != null && !pokemonNick.isEmpty())
             {
-                bulbasaur.setNickname(PokemonNick);
+                bulbasaur.setNickname(pokemonNick);
             }
 
             //Add attacks to cpu's Bulbasaur if selected.
             final List<Attack> bulbasaur2Attacks = new ArrayList<>();
-            if(Tackle2.isSelected())
+            if(tackle2Box.isSelected())
             {
                 bulbasaur2Attacks.add(tackle);
             }
-            if(VineWhip2.isSelected())
+            if(vineWhip2Box.isSelected())
             {
-                VineWhip2.setSelected(false);
+                vineWhip2Box.setSelected(false);
                 bulbasaur2Attacks.add(vinewhip);
             }
-            if(SleepPowder2.isSelected())
+            if(sleepPowder2Box.isSelected())
             {
-                SleepPowder2.setSelected(false);
+                sleepPowder2Box.setSelected(false);
                 bulbasaur2Attacks.add(sleeppowder);
             }
-            if(TakeDown2.isSelected())
+            if(takeDown2Box.isSelected())
             {
-                TakeDown2.setSelected(false);
+                takeDown2Box.setSelected(false);
                 bulbasaur2Attacks.add(takedown);
             }
-            if(RazorLeaf2.isSelected())
+            if(razorLeaf2Box.isSelected())
             {
-                RazorLeaf2.setSelected(false);
+                razorLeaf2Box.setSelected(false);
                 bulbasaur2Attacks.add(razorleaf);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -286,32 +286,32 @@ public class Battle extends StartHere
             //Create Bulbasaur for cpu.
             Pokemon_Abilities bulbasaur2 = new Pokemon_Abilities("Bulbasaur", PokemonType.GRASS,PokemonType.POISON, 294, bulbasaur2Attacks,"Overgrow");
             //If nickname entry for cpu is blank the Pokemon will take its original name.
-            if(Pokemon2Nick != null && !Pokemon2Nick.isEmpty())
+            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
             {
-                bulbasaur2.setNickname(Pokemon2Nick);
+                bulbasaur2.setNickname(pokemon2Nick);
             }
 
             //Add attacks to player one's Charmander if selected.
             final List<Attack> charmanderAttacks = new ArrayList<>();
-            if(Scratch.isSelected())
+            if(scratchBox.isSelected())
             {
-                Scratch.setSelected(false);
+                scratchBox.setSelected(false);
                 charmanderAttacks.add(scratch);
             }
-            if(Ember.isSelected())
+            if(emberBox.isSelected())
             {
-                Ember.setSelected(false);
+                emberBox.setSelected(false);
                 charmanderAttacks.add(ember);
             }
-            if(DragonBreath.isSelected())
+            if(dragonBreathBox.isSelected())
             {
                 charmanderAttacks.add(dragonbreath);
             }
-            if(FireFang.isSelected())
+            if(fireFangBox.isSelected())
             {
                 charmanderAttacks.add(firefang);
             }
-            if(Slash.isSelected())
+            if(slashBox.isSelected())
             {
                 charmanderAttacks.add(slash);
             }
@@ -323,32 +323,32 @@ public class Battle extends StartHere
             //Create Player One Charmander
             Pokemon_Abilities charmander = new Pokemon_Abilities("Charmander", PokemonType.FIRE,PokemonType.FIRE, 282, charmanderAttacks,"Blaze");
             //If player one nickname entry is blank the Pokemon will take its original name.
-            if(PokemonNick != null && !PokemonNick.isEmpty())
+            if(pokemonNick != null && !pokemonNick.isEmpty())
             {
-                charmander.setNickname(PokemonNick);
+                charmander.setNickname(pokemonNick);
             }
 
             //Add attacks to cpu's Charmander if selected.
             final List<Attack> charmander2Attacks = new ArrayList<>();
-            if(Scratch2.isSelected())
+            if(scratch2Box.isSelected())
             {
-                Scratch2.setSelected(false);
+                scratch2Box.setSelected(false);
                 charmander2Attacks.add(scratch);
             }
-            if(Ember2.isSelected())
+            if(ember2Box.isSelected())
             {
-                Ember2.setSelected(false);
+                ember2Box.setSelected(false);
                 charmander2Attacks.add(ember);
             }
-            if(DragonBreath2.isSelected())
+            if(dragonBreath2Box.isSelected())
             {
                 charmander2Attacks.add(dragonbreath);
             }
-            if(FireFang2.isSelected())
+            if(fireFang2Box.isSelected())
             {
                 charmander2Attacks.add(firefang);
             }
-            if(Slash2.isSelected())
+            if(slash2Box.isSelected())
             {
                 charmander2Attacks.add(slash);
             }
@@ -360,35 +360,35 @@ public class Battle extends StartHere
             //Create CPU Charmander
             Pokemon_Abilities charmander2 = new Pokemon_Abilities("Charmander", PokemonType.FIRE,PokemonType.FIRE, 282, charmander2Attacks,"Blaze");
             //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(Pokemon2Nick != null && !Pokemon2Nick.isEmpty())
+            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
             {
-                charmander2.setNickname(Pokemon2Nick);
+                charmander2.setNickname(pokemon2Nick);
             }
 
             //Add attacks to player one's Charmeleon if selected.
             final List<Attack> charmeleonAttacks = new ArrayList<>();
-            if(DragonBreath.isSelected())
+            if(dragonBreathBox.isSelected())
             {
-                DragonBreath.setSelected(false);
+                dragonBreathBox.setSelected(false);
                 charmeleonAttacks.add(dragonbreath);
             }
-            if(FireFang.isSelected())
+            if(fireFangBox.isSelected())
             {
-                FireFang.setSelected(false);
+                fireFangBox.setSelected(false);
                 charmeleonAttacks.add(firefang);
             }
-            if(Slash.isSelected())
+            if(slashBox.isSelected())
             {
-                Slash.setSelected(false);
+                slashBox.setSelected(false);
                 charmeleonAttacks.add(slash);
             }
-            if(Flamethrower.isSelected())
+            if(flamethrowerBox.isSelected())
             {
                 charmeleonAttacks.add(flamethrower);
             }
-            if(FireSpin.isSelected())
+            if(fireSpinBox.isSelected())
             {
-                FireSpin.setSelected(false);
+                fireSpinBox.setSelected(false);
                 charmeleonAttacks.add(firespin);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -399,35 +399,35 @@ public class Battle extends StartHere
             //Create Player One Charmeleon
             Pokemon_Abilities charmeleon = new Pokemon_Abilities("Charmeleon", PokemonType.FIRE,PokemonType.FIRE, 320, charmeleonAttacks,"Blaze");
             //If player one nickname entry is blank the Pokemon will take its original name.
-            if(PokemonNick != null && !PokemonNick.isEmpty())
+            if(pokemonNick != null && !pokemonNick.isEmpty())
             {
-                charmeleon.setNickname(PokemonNick);
+                charmeleon.setNickname(pokemonNick);
             }
 
             //Add attacks to cpu's Charmeleon if selected.
             final List<Attack> charmeleon2Attacks = new ArrayList<>();
-            if(DragonBreath2.isSelected())
+            if(dragonBreath2Box.isSelected())
             {
-                DragonBreath2.setSelected(false);
+                dragonBreath2Box.setSelected(false);
                 charmeleon2Attacks.add(dragonbreath);
             }
-            if(FireFang2.isSelected())
+            if(fireFang2Box.isSelected())
             {
-                FireFang2.setSelected(false);
+                fireFang2Box.setSelected(false);
                 charmeleon2Attacks.add(firefang);
             }
-            if(Slash2.isSelected())
+            if(slash2Box.isSelected())
             {
-                Slash2.setSelected(false);
+                slash2Box.setSelected(false);
                 charmeleon2Attacks.add(slash);
             }
-            if(Flamethrower2.isSelected())
+            if(flamethrower2Box.isSelected())
             {
                 charmeleon2Attacks.add(flamethrower);
             }
-            if(FireSpin2.isSelected())
+            if(fireSpin2Box.isSelected())
             {
-                FireSpin2.setSelected(false);
+                fireSpin2Box.setSelected(false);
                 charmeleon2Attacks.add(firespin);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -438,36 +438,36 @@ public class Battle extends StartHere
             //Create CPU Charmeleon
             Pokemon_Abilities charmeleon2 = new Pokemon_Abilities("Charmeleon", PokemonType.FIRE,PokemonType.FIRE, 320, charmeleon2Attacks,"Blaze");
             //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(Pokemon2Nick != null && !Pokemon2Nick.isEmpty())
+            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
             {
-                charmeleon2.setNickname(Pokemon2Nick);
+                charmeleon2.setNickname(pokemon2Nick);
             }
 
             //Add attacks to player one's Charizard if selected.
             final List<Attack> charizardAttacks = new ArrayList<>();
-            if(AirSlash.isSelected())
+            if(airSlashBox.isSelected())
             {
-                AirSlash.setSelected(false);
+                airSlashBox.setSelected(false);
                 charizardAttacks.add(airslash);
             }
-            if(DragonClaw.isSelected())
+            if(dragonClawBox.isSelected())
             {
-                DragonClaw.setSelected(false);
+                dragonClawBox.setSelected(false);
                 charizardAttacks.add(dragonclaw);
             }
-            if(Flamethrower.isSelected())
+            if(flamethrowerBox.isSelected())
             {
-                Flamethrower.setSelected(false);
+                flamethrowerBox.setSelected(false);
                 charizardAttacks.add(flamethrower);
             }
-            if(Inferno.isSelected())
+            if(infernoBox.isSelected())
             {
-                Inferno.setSelected(false);
+                infernoBox.setSelected(false);
                 charizardAttacks.add(inferno);
             }
-            if(FlareBlitz.isSelected())
+            if(flareBlitzBox.isSelected())
             {
-                FlareBlitz.setSelected(false);
+                flareBlitzBox.setSelected(false);
                 charizardAttacks.add(flareblitz);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -478,36 +478,36 @@ public class Battle extends StartHere
             //Create Player One Charizard
             Pokemon_Abilities charizard = new Pokemon_Abilities("Charizard", PokemonType.FIRE,PokemonType.FLYING, 360, charizardAttacks,"Blaze");
             //If player one nickname entry is blank the Pokemon will take its original name.
-            if(PokemonNick != null && !PokemonNick.isEmpty())
+            if(pokemonNick != null && !pokemonNick.isEmpty())
             {
-                charizard.setNickname(PokemonNick);
+                charizard.setNickname(pokemonNick);
             }
 
             //Add attacks to cpu's Charizard if selected.
             final List<Attack> charizard2Attacks = new ArrayList<>();
-            if(AirSlash2.isSelected())
+            if(airSlash2Box.isSelected())
             {
-                AirSlash2.setSelected(false);
+                airSlash2Box.setSelected(false);
                 charizard2Attacks.add(airslash);
             }
-            if(DragonClaw2.isSelected())
+            if(dragonClaw2Box.isSelected())
             {
-                DragonClaw2.setSelected(false);
+                dragonClaw2Box.setSelected(false);
                 charizard2Attacks.add(dragonclaw);
             }
-            if(Flamethrower2.isSelected())
+            if(flamethrower2Box.isSelected())
             {
-                Flamethrower2.setSelected(false);
+                flamethrower2Box.setSelected(false);
                 charizard2Attacks.add(flamethrower);
             }
-            if(Inferno2.isSelected())
+            if(inferno2Box.isSelected())
             {
-                Inferno2.setSelected(false);
+                inferno2Box.setSelected(false);
                 charizard2Attacks.add(inferno);
             }
-            if(FlareBlitz2.isSelected())
+            if(flareBlitz2Box.isSelected())
             {
-                FlareBlitz2.setSelected(false);
+                flareBlitz2Box.setSelected(false);
                 charizard2Attacks.add(flareblitz);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -518,36 +518,36 @@ public class Battle extends StartHere
             //Create CPU Charizard
             Pokemon_Abilities charizard2 = new Pokemon_Abilities("Charizard", PokemonType.FIRE,PokemonType.FLYING, 360, charizard2Attacks,"Blaze");
             //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(Pokemon2Nick != null && !Pokemon2Nick.isEmpty())
+            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
             {
-                charizard2.setNickname(Pokemon2Nick);
+                charizard2.setNickname(pokemon2Nick);
             }
 
             //Add attacks to player one's Squirtle if selected.
             final List<Attack> squirtleAttacks = new ArrayList<>();
-            if(Tackle.isSelected())
+            if(tackleBox.isSelected())
             {
-                Tackle.setSelected(false);
+                tackleBox.setSelected(false);
                 squirtleAttacks.add(tackle);
             }
-            if(Bubble.isSelected())
+            if(bubbleBox.isSelected())
             {
-                Bubble.setSelected(false);
+                bubbleBox.setSelected(false);
                 squirtleAttacks.add(bubble);
             }
-            if(WaterGun.isSelected())
+            if(waterGunBox.isSelected())
             {
-                WaterGun.setSelected(false);
+                waterGunBox.setSelected(false);
                 squirtleAttacks.add(watergun);
             }
-            if(Bite.isSelected())
+            if(biteBox.isSelected())
             {
-                Bite.setSelected(false);
+                biteBox.setSelected(false);
                 squirtleAttacks.add(bite);
             }
-            if(BubbleBeam.isSelected())
+            if(bubbleBeamBox.isSelected())
             {
-                BubbleBeam.setSelected(false);
+                bubbleBeamBox.setSelected(false);
                 squirtleAttacks.add(bubblebeam);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -558,36 +558,36 @@ public class Battle extends StartHere
             //Create Player One Squirtle
             Pokemon_Abilities squirtle = new Pokemon_Abilities("Squirtle", PokemonType.WATER,PokemonType.WATER, 292, squirtleAttacks,"Torrent");
             //If player one nickname entry is blank the Pokemon will take its original name.
-            if(PokemonNick != null && !PokemonNick.isEmpty())
+            if(pokemonNick != null && !pokemonNick.isEmpty())
             {
-                squirtle.setNickname(PokemonNick);
+                squirtle.setNickname(pokemonNick);
             }
 
             //Add attacks to cpu's Squirtle if selected.
             final List<Attack> squirtle2Attacks = new ArrayList<>();
-            if(Tackle2.isSelected())
+            if(tackle2Box.isSelected())
             {
-                Tackle2.setSelected(false);
+                tackle2Box.setSelected(false);
                 squirtle2Attacks.add(tackle);
             }
-            if(Bubble2.isSelected())
+            if(bubble2Box.isSelected())
             {
-                Bubble2.setSelected(false);
+                bubble2Box.setSelected(false);
                 squirtle2Attacks.add(bubble);
             }
-            if(WaterGun2.isSelected())
+            if(waterGun2Box.isSelected())
             {
-                WaterGun2.setSelected(false);
+                waterGun2Box.setSelected(false);
                 squirtle2Attacks.add(watergun);
             }
-            if(Bite2.isSelected())
+            if(bite2Box.isSelected())
             {
-                Bite2.setSelected(false);
+                bite2Box.setSelected(false);
                 squirtle2Attacks.add(bite);
             }
-            if(BubbleBeam2.isSelected())
+            if(bubbleBeam2Box.isSelected())
             {
-                BubbleBeam2.setSelected(false);
+                bubbleBeam2Box.setSelected(false);
                 squirtle2Attacks.add(bubblebeam);
             }
             //If no attack has been chosen the pokemon will have the move struggle.
@@ -598,9 +598,9 @@ public class Battle extends StartHere
             //Create CPU Squirtle
             Pokemon_Abilities squirtle2 = new Pokemon_Abilities("Squirtle", PokemonType.WATER,PokemonType.WATER, 292, squirtle2Attacks,"Torrent");
             //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(Pokemon2Nick != null && !Pokemon2Nick.isEmpty())
+            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
             {
-                squirtle2.setNickname(Pokemon2Nick);
+                squirtle2.setNickname(pokemon2Nick);
             }
 
             //Create Pone and Ptwo variables.
@@ -608,10 +608,10 @@ public class Battle extends StartHere
             Ptwo = bulbasaur;
 
             //If player one selects Bulbasaur PokemonNumber from PlayerOne class will equal 1.
-            if (PokemonNumber==1)
+            if (pokemonNumber == 1)
             {
                 //Player one equals Bulbasaur.
-                Pone=bulbasaur;
+                Pone = bulbasaur;
 
                 //Get Bulbasaur image.
                 PokemonBack = new ImageIcon(Battle.class.getResource("PokemonImages/BulbasaurBack.png"));
@@ -628,10 +628,10 @@ public class Battle extends StartHere
             }
 
             //If player one selects Charmander PokemonNumber from PlayerOne class will equal 4.
-            if (PokemonNumber==4)
+            if (pokemonNumber == 4)
             {
                 //Player one equals Charmander.
-                Pone=charmander;
+                Pone = charmander;
                 //Get Charmander image.
                 PokemonBack = new ImageIcon(Battle.class.getResource("PokemonImages/CharmanderBack.png"));
 
@@ -647,7 +647,7 @@ public class Battle extends StartHere
             }
 
             //If player one selects Charmeleon PokemonNumber from PlayerOne class will equal 5.
-            if (PokemonNumber==5) {
+            if (pokemonNumber == 5) {
                 //Player one equals Charmeleon.
                 Pone = charmeleon;
                 //Get Charmeleon image.
@@ -665,7 +665,7 @@ public class Battle extends StartHere
             }
 
             //If player one selects Charizard PokemonNumber from PlayerOne class will equal 6.
-            if (PokemonNumber==6) {
+            if (pokemonNumber == 6) {
                 //Player one equals Charizard.
                 Pone = charizard;
                 //Get Charizard image.
@@ -685,7 +685,7 @@ public class Battle extends StartHere
             }
 
             //If player one selects Squirtle PokemonNumber from PlayerOne class will equal 1.
-            if (PokemonNumber==7)
+            if (pokemonNumber == 7)
             {
                 //Player one equals Squirtle.
                 Pone=squirtle;
@@ -704,10 +704,10 @@ public class Battle extends StartHere
             }
 
             //If cpu selects Bulbasaur PokemonNumber2 from PlayerTwo class will equal 1.
-            if(PokemonNumber2==1)
+            if(pokemonNumber2 == 1)
             {
                 //CPU equals Bulbasaur.
-                Ptwo=bulbasaur2;
+                Ptwo = bulbasaur2;
                 //Get Bulbasaur image.
                 PokemonFront = new ImageIcon(Battle.class.getResource("PokemonImages/BulbasaurFront.png"));
 
@@ -723,10 +723,10 @@ public class Battle extends StartHere
             }
 
             //If CPU selects Charmander PokemonNumber2 from PlayerTwo class will equal 4.
-            if(PokemonNumber2==4)
+            if(pokemonNumber2 == 4)
             {
                 //CPU equals Charmander.
-                Ptwo=charmander2;
+                Ptwo = charmander2;
                 //Get Charmander image.
                 PokemonFront = new ImageIcon(Battle.class.getResource("PokemonImages/CharmanderFront.png"));
 
@@ -742,7 +742,7 @@ public class Battle extends StartHere
             }
 
             //If CPU selects Charmeleon PokemonNumber2 from PlayerTwo class will equal 5.
-            if(PokemonNumber2==5)
+            if(pokemonNumber2 == 5)
             {
                 //CPU equals Charmeleon.
                 Ptwo=charmeleon2;
@@ -761,10 +761,10 @@ public class Battle extends StartHere
             }
 
             //If CPU selects Charizard PokemonNumber2 from PlayerTwo class will equal 6.
-            if(PokemonNumber2==6)
+            if(pokemonNumber2 == 6)
             {
                 //CPU equals Charizard.
-                Ptwo=charizard2;
+                Ptwo = charizard2;
                 //Get Charizard image.
                 PokemonFront = new ImageIcon(Battle.class.getResource("PokemonImages/CharizardFront.png"));
 
@@ -780,10 +780,10 @@ public class Battle extends StartHere
             }
 
             //If CPU selects Squirtle PokemonNumber2 from PlayerTwo class will equal 7.
-            if(PokemonNumber2==7)
+            if(pokemonNumber2 == 7)
             {
                 //CPU equals Squirtle.
-                Ptwo=squirtle2;
+                Ptwo = squirtle2;
                 //Get Bulbasaur image.
                 PokemonFront = new ImageIcon(Battle.class.getResource("PokemonImages/SquirtleFront.png"));
 
@@ -966,7 +966,7 @@ public class Battle extends StartHere
                         NextBattle.setLabel("Continue");
                         //Remove this action listener to make the game not reuse it again.
                         NextBattle.removeActionListener(Fight);
-                        PokemonPanel.repaint();
+                        pokemonPanel.repaint();
 
                         //Repeat the whole entire game.
                         HereWeGoAgain = new ActionListener() {
@@ -975,9 +975,9 @@ public class Battle extends StartHere
                                 //Remove this action listeners to make the game not reuse it again.
                                 NextBattle.removeActionListener(HereWeGoAgain);
 
-                                PokemonPanel.removeAll();
-                                PokemonPanel.remove(RectanglePanel);
-                                PokemonPanel.repaint();
+                                pokemonPanel.removeAll();
+                                pokemonPanel.remove(rectanglePanel);
+                                pokemonPanel.repaint();
 
                                 //Re-enable Pokemon attack buttons to select a move to attack with.
                                 FirstMove.enable();
@@ -986,7 +986,7 @@ public class Battle extends StartHere
                                 FourthMove.enable();
 
                                 //Indicates that this is not the games first run.
-                                gamestate=false;
+                                gameState = false;
 
                                 //Restart the game.
                                 StartHere.main(null);
@@ -1980,7 +1980,7 @@ public class Battle extends StartHere
                             NextBattle.setLabel("Continue");
                             //Remove these action listeners and buttons to make the game not reuse them again.
                             NextBattle.removeActionListener(Fight);
-                            PokemonPanel.repaint();
+                            pokemonPanel.repaint();
                             //Repeat the whole entire game.
                             HereWeGoAgain = new ActionListener() {
                                 @Override
@@ -1988,9 +1988,9 @@ public class Battle extends StartHere
                                     //Remove these action listeners and buttons to make the game not reuse them again.
                                     NextBattle.removeActionListener(HereWeGoAgain);
 
-                                    PokemonPanel.removeAll();
-                                    PokemonPanel.remove(RectanglePanel);
-                                    PokemonPanel.repaint();
+                                    pokemonPanel.removeAll();
+                                    pokemonPanel.remove(rectanglePanel);
+                                    pokemonPanel.repaint();
 
                                     //Re-enable Pokemon attack buttons to select a move to attack with.
                                     FirstMove.enable();
@@ -1998,7 +1998,7 @@ public class Battle extends StartHere
                                     ThirdMove.enable();
                                     FourthMove.enable();
                                     //Indicates that this is not the games first run.
-                                    gamestate = false;
+                                    gameState = false;
                                     //Restart the game.
                                     StartHere.main(null);
 
@@ -2196,7 +2196,7 @@ public class Battle extends StartHere
                                                                 NextBattle.setLabel("Continue");
                                                                 //Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
-                                                                PokemonPanel.repaint();
+                                                                pokemonPanel.repaint();
                                                                 //Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
@@ -2204,9 +2204,9 @@ public class Battle extends StartHere
                                                                         //Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                                        PokemonPanel.removeAll();
-                                                                        PokemonPanel.remove(RectanglePanel);
-                                                                        PokemonPanel.repaint();
+                                                                        pokemonPanel.removeAll();
+                                                                        pokemonPanel.remove(rectanglePanel);
+                                                                        pokemonPanel.repaint();
 
                                                                         //Re-enable Pokemon attack buttons to select a move to attack with.
                                                                         FirstMove.enable();
@@ -2214,7 +2214,7 @@ public class Battle extends StartHere
                                                                         ThirdMove.enable();
                                                                         FourthMove.enable();
                                                                         //Indicates that this is not the games first run.
-                                                                        gamestate = false;
+                                                                        gameState = false;
                                                                         //Restart the game.
                                                                         StartHere.main(null);
 
@@ -2359,7 +2359,7 @@ public class Battle extends StartHere
                                                                 NextBattle.setLabel("Continue");
                                                                 //Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
-                                                                PokemonPanel.repaint();
+                                                                pokemonPanel.repaint();
                                                                 //Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
@@ -2367,9 +2367,9 @@ public class Battle extends StartHere
                                                                         //Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                                        PokemonPanel.removeAll();
-                                                                        PokemonPanel.remove(RectanglePanel);
-                                                                        PokemonPanel.repaint();
+                                                                        pokemonPanel.removeAll();
+                                                                        pokemonPanel.remove(rectanglePanel);
+                                                                        pokemonPanel.repaint();
 
                                                                         //Re-enable Pokemon attack buttons to select a move to attack with.
                                                                         FirstMove.enable();
@@ -2377,7 +2377,7 @@ public class Battle extends StartHere
                                                                         ThirdMove.enable();
                                                                         FourthMove.enable();
                                                                         //Indicates that this is not the games first run.
-                                                                        gamestate = false;
+                                                                        gameState = false;
                                                                         //Restart the game.
                                                                         StartHere.main(null);
 
@@ -2521,7 +2521,7 @@ public class Battle extends StartHere
                                                                 NextBattle.setLabel("Continue");
                                                                 //Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
-                                                                PokemonPanel.repaint();
+                                                                pokemonPanel.repaint();
                                                                 //Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
@@ -2529,16 +2529,16 @@ public class Battle extends StartHere
                                                                         //Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                                        PokemonPanel.removeAll();
-                                                                        PokemonPanel.remove(RectanglePanel);
-                                                                        PokemonPanel.repaint();
+                                                                        pokemonPanel.removeAll();
+                                                                        pokemonPanel.remove(rectanglePanel);
+                                                                        pokemonPanel.repaint();
                                                                         //Re-enable Pokemon attack buttons to select a move to attack with.
                                                                         FirstMove.enable();
                                                                         SecondMove.enable();
                                                                         ThirdMove.enable();
                                                                         FourthMove.enable();
                                                                         //Indicates that this is not the games first run.
-                                                                        gamestate = false;
+                                                                        gameState = false;
                                                                         //Restart the game.
                                                                         StartHere.main(null);
 
@@ -2660,7 +2660,7 @@ public class Battle extends StartHere
                                                         NextBattle.setLabel("Continue");
                                                         //Remove these action listeners and buttons to make the game not reuse them again.
                                                         NextBattle.removeActionListener(Fight);
-                                                        PokemonPanel.repaint();
+                                                        pokemonPanel.repaint();
                                                         //Repeat the whole entire game.
                                                         HereWeGoAgain = new ActionListener() {
                                                             @Override
@@ -2668,16 +2668,16 @@ public class Battle extends StartHere
                                                                 //Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                                PokemonPanel.removeAll();
-                                                                PokemonPanel.remove(RectanglePanel);
-                                                                PokemonPanel.repaint();
+                                                                pokemonPanel.removeAll();
+                                                                pokemonPanel.remove(rectanglePanel);
+                                                                pokemonPanel.repaint();
                                                                 //Re-enable Pokemon attack buttons to select a move to attack with.
                                                                 FirstMove.enable();
                                                                 SecondMove.enable();
                                                                 ThirdMove.enable();
                                                                 FourthMove.enable();
                                                                 //Indicates that this is not the games first run.
-                                                                gamestate = false;
+                                                                gameState = false;
 
                                                                 //Restart the game.
                                                                 StartHere.main(null);
@@ -2852,7 +2852,7 @@ public class Battle extends StartHere
                                                     NextBattle.setLabel("Continue");
                                                     //Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
-                                                    PokemonPanel.repaint();
+                                                    pokemonPanel.repaint();
 
                                                     //Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
@@ -2861,16 +2861,16 @@ public class Battle extends StartHere
                                                             //Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                            PokemonPanel.removeAll();
-                                                            PokemonPanel.remove(RectanglePanel);
-                                                            PokemonPanel.repaint();
+                                                            pokemonPanel.removeAll();
+                                                            pokemonPanel.remove(rectanglePanel);
+                                                            pokemonPanel.repaint();
                                                             //Re-enable Pokemon attack buttons to select a move to attack with.
                                                             FirstMove.enable();
                                                             SecondMove.enable();
                                                             ThirdMove.enable();
                                                             FourthMove.enable();
                                                             //Indicates that this is not the games first run.
-                                                            gamestate = false;
+                                                            gameState = false;
                                                             //Restart the game.
                                                             StartHere.main(null);
 
@@ -3016,7 +3016,7 @@ public class Battle extends StartHere
                                                     NextBattle.setLabel("Continue");
                                                     //Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
-                                                    PokemonPanel.repaint();
+                                                    pokemonPanel.repaint();
 
                                                     //Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
@@ -3025,16 +3025,16 @@ public class Battle extends StartHere
                                                             //Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                            PokemonPanel.removeAll();
-                                                            PokemonPanel.remove(RectanglePanel);
-                                                            PokemonPanel.repaint();
+                                                            pokemonPanel.removeAll();
+                                                            pokemonPanel.remove(rectanglePanel);
+                                                            pokemonPanel.repaint();
                                                             //Re-enable Pokemon attack buttons to select a move to attack with.
                                                             FirstMove.enable();
                                                             SecondMove.enable();
                                                             ThirdMove.enable();
                                                             FourthMove.enable();
                                                             //Indicates that this is not the games first run.
-                                                            gamestate = false;
+                                                            gameState = false;
                                                             //Restart the game.
                                                             StartHere.main(null);
 
@@ -3180,7 +3180,7 @@ public class Battle extends StartHere
                                                     NextBattle.setLabel("Continue");
                                                     //Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
-                                                    PokemonPanel.repaint();
+                                                    pokemonPanel.repaint();
 
                                                     //Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
@@ -3189,16 +3189,16 @@ public class Battle extends StartHere
                                                             //Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                            PokemonPanel.removeAll();
-                                                            PokemonPanel.remove(RectanglePanel);
-                                                            PokemonPanel.repaint();
+                                                            pokemonPanel.removeAll();
+                                                            pokemonPanel.remove(rectanglePanel);
+                                                            pokemonPanel.repaint();
                                                             //Re-enable Pokemon attack buttons to select a move to attack with.
                                                             FirstMove.enable();
                                                             SecondMove.enable();
                                                             ThirdMove.enable();
                                                             FourthMove.enable();
                                                             //Indicates that this is not the games first run.
-                                                            gamestate = false;
+                                                            gameState = false;
                                                             //Restart the game.
                                                             StartHere.main(null);
 
@@ -3321,7 +3321,7 @@ public class Battle extends StartHere
                                             NextBattle.setLabel("Continue");
                                             //Remove these action listeners and buttons to make the game not reuse them again.
                                             NextBattle.removeActionListener(Fight);
-                                            PokemonPanel.repaint();
+                                            pokemonPanel.repaint();
 
                                             //Repeat the whole entire game.
                                             HereWeGoAgain = new ActionListener() {
@@ -3330,16 +3330,16 @@ public class Battle extends StartHere
                                                     //Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(HereWeGoAgain);
 
-                                                    PokemonPanel.removeAll();
-                                                    PokemonPanel.remove(RectanglePanel);
-                                                    PokemonPanel.repaint();
+                                                    pokemonPanel.removeAll();
+                                                    pokemonPanel.remove(rectanglePanel);
+                                                    pokemonPanel.repaint();
                                                     //Re-enable Pokemon attack buttons to select a move to attack with.
                                                     FirstMove.enable();
                                                     SecondMove.enable();
                                                     ThirdMove.enable();
                                                     FourthMove.enable();
                                                     //Indicates that this is not the games first run.
-                                                    gamestate = false;
+                                                    gameState = false;
                                                     //Restart the game.
                                                     StartHere.main(null);
 
@@ -3391,7 +3391,7 @@ public class Battle extends StartHere
         }
         if(MoveChosen.getType()== PokemonType.DRAGON)
         {
-            MoveColor = Blueviolet;
+            MoveColor = blueviolet;
         }
         if(MoveChosen.getType()== PokemonType.FLYING)
         {
