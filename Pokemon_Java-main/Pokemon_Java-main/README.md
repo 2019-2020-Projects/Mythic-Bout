@@ -1,3 +1,3 @@
 # Pokemon_Java
 
-Pokemon Game GUI Battle Against AI
+Pokemon Game GUI Battle Against CPU
