@@ -32,13 +32,12 @@ public class StartHere {
     public static JCheckBox bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box;
     public static String pokemonNick, pokemon2Nick;
     public static Button doneMoves;
-    public static int pokemonCount;
     public static LinkedList<JCheckBox> disableMoves;
     public static JLabel pokemonJava = new JLabel();
     public static ImageIcon pokemonJ;
     public static JPanel rectanglePanel = new JPanel();
     public static Color brown = new Color(165, 42, 42);
-    public static Color blueviolet = new Color(138, 43, 226);
+    private static Color blueviolet = new Color(138, 43, 226);
     public static Color darkblue = new Color(0, 0, 139);
     public static boolean gameState = true;
 
@@ -124,5 +123,9 @@ public class StartHere {
 
         pokemonPanel.add(singlePlayer);
         pokemonPanel.repaint();
+    }
+
+    public static Color getBlueviolet() {
+        return blueviolet;
     }
 }

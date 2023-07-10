@@ -26,8 +26,8 @@ import java.util.LinkedList;
 
 public class PlayerTwo extends StartHere
 {
-    //private static Button charmanderBTN, charmeleonBTN, charizardBTN, bulbasaurBTN, squirtleBTN, nickEnterBTN;
     private static Button nickEnterBTN;
+    public static int pokemonCount;
     //This variable contains the Pokemon battle background image.
     public static ImageIcon PokemonBackground;
     //This JLabel contains the PokemonBackground ImageIcon.
@@ -39,27 +39,26 @@ public class PlayerTwo extends StartHere
     //This method creates the Pokemon on the gui based on what buttons are clicked.
     public static void PCharTwo()
     {
-        Button charmanderBTN, charmeleonBTN, charizardBTN, bulbasaurBTN, squirtleBTN;
-        scratch2Box = new JCheckBox();
-        ember2Box = new JCheckBox();
-        dragonBreath2Box = new JCheckBox();
-        fireFang2Box = new JCheckBox();
-        slash2Box = new JCheckBox();
-        flamethrower2Box = new JCheckBox();
-        fireSpin2Box = new JCheckBox();
-        airSlash2Box = new JCheckBox();
-        dragonClaw2Box = new JCheckBox();
-        inferno2Box = new JCheckBox();
-        flareBlitz2Box = new JCheckBox();
-        tackle2Box = new JCheckBox();
-        vineWhip2Box = new JCheckBox();
-        sleepPowder2Box = new JCheckBox();
-        takeDown2Box = new JCheckBox();
-        razorLeaf2Box = new JCheckBox();
-        bubble2Box = new JCheckBox();
-        waterGun2Box = new JCheckBox();
-        bite2Box = new JCheckBox();
-        bubbleBeam2Box = new JCheckBox();
+        scratch2Box = new JCheckBox("Scratch");
+        ember2Box = new JCheckBox("Ember");
+        dragonBreath2Box = new JCheckBox("Dragon Breath");
+        fireFang2Box = new JCheckBox("Fire Fang");
+        slash2Box = new JCheckBox("Slash");
+        flamethrower2Box = new JCheckBox("Flamethrower");
+        fireSpin2Box = new JCheckBox("Fire Spin");
+        airSlash2Box = new JCheckBox("Air Slash");
+        dragonClaw2Box = new JCheckBox("Dragon Claw");
+        inferno2Box = new JCheckBox("Inferno");
+        flareBlitz2Box = new JCheckBox("Flare Blitz");
+        tackle2Box = new JCheckBox("Tackle");
+        vineWhip2Box = new JCheckBox("Vine Whip");
+        sleepPowder2Box = new JCheckBox("Sleep Powder");
+        takeDown2Box = new JCheckBox("Take Down");
+        razorLeaf2Box = new JCheckBox("Razor Leaf");
+        bubble2Box = new JCheckBox("Bubble");
+        waterGun2Box = new JCheckBox("Water Gun");
+        bite2Box = new JCheckBox("Bite");
+        bubbleBeam2Box = new JCheckBox("Bubble Beam");
 
         pokemonPanel.removeAll();
         pokemonPanel.repaint();
@@ -70,11 +69,9 @@ public class PlayerTwo extends StartHere
         pokemonPanel.add(PokemonChooser);
 
         //Create bulbasaurBTN select button.
-        bulbasaurBTN = new Button("Bulbasaur");
-        bulbasaurBTN.setBounds(20,55,160,85);
-        bulbasaurBTN.setBackground(Color.green);
-        bulbasaurBTN.setForeground(Color.white);
-        bulbasaurBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        Button bulbasaurBTN = createButton("Bulbasaur", 20, 55, 160, 85,
+                Color.green, Color.white, new Font("Arial", Font.BOLD, 25));
+
         //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
         bulbasaurBTN.addActionListener(new ActionListener() {
             @Override
@@ -104,11 +101,8 @@ public class PlayerTwo extends StartHere
                 });
                 pokemonPanel.add(pokeNickName);
 
-                nickEnterBTN = new Button("Enter");
-                nickEnterBTN.setBounds(200,270,200,60);
-                nickEnterBTN.setBackground(Color.green);
-                nickEnterBTN.setForeground(Color.white);
-                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
+                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
                 nickEnterBTN.addActionListener(new ActionListener() {
@@ -267,11 +261,9 @@ public class PlayerTwo extends StartHere
         pokemonPanel.add(bulbasaurBTN);
 
         //Create charmanderBTN select button.
-        charmanderBTN = new Button("Charmander");
-        charmanderBTN.setBounds(20,160,160,85);
-        charmanderBTN.setBackground(Color.red);
-        charmanderBTN.setForeground(Color.white);
-        charmanderBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        Button charmanderBTN = createButton("Charmander", 20, 160, 160, 85,
+                Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
+
         //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
         charmanderBTN.addActionListener(new ActionListener() {
             @Override
@@ -301,11 +293,8 @@ public class PlayerTwo extends StartHere
                 });
                 pokemonPanel.add(pokeNickName);
 
-                nickEnterBTN = new Button("Enter");
-                nickEnterBTN.setBounds(200,270,200,60);
-                nickEnterBTN.setBackground(Color.green);
-                nickEnterBTN.setForeground(Color.white);
-                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
+                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
                 nickEnterBTN.addActionListener(new ActionListener() {
@@ -360,7 +349,7 @@ public class PlayerTwo extends StartHere
                         //Creates button to add dragonbreath attack to the attacks list in the battle class.
                         dragonBreath2Box = new JCheckBox("Dragon Breath");
                         dragonBreath2Box.setBounds(170,230,240,40);
-                        dragonBreath2Box.setBackground(blueviolet);
+                        dragonBreath2Box.setBackground(getBlueviolet());
                         dragonBreath2Box.setForeground(Color.white);
                         dragonBreath2Box.setFont(new Font("Arial", Font.BOLD, 30));
                         pokemonPanel.add(dragonBreath2Box);
@@ -465,11 +454,9 @@ public class PlayerTwo extends StartHere
 
 
         //Create charmeleonBTN select button.
-        charmeleonBTN = new Button("Charmeleon");
-        charmeleonBTN.setBounds(200,160,160,85);
-        charmeleonBTN.setBackground(Color.red);
-        charmeleonBTN.setForeground(Color.white);
-        charmeleonBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        Button charmeleonBTN = createButton("Charmeleon", 200, 160, 160, 85,
+                Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
+
         //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
         charmeleonBTN.addActionListener(new ActionListener() {
             @Override
@@ -499,11 +486,8 @@ public class PlayerTwo extends StartHere
                 });
                 pokemonPanel.add(pokeNickName);
 
-                nickEnterBTN = new Button("Enter");
-                nickEnterBTN.setBounds(200,270,200,60);
-                nickEnterBTN.setBackground(Color.green);
-                nickEnterBTN.setForeground(Color.white);
-                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
+                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
                 nickEnterBTN.addActionListener(new ActionListener() {
@@ -526,7 +510,7 @@ public class PlayerTwo extends StartHere
                         //Creates button to add dragonbreath attack to the attacks list in the battle class.
                         dragonBreath2Box = new JCheckBox("Dragon Breath");
                         dragonBreath2Box.setBounds(170,70,240,40);
-                        dragonBreath2Box.setBackground(blueviolet);
+                        dragonBreath2Box.setBackground(getBlueviolet());
                         dragonBreath2Box.setForeground(Color.white);
                         dragonBreath2Box.setFont(new Font("Arial", Font.BOLD, 30));
                         pokemonPanel.add(dragonBreath2Box);
@@ -662,11 +646,9 @@ public class PlayerTwo extends StartHere
 
 
         //Create charizardBTN select button.
-        charizardBTN = new Button("Charizard");
-        charizardBTN.setBounds(380,160,160,85);
-        charizardBTN.setBackground(Color.red);
-        charizardBTN.setForeground(Color.white);
-        charizardBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        Button charizardBTN = createButton("Charizard", 380, 160, 160, 85,
+                Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
+
         //If charizardBTN button is clicked the game will continue to the nickname selection screen.
         charizardBTN.addActionListener(new ActionListener() {
             @Override
@@ -696,11 +678,8 @@ public class PlayerTwo extends StartHere
                 });
                 pokemonPanel.add(pokeNickName);
 
-                nickEnterBTN = new Button("Enter");
-                nickEnterBTN.setBounds(200,270,200,60);
-                nickEnterBTN.setBackground(Color.green);
-                nickEnterBTN.setForeground(Color.white);
-                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
+                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
 
                 //Make game continue to Pokemon move selection screen.
                 nickEnterBTN.addActionListener(new ActionListener() {
@@ -739,7 +718,7 @@ public class PlayerTwo extends StartHere
                         //Creates button to add dragonclaw attack to the attacks list in the battle class.
                         dragonClaw2Box = new JCheckBox("Dragon Claw");
                         dragonClaw2Box.setBounds(170,150,240,40);
-                        dragonClaw2Box.setBackground(blueviolet);
+                        dragonClaw2Box.setBackground(getBlueviolet());
                         dragonClaw2Box.setForeground(Color.white);
                         dragonClaw2Box.setFont(new Font("Arial", Font.BOLD, 30));
                         pokemonPanel.add(dragonClaw2Box);
@@ -858,17 +837,15 @@ public class PlayerTwo extends StartHere
         pokemonPanel.add(charizardBTN);
 
         //Create squirtleBTN select button.
-        squirtleBTN = new Button("Squirtle");
-        squirtleBTN.setBounds(20,265,160,85);
-        squirtleBTN.setBackground(Color.blue);
-        squirtleBTN.setForeground(Color.white);
-        squirtleBTN.setFont(new Font("Arial", Font.BOLD, 25));
+        Button squirtleBTN = createButton("Squirtle", 20, 265, 160, 85,
+                Color.blue, Color.white, new Font("Arial", Font.BOLD, 25));
+
         //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
         squirtleBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                pokemonNumber2=7;
+                pokemonNumber2 = 7;
                 pokemonPanel.removeAll();
                 pokemonPanel.repaint();
 
@@ -892,11 +869,9 @@ public class PlayerTwo extends StartHere
                 });
                 pokemonPanel.add(pokeNickName);
 
-                nickEnterBTN = new Button("Enter");
-                nickEnterBTN.setBounds(200,270,200,60);
-                nickEnterBTN.setBackground(Color.green);
-                nickEnterBTN.setForeground(Color.white);
-                nickEnterBTN.setFont(new Font("Arial", Font.BOLD, 30));
+                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
+                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
+
                 //Make game continue to Pokemon move selection screen.
                 nickEnterBTN.addActionListener(new ActionListener() {
                     @Override
@@ -1051,6 +1026,16 @@ public class PlayerTwo extends StartHere
         });
         //Add Pokemon Buttons to pokemonPanel here
         pokemonPanel.add(squirtleBTN);
+    }
+
+    private static Button createButton(String label, int x, int y, int width,
+                                       int height, Color bColor, Color fColor, Font font) {
+        Button btn = new Button(label);
+        btn.setBounds(x, y, width, height);
+        btn.setBackground(bColor);
+        btn.setForeground(fColor);
+        btn.setFont(font);
+        return btn;
     }
 
 }

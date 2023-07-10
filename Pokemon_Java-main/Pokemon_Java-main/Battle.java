@@ -3391,7 +3391,7 @@ public class Battle extends StartHere
         }
         if(MoveChosen.getType()== PokemonType.DRAGON)
         {
-            MoveColor = blueviolet;
+            MoveColor = getBlueviolet();
         }
         if(MoveChosen.getType()== PokemonType.FLYING)
         {
