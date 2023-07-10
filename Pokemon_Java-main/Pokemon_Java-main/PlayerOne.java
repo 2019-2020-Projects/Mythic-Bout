@@ -67,7 +67,7 @@ public class PlayerOne extends StartHere
             public void actionPerformed(ActionEvent e) {
 
                 //This sets what number of Pokemon in the pokedex player one will be.
-                pokemonNumber=1;
+                pokemonNumber = 1;
                 pokemonPanel.removeAll();
                 pokemonPanel.repaint();
                 JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");

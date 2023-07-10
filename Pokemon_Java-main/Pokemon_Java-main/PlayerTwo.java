@@ -73,11 +73,13 @@ public class PlayerTwo extends StartHere
                 Color.green, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
+        JCheckBox[] bulbasaurMoves = {tackle2Box, vineWhip2Box, sleepPowder2Box, takeDown2Box, razorLeaf2Box};
+        Color[] bulbasaurColors = {Color.lightGray, Color.green, Color.green, Color.lightGray, Color.green};
         bulbasaurBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                pokemonNumber2=1;
+                pokemonNumber2 = 1;
                 pokemonPanel.removeAll();
                 pokemonPanel.repaint();
 
@@ -122,84 +124,38 @@ public class PlayerTwo extends StartHere
                         pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add tackle attack to the attacks list in the battle class.
-                        tackle2Box = new JCheckBox("Tackle");
-                        tackle2Box.setBounds(170,70,240,40);
-                        tackle2Box.setBackground(Color.lightGray);
-                        tackle2Box.setForeground(Color.white);
-                        tackle2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(tackle2Box);
-                        tackle2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        tackle2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(tackle2Box,5);
-                            }
-                        });
 
-                        //Creates button to add vinewhip attack to the attacks list in the battle class.
-                        vineWhip2Box = new JCheckBox("Vine Whip");
-                        vineWhip2Box.setBounds(170,150,240,40);
-                        vineWhip2Box.setBackground(Color.GREEN);
-                        vineWhip2Box.setForeground(Color.white);
-                        vineWhip2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(vineWhip2Box);
-                        vineWhip2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        vineWhip2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(vineWhip2Box,5);
-                            }
-                        });
 
-                        //Creates button to add sleeppowder attack to the attacks list in the battle class.
-                        sleepPowder2Box = new JCheckBox("Sleep Powder");
-                        sleepPowder2Box.setBounds(170,230,240,40);
-                        sleepPowder2Box.setBackground(Color.GREEN);
-                        sleepPowder2Box.setForeground(Color.white);
-                        sleepPowder2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(sleepPowder2Box);
-                        sleepPowder2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        sleepPowder2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(sleepPowder2Box,5);
+                        for(int i = 0; i < bulbasaurMoves.length; i++) {
+                            if(i == 0) {
+                                bulbasaurMoves[i].setBounds(170, 70, 240, 40);
                             }
-                        });
-
-                        //Creates button to add takedown attack to the attacks list in the battle class.
-                        takeDown2Box = new JCheckBox("Take Down");
-                        takeDown2Box.setBounds(170,310,240,40);
-                        takeDown2Box.setBackground(Color.LIGHT_GRAY);
-                        takeDown2Box.setForeground(Color.white);
-                        takeDown2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(takeDown2Box);
-                        takeDown2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        takeDown2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(takeDown2Box,5);
+                            else if(i == 1) {
+                                bulbasaurMoves[i].setBounds(170, 150, 240, 40);
                             }
-                        });
-
-                        //Creates button to add razorleaf attack to the attacks list in the battle class.
-                        razorLeaf2Box = new JCheckBox("Razor Leaf");
-                        razorLeaf2Box.setBounds(170,390,240,40);
-                        razorLeaf2Box.setBackground(Color.GREEN);
-                        razorLeaf2Box.setForeground(Color.white);
-                        razorLeaf2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(razorLeaf2Box);
-                        razorLeaf2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        razorLeaf2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(razorLeaf2Box,5);
+                            else if(i == 2) {
+                                bulbasaurMoves[i].setBounds(170, 230, 240, 40);
                             }
-                        });
+                            else if(i == 3) {
+                                bulbasaurMoves[i].setBounds(170, 310, 240, 40);
+                            }
+                            else if(i == 4) {
+                                bulbasaurMoves[i].setBounds(170, 390, 240, 40);
+                            }
+                            bulbasaurMoves[i].setBackground(bulbasaurColors[i]);
+                            bulbasaurMoves[i].setForeground(Color.white);
+                            bulbasaurMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
+                            pokemonPanel.add(bulbasaurMoves[i]);
+                            bulbasaurMoves[i].setSelected(false);
+                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
+                            int finalI = i;
+                            bulbasaurMoves[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlayerOne.MoveDisabler(bulbasaurMoves[finalI],5);
+                                }
+                            });
+                        }
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
                         disableMoves = new LinkedList<JCheckBox>();
@@ -265,11 +221,13 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
+        JCheckBox[] charmanderMoves = {scratch2Box, ember2Box, dragonBreath2Box, fireFang2Box, slash2Box};
+        Color[] charmanderColors = {Color.lightGray, Color.red, getBlueviolet(), Color.red, Color.lightGray};
         charmanderBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                pokemonNumber2=4;
+                pokemonNumber2 = 4;
                 pokemonPanel.removeAll();
                 pokemonPanel.repaint();
 
@@ -315,84 +273,36 @@ public class PlayerTwo extends StartHere
 
                         //Pokemon Move Button Selection
                         //Creates button to add scratch attack to the attacks list in the battle class.
-                        scratch2Box = new JCheckBox("Scratch");
-                        scratch2Box.setBounds(170,70,240,40);
-                        scratch2Box.setBackground(Color.lightGray);
-                        scratch2Box.setForeground(Color.white);
-                        scratch2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(scratch2Box);
-                        scratch2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        scratch2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(scratch2Box,5);
+                        for(int i = 0; i < charmanderMoves.length; i++) {
+                            if(i == 0) {
+                                charmanderMoves[i].setBounds(170, 70, 240, 40);
                             }
-                        });
-
-                        //Creates button to add ember attack to the attacks list in the battle class.
-                        ember2Box = new JCheckBox("Ember");
-                        ember2Box.setBounds(170,150,240,40);
-                        ember2Box.setBackground(Color.red);
-                        ember2Box.setForeground(Color.white);
-                        ember2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(ember2Box);
-                        ember2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        ember2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(ember2Box,5);
+                            else if(i == 1) {
+                                charmanderMoves[i].setBounds(170, 150, 240, 40);
                             }
-                        });
-
-                        //Creates button to add dragonbreath attack to the attacks list in the battle class.
-                        dragonBreath2Box = new JCheckBox("Dragon Breath");
-                        dragonBreath2Box.setBounds(170,230,240,40);
-                        dragonBreath2Box.setBackground(getBlueviolet());
-                        dragonBreath2Box.setForeground(Color.white);
-                        dragonBreath2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(dragonBreath2Box);
-                        dragonBreath2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        dragonBreath2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                              PlayerOne.MoveDisabler(dragonBreath2Box,5);
+                            else if(i == 2) {
+                                charmanderMoves[i].setBounds(170, 230, 240, 40);
                             }
-                        });
-
-                        //Creates button to add firefang attack to the attacks list in the battle class.
-                        fireFang2Box = new JCheckBox("Fire Fang");
-                        fireFang2Box.setBounds(170,310,240,40);
-                        fireFang2Box.setBackground(Color.red);
-                        fireFang2Box.setForeground(Color.white);
-                        fireFang2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(fireFang2Box);
-                        fireFang2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        fireFang2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(fireFang2Box,5);
+                            else if(i == 3) {
+                                charmanderMoves[i].setBounds(170, 310, 240, 40);
                             }
-                        });
-
-                        //Creates button to add slash attack to the attacks list in the battle class.
-                        slash2Box = new JCheckBox("Slash");
-                        slash2Box.setBounds(170,390,240,40);
-                        slash2Box.setBackground(Color.lightGray);
-                        slash2Box.setForeground(Color.white);
-                        slash2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(slash2Box);
-                        slash2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        slash2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(slash2Box,5);
+                            else if(i == 4) {
+                                charmanderMoves[i].setBounds(170, 390, 240, 40);
                             }
-                        });
+                            charmanderMoves[i].setBackground(charmanderColors[i]);
+                            charmanderMoves[i].setForeground(Color.white);
+                            charmanderMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
+                            pokemonPanel.add(charmanderMoves[i]);
+                            charmanderMoves[i].setSelected(false);
+                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
+                            int finalI = i;
+                            charmanderMoves[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlayerOne.MoveDisabler(charmanderMoves[finalI],5);
+                                }
+                            });
+                        }
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
                         disableMoves = new LinkedList<JCheckBox>();
@@ -458,11 +368,13 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
+        JCheckBox[] charmeleonMoves = {dragonBreath2Box, fireFang2Box, slash2Box, flamethrower2Box, fireSpin2Box};
+        Color[] charmeleonColors = {getBlueviolet(), Color.red, Color.lightGray, Color.red, Color.red};
         charmeleonBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //This sets what number of Pokemon in the pokedex player one will be.
-                pokemonNumber2=5;
+                pokemonNumber2 = 5;
                 pokemonPanel.removeAll();
                 pokemonPanel.repaint();
 
@@ -508,84 +420,36 @@ public class PlayerTwo extends StartHere
                         pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add dragonbreath attack to the attacks list in the battle class.
-                        dragonBreath2Box = new JCheckBox("Dragon Breath");
-                        dragonBreath2Box.setBounds(170,70,240,40);
-                        dragonBreath2Box.setBackground(getBlueviolet());
-                        dragonBreath2Box.setForeground(Color.white);
-                        dragonBreath2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(dragonBreath2Box);
-                        dragonBreath2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        dragonBreath2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(dragonBreath2Box,5);
+                        for(int i = 0; i < charmeleonMoves.length; i++) {
+                            if(i == 0) {
+                                charmeleonMoves[i].setBounds(170, 70, 240, 40);
                             }
-                        });
-
-                        //Creates button to add firefang attack to the attacks list in the battle class.
-                        fireFang2Box = new JCheckBox("Fire Fang ");
-                        fireFang2Box.setBounds(170,150,240,40);
-                        fireFang2Box.setBackground(Color.red);
-                        fireFang2Box.setForeground(Color.white);
-                        fireFang2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(fireFang2Box );
-                        fireFang2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        fireFang2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(fireFang2Box ,5);
+                            else if(i == 1) {
+                                charmeleonMoves[i].setBounds(170, 150, 240, 40);
                             }
-                        });
-
-                        //Creates button to add slash attack to the attacks list in the battle class.
-                        slash2Box = new JCheckBox("Slash");
-                        slash2Box.setBounds(170,230,240,40);
-                        slash2Box.setBackground(Color.lightGray);
-                        slash2Box.setForeground(Color.white);
-                        slash2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(slash2Box);
-                        slash2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        slash2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(slash2Box,5);
+                            else if(i == 2) {
+                                charmeleonMoves[i].setBounds(170, 230, 240, 40);
                             }
-                        });
-
-                        //Creates button to add flamethrower attack to the attacks list in the battle class.
-                        flamethrower2Box = new JCheckBox("Flamethrower");
-                        flamethrower2Box.setBounds(170,310,240,40);
-                        flamethrower2Box.setBackground(Color.red);
-                        flamethrower2Box.setForeground(Color.white);
-                        flamethrower2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(flamethrower2Box);
-                        flamethrower2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        flamethrower2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(flamethrower2Box,5);
+                            else if(i == 3) {
+                                charmeleonMoves[i].setBounds(170, 310, 240, 40);
                             }
-                        });
-
-                        //Creates button to add firespin attack to the attacks list in the battle class.
-                        fireSpin2Box = new JCheckBox("Fire Spin");
-                        fireSpin2Box.setBounds(170,390,240,40);
-                        fireSpin2Box.setBackground(Color.red);
-                        fireSpin2Box.setForeground(Color.white);
-                        fireSpin2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(fireSpin2Box);
-                        fireSpin2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        fireSpin2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(fireSpin2Box,5);
+                            else if(i == 4) {
+                                charmeleonMoves[i].setBounds(170, 390, 240, 40);
                             }
-                        });
+                            charmeleonMoves[i].setBackground(charmeleonColors[i]);
+                            charmeleonMoves[i].setForeground(Color.white);
+                            charmeleonMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
+                            pokemonPanel.add(charmeleonMoves[i]);
+                            charmeleonMoves[i].setSelected(false);
+                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
+                            int finalI = i;
+                            charmeleonMoves[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlayerOne.MoveDisabler(charmeleonMoves[finalI],5);
+                                }
+                            });
+                        }
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
                         disableMoves = new LinkedList<JCheckBox>();
@@ -650,6 +514,8 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charizardBTN button is clicked the game will continue to the nickname selection screen.
+        JCheckBox[] charizardMoves = {airSlash2Box, dragonClaw2Box, flamethrower2Box, inferno2Box, flareBlitz2Box};
+        Color[] charizardColors = {Color.cyan, getBlueviolet(), Color.red, Color.red, Color.red};
         charizardBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -700,84 +566,36 @@ public class PlayerTwo extends StartHere
                         pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add airslash attack to the attacks list in the battle class.
-                        airSlash2Box = new JCheckBox("Air Slash");
-                        airSlash2Box.setBounds(170,70,240,40);
-                        airSlash2Box.setBackground(Color.cyan);
-                        airSlash2Box.setForeground(Color.white);
-                        airSlash2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(airSlash2Box);
-                        airSlash2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        airSlash2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(airSlash2Box,5);
+                        for(int i = 0; i < charizardMoves.length; i++) {
+                            if(i == 0) {
+                                charizardMoves[i].setBounds(170, 70, 240, 40);
                             }
-                        });
-
-                        //Creates button to add dragonclaw attack to the attacks list in the battle class.
-                        dragonClaw2Box = new JCheckBox("Dragon Claw");
-                        dragonClaw2Box.setBounds(170,150,240,40);
-                        dragonClaw2Box.setBackground(getBlueviolet());
-                        dragonClaw2Box.setForeground(Color.white);
-                        dragonClaw2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(dragonClaw2Box);
-                        dragonClaw2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        dragonClaw2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(dragonClaw2Box,5);
+                            else if(i == 1) {
+                                charizardMoves[i].setBounds(170, 150, 240, 40);
                             }
-                        });
-
-                        //Creates button to add flamethrower attack to the attacks list in the battle class.
-                        flamethrower2Box = new JCheckBox("Flamethrower");
-                        flamethrower2Box.setBounds(170,230,240,40);
-                        flamethrower2Box.setBackground(Color.red);
-                        flamethrower2Box.setForeground(Color.white);
-                        flamethrower2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(flamethrower2Box);
-                        flamethrower2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        flamethrower2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(flamethrower2Box,5);
+                            else if(i == 2) {
+                                charizardMoves[i].setBounds(170, 230, 240, 40);
                             }
-                        });
-
-                        //Creates button to add inferno attack to the attacks list in the battle class.
-                        inferno2Box = new JCheckBox("Inferno");
-                        inferno2Box.setBounds(170,310,240,40);
-                        inferno2Box.setBackground(Color.red);
-                        inferno2Box.setForeground(Color.white);
-                        inferno2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(inferno2Box);
-                        inferno2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        inferno2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(inferno2Box,5);
+                            else if(i == 3) {
+                                charizardMoves[i].setBounds(170, 310, 240, 40);
                             }
-                        });
-
-                        //Creates button to add flareblitz attack to the attacks list in the battle class.
-                        flareBlitz2Box = new JCheckBox("Flare Blitz");
-                        flareBlitz2Box.setBounds(170,390,240,40);
-                        flareBlitz2Box.setBackground(Color.red);
-                        flareBlitz2Box.setForeground(Color.white);
-                        flareBlitz2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(flareBlitz2Box);
-                        flareBlitz2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        flareBlitz2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(flareBlitz2Box,5);
+                            else if(i == 4) {
+                                charizardMoves[i].setBounds(170, 390, 240, 40);
                             }
-                        });
+                            charizardMoves[i].setBackground(charizardColors[i]);
+                            charizardMoves[i].setForeground(Color.white);
+                            charizardMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
+                            pokemonPanel.add(charizardMoves[i]);
+                            charizardMoves[i].setSelected(false);
+                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
+                            int finalI = i;
+                            charizardMoves[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlayerOne.MoveDisabler(charizardMoves[finalI], 5);
+                                }
+                            });
+                        }
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
                         disableMoves = new LinkedList<JCheckBox>();
@@ -841,6 +659,8 @@ public class PlayerTwo extends StartHere
                 Color.blue, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
+        JCheckBox[] squirtleMoves = {tackle2Box, bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box};
+        Color[] squirtleColors = {Color.lightGray, Color.blue, Color.blue, Color.black, Color.blue};
         squirtleBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -891,84 +711,36 @@ public class PlayerTwo extends StartHere
                         pokemonPanel.add(PokemonChooser);
                         //Pokemon Move Button Selection
                         //Creates button to add tackle attack to the attacks list in the battle class.
-                        tackle2Box = new JCheckBox("Tackle");
-                        tackle2Box.setBounds(170,70,240,40);
-                        tackle2Box.setBackground(Color.lightGray);
-                        tackle2Box.setForeground(Color.white);
-                        tackle2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(tackle2Box);
-                        tackle2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        tackle2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(tackle2Box,5);
+                        for(int i = 0; i < squirtleMoves.length; i++) {
+                            if(i == 0) {
+                                squirtleMoves[i].setBounds(170, 70, 240, 40);
                             }
-                        });
-
-                        //Creates button to add bubble attack to the attacks list in the battle class.
-                        bubble2Box = new JCheckBox("Bubble");
-                        bubble2Box.setBounds(170,150,240,40);
-                        bubble2Box.setBackground(Color.blue);
-                        bubble2Box.setForeground(Color.white);
-                        bubble2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(bubble2Box);
-                        bubble2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        bubble2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(bubble2Box,5);
+                            else if(i == 1) {
+                                squirtleMoves[i].setBounds(170, 150, 240, 40);
                             }
-                        });
-
-                        //Creates button to add watergun attack to the attacks list in the battle class.
-                        waterGun2Box = new JCheckBox("Water Gun");
-                        waterGun2Box.setBounds(170,230,240,40);
-                        waterGun2Box.setBackground(Color.blue);
-                        waterGun2Box.setForeground(Color.white);
-                        waterGun2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(waterGun2Box);
-                        waterGun2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        waterGun2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(waterGun2Box,5);
+                            else if(i == 2) {
+                                squirtleMoves[i].setBounds(170, 230, 240, 40);
                             }
-                        });
-
-                        //Creates button to add bite attack to the attacks list in the battle class.
-                        bite2Box = new JCheckBox("Bite");
-                        bite2Box.setBounds(170,310,240,40);
-                        bite2Box.setBackground(Color.black);
-                        bite2Box.setForeground(Color.white);
-                        bite2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(bite2Box);
-                        bite2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        bite2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(bite2Box,5);
+                            else if(i == 3) {
+                                squirtleMoves[i].setBounds(170, 310, 240, 40);
                             }
-                        });
-
-                        //Creates button to add bubblebeam attack to the attacks list in the battle class.
-                        bubbleBeam2Box = new JCheckBox("Bubble Beam");
-                        bubbleBeam2Box.setBounds(170,390,240,40);
-                        bubbleBeam2Box.setBackground(Color.blue);
-                        bubbleBeam2Box.setForeground(Color.white);
-                        bubbleBeam2Box.setFont(new Font("Arial", Font.BOLD, 30));
-                        pokemonPanel.add(bubbleBeam2Box);
-                        bubbleBeam2Box.setSelected(false);
-                        //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
-                        bubbleBeam2Box.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                PlayerOne.MoveDisabler(bubbleBeam2Box,5);
+                            else if(i == 4) {
+                                squirtleMoves[i].setBounds(170, 390, 240, 40);
                             }
-                        });
+                            squirtleMoves[i].setBackground(squirtleColors[i]);
+                            squirtleMoves[i].setForeground(Color.white);
+                            squirtleMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
+                            pokemonPanel.add(squirtleMoves[i]);
+                            squirtleMoves[i].setSelected(false);
+                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
+                            int finalI = i;
+                            squirtleMoves[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlayerOne.MoveDisabler(squirtleMoves[finalI], 5);
+                                }
+                            });
+                        }
 
                         //Add all moves to a list to later be disabled when the amount of selected exceeds four.
                         disableMoves = new LinkedList<JCheckBox>();
