@@ -1079,18 +1079,16 @@ public class Battle extends StartHere
         Move4= new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Enable button or buttons to continue with the battle.
+                // Enable button or buttons to continue with the battle.
                 P5Fight.enable();
                 NextBattle.enable();
-                //Disable Pokemon Moves buttons so they don't interfere with the game.
+                // Disable Pokemon Moves buttons so they don't interfere with the game.
                 FirstMove.disable();
                 SecondMove.disable();
                 ThirdMove.disable();
                 FourthMove.disable();
                 //The fourth move is selected.
                 Movenumber=4;
-
-
             }
         };
         FourthMove.addActionListener(Move4);

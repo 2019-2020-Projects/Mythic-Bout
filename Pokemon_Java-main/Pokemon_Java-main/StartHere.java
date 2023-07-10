@@ -18,6 +18,7 @@ public class StartHere {
     public static JButton singlePlayer;
     public static JFrame pokemonWindow;
     public static JPanel pokemonPanel;
+    public static int pokemonCount;
     public static JTextField pokeNickName;
     public static int pokemonNumber, pokemonNumber2;
     public static JCheckBox scratchBox, emberBox, dragonBreathBox, fireFangBox, slashBox;
