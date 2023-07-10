@@ -19,7 +19,6 @@ import java.util.List;
 
 public class Battle extends StartHere
 
-
 {
     //This ImageIcon will contain the png of the Pokemon's back selected by player one.
     public static ImageIcon PokemonBack;
@@ -211,397 +210,67 @@ public class Battle extends StartHere
             final Attack airslash = new DamageAttack("Air Slash", PokemonType.FLYING,75,0.95f);
             final Attack dragonclaw = new DamageAttack("Dragon Claw", PokemonType.DRAGON,80,1);
 
+            // Create Bulbasaur for player one
+            JCheckBox[] bulbasaurMoves = {tackleBox, vineWhipBox, sleepPowderBox, takeDownBox, razorLeafBox};
+            Attack[] bulbasaurAttMoves = {tackle, vinewhip, sleeppowder, takedown, razorleaf};
+            Pokemon_Abilities bulbasaur = createPokeChar(bulbasaurMoves, bulbasaurAttMoves, "Bulbasaur",
+                    PokemonType.GRASS, PokemonType.POISON, 294, "Overgrow", pokemonNick);
 
-            //Add attacks to player one's Bulbasaur if selected.
-            final List<Attack> bulbasaurAttacks = new ArrayList<>();
-            if(tackleBox.isSelected())
-            {
-                bulbasaurAttacks.add(tackle);
-            }
-            if(vineWhipBox.isSelected())
-            {
-                vineWhipBox.setSelected(false);
-                bulbasaurAttacks.add(vinewhip);
-            }
-            if(sleepPowderBox.isSelected())
-            {
-                sleepPowderBox.setSelected(false);
-                bulbasaurAttacks.add(sleeppowder);
-            }
-            if(takeDownBox.isSelected())
-            {
-                takeDownBox.setSelected(false);
-                bulbasaurAttacks.add(takedown);
-            }
-            if(razorLeafBox.isSelected())
-            {
-                razorLeafBox.setSelected(false);
-                bulbasaurAttacks.add(razorleaf);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(bulbasaurAttacks.isEmpty())
-            {
-                bulbasaurAttacks.add(struggle);
-            }
 
-            //Create Bulbasaur for player one.
-            Pokemon_Abilities bulbasaur = new Pokemon_Abilities("Bulbasaur", PokemonType.GRASS,PokemonType.POISON, 294, bulbasaurAttacks,"Overgrow");
-            //If nickname entry for player one is blank the Pokemon will take its original name.
-            if(pokemonNick != null && !pokemonNick.isEmpty())
-            {
-                bulbasaur.setNickname(pokemonNick);
-            }
+            // Create Bulbasaur for cpu
+            JCheckBox[] bulbasaur2Moves = {tackle2Box, vineWhip2Box, sleepPowder2Box, takeDown2Box, razorLeaf2Box};
+            Attack[] bulbasaur2AttMoves = {tackle, vinewhip, sleeppowder, takedown, razorleaf};
+            Pokemon_Abilities bulbasaur2 = createPokeChar(bulbasaur2Moves, bulbasaur2AttMoves, "Bulbasaur",
+                    PokemonType.GRASS, PokemonType.POISON, 294, "Overgrow", pokemon2Nick);
 
-            //Add attacks to cpu's Bulbasaur if selected.
-            final List<Attack> bulbasaur2Attacks = new ArrayList<>();
-            if(tackle2Box.isSelected())
-            {
-                bulbasaur2Attacks.add(tackle);
-            }
-            if(vineWhip2Box.isSelected())
-            {
-                vineWhip2Box.setSelected(false);
-                bulbasaur2Attacks.add(vinewhip);
-            }
-            if(sleepPowder2Box.isSelected())
-            {
-                sleepPowder2Box.setSelected(false);
-                bulbasaur2Attacks.add(sleeppowder);
-            }
-            if(takeDown2Box.isSelected())
-            {
-                takeDown2Box.setSelected(false);
-                bulbasaur2Attacks.add(takedown);
-            }
-            if(razorLeaf2Box.isSelected())
-            {
-                razorLeaf2Box.setSelected(false);
-                bulbasaur2Attacks.add(razorleaf);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(bulbasaur2Attacks.isEmpty())
-            {
-                bulbasaur2Attacks.add(struggle);
-            };
-            //Create Bulbasaur for cpu.
-            Pokemon_Abilities bulbasaur2 = new Pokemon_Abilities("Bulbasaur", PokemonType.GRASS,PokemonType.POISON, 294, bulbasaur2Attacks,"Overgrow");
-            //If nickname entry for cpu is blank the Pokemon will take its original name.
-            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
-            {
-                bulbasaur2.setNickname(pokemon2Nick);
-            }
 
-            //Add attacks to player one's Charmander if selected.
-            final List<Attack> charmanderAttacks = new ArrayList<>();
-            if(scratchBox.isSelected())
-            {
-                scratchBox.setSelected(false);
-                charmanderAttacks.add(scratch);
-            }
-            if(emberBox.isSelected())
-            {
-                emberBox.setSelected(false);
-                charmanderAttacks.add(ember);
-            }
-            if(dragonBreathBox.isSelected())
-            {
-                charmanderAttacks.add(dragonbreath);
-            }
-            if(fireFangBox.isSelected())
-            {
-                charmanderAttacks.add(firefang);
-            }
-            if(slashBox.isSelected())
-            {
-                charmanderAttacks.add(slash);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charmanderAttacks.isEmpty())
-            {
-                charmanderAttacks.add(struggle);
-            }
-            //Create Player One Charmander
-            Pokemon_Abilities charmander = new Pokemon_Abilities("Charmander", PokemonType.FIRE,PokemonType.FIRE, 282, charmanderAttacks,"Blaze");
-            //If player one nickname entry is blank the Pokemon will take its original name.
-            if(pokemonNick != null && !pokemonNick.isEmpty())
-            {
-                charmander.setNickname(pokemonNick);
-            }
+            // Create Player One Charmander
+            JCheckBox[] charmanderMoves = {scratchBox, emberBox, dragonBreathBox, fireFangBox, slashBox};
+            Attack[] charmanderAttMoves = {scratch, ember, dragonbreath, firefang, slash};
+            Pokemon_Abilities charmander = createPokeChar(charmanderMoves, charmanderAttMoves, "Charmander",
+                    PokemonType.FIRE, PokemonType.FIRE, 282, "Blaze", pokemonNick);
 
-            //Add attacks to cpu's Charmander if selected.
-            final List<Attack> charmander2Attacks = new ArrayList<>();
-            if(scratch2Box.isSelected())
-            {
-                scratch2Box.setSelected(false);
-                charmander2Attacks.add(scratch);
-            }
-            if(ember2Box.isSelected())
-            {
-                ember2Box.setSelected(false);
-                charmander2Attacks.add(ember);
-            }
-            if(dragonBreath2Box.isSelected())
-            {
-                charmander2Attacks.add(dragonbreath);
-            }
-            if(fireFang2Box.isSelected())
-            {
-                charmander2Attacks.add(firefang);
-            }
-            if(slash2Box.isSelected())
-            {
-                charmander2Attacks.add(slash);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charmander2Attacks.isEmpty())
-            {
-                charmander2Attacks.add(struggle);
-            }
-            //Create CPU Charmander
-            Pokemon_Abilities charmander2 = new Pokemon_Abilities("Charmander", PokemonType.FIRE,PokemonType.FIRE, 282, charmander2Attacks,"Blaze");
-            //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
-            {
-                charmander2.setNickname(pokemon2Nick);
-            }
+            // Create CPU Charmander
+            JCheckBox[] charmander2Moves = {scratch2Box, ember2Box, dragonBreath2Box, fireFang2Box, slash2Box};
+            Attack[] charmander2AttMoves = {scratch, ember, dragonbreath, firefang, slash};
+            Pokemon_Abilities charmander2 = createPokeChar(charmander2Moves, charmander2AttMoves, "Charmander",
+                    PokemonType.FIRE, PokemonType.FIRE, 282, "Blaze", pokemon2Nick);
 
-            //Add attacks to player one's Charmeleon if selected.
-            final List<Attack> charmeleonAttacks = new ArrayList<>();
-            if(dragonBreathBox.isSelected())
-            {
-                dragonBreathBox.setSelected(false);
-                charmeleonAttacks.add(dragonbreath);
-            }
-            if(fireFangBox.isSelected())
-            {
-                fireFangBox.setSelected(false);
-                charmeleonAttacks.add(firefang);
-            }
-            if(slashBox.isSelected())
-            {
-                slashBox.setSelected(false);
-                charmeleonAttacks.add(slash);
-            }
-            if(flamethrowerBox.isSelected())
-            {
-                charmeleonAttacks.add(flamethrower);
-            }
-            if(fireSpinBox.isSelected())
-            {
-                fireSpinBox.setSelected(false);
-                charmeleonAttacks.add(firespin);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charmeleonAttacks.isEmpty())
-            {
-                charmeleonAttacks.add(struggle);
-            }
-            //Create Player One Charmeleon
-            Pokemon_Abilities charmeleon = new Pokemon_Abilities("Charmeleon", PokemonType.FIRE,PokemonType.FIRE, 320, charmeleonAttacks,"Blaze");
-            //If player one nickname entry is blank the Pokemon will take its original name.
-            if(pokemonNick != null && !pokemonNick.isEmpty())
-            {
-                charmeleon.setNickname(pokemonNick);
-            }
+            // Create Player One Charmeleon
+            JCheckBox[] charmeleonMoves = {dragonBreathBox, fireFangBox, slashBox, flamethrowerBox, fireSpinBox};
+            Attack[] charmeleonAttMoves = {dragonbreath, firefang, slash, flamethrower, firefang};
+            Pokemon_Abilities charmeleon = createPokeChar(charmeleonMoves, charmeleonAttMoves, "Charmeleon",
+                    PokemonType.FIRE, PokemonType.FIRE, 320, "Blaze", pokemonNick);
 
-            //Add attacks to cpu's Charmeleon if selected.
-            final List<Attack> charmeleon2Attacks = new ArrayList<>();
-            if(dragonBreath2Box.isSelected())
-            {
-                dragonBreath2Box.setSelected(false);
-                charmeleon2Attacks.add(dragonbreath);
-            }
-            if(fireFang2Box.isSelected())
-            {
-                fireFang2Box.setSelected(false);
-                charmeleon2Attacks.add(firefang);
-            }
-            if(slash2Box.isSelected())
-            {
-                slash2Box.setSelected(false);
-                charmeleon2Attacks.add(slash);
-            }
-            if(flamethrower2Box.isSelected())
-            {
-                charmeleon2Attacks.add(flamethrower);
-            }
-            if(fireSpin2Box.isSelected())
-            {
-                fireSpin2Box.setSelected(false);
-                charmeleon2Attacks.add(firespin);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charmeleon2Attacks.isEmpty())
-            {
-                charmeleon2Attacks.add(struggle);
-            }
-            //Create CPU Charmeleon
-            Pokemon_Abilities charmeleon2 = new Pokemon_Abilities("Charmeleon", PokemonType.FIRE,PokemonType.FIRE, 320, charmeleon2Attacks,"Blaze");
-            //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
-            {
-                charmeleon2.setNickname(pokemon2Nick);
-            }
+            // Create CPU Charmeleon
+            JCheckBox[] charmeleon2Moves = {dragonBreath2Box, fireFang2Box, slash2Box, flamethrower2Box, fireSpin2Box};
+            Attack[] charmeleon2AttMoves = {dragonbreath, firefang, slash, flamethrower, firefang};
+            Pokemon_Abilities charmeleon2 = createPokeChar(charmeleon2Moves, charmeleon2AttMoves, "Charmeleon",
+                    PokemonType.FIRE, PokemonType.FIRE, 320, "Blaze", pokemon2Nick);
 
-            //Add attacks to player one's Charizard if selected.
-            final List<Attack> charizardAttacks = new ArrayList<>();
-            if(airSlashBox.isSelected())
-            {
-                airSlashBox.setSelected(false);
-                charizardAttacks.add(airslash);
-            }
-            if(dragonClawBox.isSelected())
-            {
-                dragonClawBox.setSelected(false);
-                charizardAttacks.add(dragonclaw);
-            }
-            if(flamethrowerBox.isSelected())
-            {
-                flamethrowerBox.setSelected(false);
-                charizardAttacks.add(flamethrower);
-            }
-            if(infernoBox.isSelected())
-            {
-                infernoBox.setSelected(false);
-                charizardAttacks.add(inferno);
-            }
-            if(flareBlitzBox.isSelected())
-            {
-                flareBlitzBox.setSelected(false);
-                charizardAttacks.add(flareblitz);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charizardAttacks.isEmpty())
-            {
-                charizardAttacks.add(struggle);
-            }
-            //Create Player One Charizard
-            Pokemon_Abilities charizard = new Pokemon_Abilities("Charizard", PokemonType.FIRE,PokemonType.FLYING, 360, charizardAttacks,"Blaze");
-            //If player one nickname entry is blank the Pokemon will take its original name.
-            if(pokemonNick != null && !pokemonNick.isEmpty())
-            {
-                charizard.setNickname(pokemonNick);
-            }
+            // Create Player One Charizard
+            JCheckBox[] charizardMoves = {airSlashBox, dragonClawBox, flamethrowerBox, infernoBox, flareBlitzBox};
+            Attack[] charizardAttMoves = {airslash, dragonclaw, flamethrower, inferno, flareblitz};
+            Pokemon_Abilities charizard = createPokeChar(charizardMoves, charizardAttMoves, "Charizard",
+                    PokemonType.FIRE, PokemonType.FIRE, 360, "Blaze", pokemonNick);
 
-            //Add attacks to cpu's Charizard if selected.
-            final List<Attack> charizard2Attacks = new ArrayList<>();
-            if(airSlash2Box.isSelected())
-            {
-                airSlash2Box.setSelected(false);
-                charizard2Attacks.add(airslash);
-            }
-            if(dragonClaw2Box.isSelected())
-            {
-                dragonClaw2Box.setSelected(false);
-                charizard2Attacks.add(dragonclaw);
-            }
-            if(flamethrower2Box.isSelected())
-            {
-                flamethrower2Box.setSelected(false);
-                charizard2Attacks.add(flamethrower);
-            }
-            if(inferno2Box.isSelected())
-            {
-                inferno2Box.setSelected(false);
-                charizard2Attacks.add(inferno);
-            }
-            if(flareBlitz2Box.isSelected())
-            {
-                flareBlitz2Box.setSelected(false);
-                charizard2Attacks.add(flareblitz);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(charizard2Attacks.isEmpty())
-            {
-                charizard2Attacks.add(struggle);
-            }
-            //Create CPU Charizard
-            Pokemon_Abilities charizard2 = new Pokemon_Abilities("Charizard", PokemonType.FIRE,PokemonType.FLYING, 360, charizard2Attacks,"Blaze");
-            //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
-            {
-                charizard2.setNickname(pokemon2Nick);
-            }
+            // Create CPU Charizard
+            JCheckBox[] charizard2Moves = {airSlash2Box, dragonClaw2Box, flamethrower2Box, inferno2Box, flareBlitz2Box};
+            Attack[] charizard2AttMoves = {airslash, dragonclaw, flamethrower, inferno, flareblitz};
+            Pokemon_Abilities charizard2 = createPokeChar(charizard2Moves, charizard2AttMoves, "Charizard",
+                    PokemonType.FIRE, PokemonType.FIRE, 360, "Blaze", pokemon2Nick);
 
-            //Add attacks to player one's Squirtle if selected.
-            final List<Attack> squirtleAttacks = new ArrayList<>();
-            if(tackleBox.isSelected())
-            {
-                tackleBox.setSelected(false);
-                squirtleAttacks.add(tackle);
-            }
-            if(bubbleBox.isSelected())
-            {
-                bubbleBox.setSelected(false);
-                squirtleAttacks.add(bubble);
-            }
-            if(waterGunBox.isSelected())
-            {
-                waterGunBox.setSelected(false);
-                squirtleAttacks.add(watergun);
-            }
-            if(biteBox.isSelected())
-            {
-                biteBox.setSelected(false);
-                squirtleAttacks.add(bite);
-            }
-            if(bubbleBeamBox.isSelected())
-            {
-                bubbleBeamBox.setSelected(false);
-                squirtleAttacks.add(bubblebeam);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(squirtleAttacks.isEmpty())
-            {
-                squirtleAttacks.add(struggle);
-            }
-            //Create Player One Squirtle
-            Pokemon_Abilities squirtle = new Pokemon_Abilities("Squirtle", PokemonType.WATER,PokemonType.WATER, 292, squirtleAttacks,"Torrent");
-            //If player one nickname entry is blank the Pokemon will take its original name.
-            if(pokemonNick != null && !pokemonNick.isEmpty())
-            {
-                squirtle.setNickname(pokemonNick);
-            }
+            // Create Player One Squirtle
+            JCheckBox[] squirtleMoves = {tackleBox, bubbleBox, waterGunBox, biteBox, bubbleBeamBox};
+            Attack[] squirtleAttMoves = {tackle, bubble, watergun, bite, bubblebeam};
+            Pokemon_Abilities squirtle = createPokeChar(squirtleMoves, squirtleAttMoves, "Squirtle",
+                    PokemonType.WATER, PokemonType.WATER, 292, "Torrent", pokemonNick);
 
-            //Add attacks to cpu's Squirtle if selected.
-            final List<Attack> squirtle2Attacks = new ArrayList<>();
-            if(tackle2Box.isSelected())
-            {
-                tackle2Box.setSelected(false);
-                squirtle2Attacks.add(tackle);
-            }
-            if(bubble2Box.isSelected())
-            {
-                bubble2Box.setSelected(false);
-                squirtle2Attacks.add(bubble);
-            }
-            if(waterGun2Box.isSelected())
-            {
-                waterGun2Box.setSelected(false);
-                squirtle2Attacks.add(watergun);
-            }
-            if(bite2Box.isSelected())
-            {
-                bite2Box.setSelected(false);
-                squirtle2Attacks.add(bite);
-            }
-            if(bubbleBeam2Box.isSelected())
-            {
-                bubbleBeam2Box.setSelected(false);
-                squirtle2Attacks.add(bubblebeam);
-            }
-            //If no attack has been chosen the pokemon will have the move struggle.
-            if(squirtle2Attacks.isEmpty())
-            {
-                squirtle2Attacks.add(struggle);
-            }
-            //Create CPU Squirtle
-            Pokemon_Abilities squirtle2 = new Pokemon_Abilities("Squirtle", PokemonType.WATER,PokemonType.WATER, 292, squirtle2Attacks,"Torrent");
-            //If cpu nickname entry is blank the Pokemon will take its original name.
-            if(pokemon2Nick != null && !pokemon2Nick.isEmpty())
-            {
-                squirtle2.setNickname(pokemon2Nick);
-            }
+            // Create CPU Squirtle
+            JCheckBox[] squirtle2Moves = {tackle2Box, bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box};
+            Attack[] squirtle2AttMoves = {tackle, bubble, watergun, bite, bubblebeam};
+            Pokemon_Abilities squirtle2 = createPokeChar(squirtle2Moves, squirtle2AttMoves, "Squirtle",
+                    PokemonType.WATER, PokemonType.WATER, 292, "Torrent", pokemon2Nick);
 
             //Create Pone and Ptwo variables.
             Pone = bulbasaur;
@@ -688,7 +357,7 @@ public class Battle extends StartHere
             if (pokemonNumber == 7)
             {
                 //Player one equals Squirtle.
-                Pone=squirtle;
+                Pone = squirtle;
                 //Get Squirtle image.
                 PokemonBack = new ImageIcon(Battle.class.getResource("PokemonImages/SquirtleBack.png"));
 
@@ -745,7 +414,7 @@ public class Battle extends StartHere
             if(pokemonNumber2 == 5)
             {
                 //CPU equals Charmeleon.
-                Ptwo=charmeleon2;
+                Ptwo = charmeleon2;
                 //Get Charmeleon image.
                 PokemonFront = new ImageIcon(Battle.class.getResource("PokemonImages/CharmeleonFront.png"));
 
@@ -799,10 +468,10 @@ public class Battle extends StartHere
             }
 
             //Create a list to hold Player one's attacks.
-            List<Attack> Moves=Pone.getAttacks();
+            List<Attack> Moves = Pone.getAttacks();
 
             //Depending on the number of attacks added to the Pokemon this for loop will add Buttons so the user could decide what attack to use.
-            for(int movedraw=0;movedraw<Moves.size();movedraw++)
+            for(int movedraw=0; movedraw<Moves.size(); movedraw++)
             {
                 //Create an attack button if Pokemon has a move.
                 if (movedraw==0)
@@ -864,7 +533,6 @@ public class Battle extends StartHere
                     FourthMove.setFont(new Font("Arial", Font.BOLD, 15));
                     FourthMove.setForeground(Color.white);
                     PlayerTwo.MovesBox.add(FourthMove);
-
                 }
             }
 
@@ -905,8 +573,6 @@ public class Battle extends StartHere
             CurrentHP2.setBackground(Color.green);
             CurrentHP2.setBounds(0,0,150,25);
             HPHolder2.add(CurrentHP2);
-
-
             PlayerTwo.PokemonBox.repaint();
 
         //Start the Pokemon Battle attacking sequence.
@@ -994,13 +660,8 @@ public class Battle extends StartHere
                         };
                         NextBattle.addActionListener(HereWeGoAgain);
                         PlayerTwo.TextBox.add(NextBattle);
-
-
                         return;
                     }
-
-
-
 
             }
            //}
@@ -1032,7 +693,6 @@ public class Battle extends StartHere
                 //The first move is selected.
                 Movenumber=1;
 
-
             }
         };
         FirstMove.addActionListener(Move1);
@@ -1049,7 +709,6 @@ public class Battle extends StartHere
                 FourthMove.disable();
                 //The second move is selected.
                 Movenumber=2;
-
 
             }
         };
@@ -1069,7 +728,6 @@ public class Battle extends StartHere
                 FourthMove.disable();
                 //The third move is selected.
                 Movenumber=3;
-
 
             }
         };
@@ -1094,7 +752,6 @@ public class Battle extends StartHere
         FourthMove.addActionListener(Move4);
 
 
-
        }
 
         catch(IllegalArgumentException exception)
@@ -1102,7 +759,42 @@ public class Battle extends StartHere
             throw new IllegalArgumentException
                     ("value must be non-negative");
         }
+    }
+
+    public static Pokemon_Abilities createPokeChar(JCheckBox[] pokemonMoves, Attack[] pokemonAttMoves, String species,
+                                                    PokemonType type0, PokemonType type1, int maxHP, String ability,
+                                                   String pokeNickName) {
+        //Add attacks to player one's Bulbasaur if selected.
+        final List<Attack> pokemonAttacks = new ArrayList<>();
+        for(int i = 0; i < pokemonMoves.length; i++) {
+            if(i == 0 && pokemonMoves[i].isSelected()) {
+                pokemonMoves[i].setSelected(false);
+                pokemonAttacks.add(pokemonAttMoves[i]);
+            }
+            else if(pokemonMoves[i].isSelected()) {
+                pokemonMoves[i].setSelected(false);
+                pokemonAttacks.add(pokemonAttMoves[i]);
+            }
+
         }
+
+        //If no attack has been chosen the pokemon will have the move struggle.
+        if(pokemonAttacks.isEmpty())
+        {
+            final Attack struggle = new DamageAttack("Struggle", PokemonType.NORMAL, 10, 1);
+            pokemonAttacks.add(struggle);
+        }
+
+        // Create pokemon for player
+        Pokemon_Abilities pokemon = new Pokemon_Abilities(species, type0, type1, maxHP, pokemonAttacks, ability);
+        //If nickname entry for player one is blank the Pokemon will take its original name.
+        if(pokeNickName != null && !pokeNickName.isEmpty())
+        {
+            pokemon.setNickname(pokeNickName);
+        }
+        return pokemon;
+    }
+
 
     //This method will make player one attack the cpu.
     private static void takeTurn(Pokemon_Abilities attacker, Pokemon_Abilities defender)
@@ -1137,8 +829,6 @@ public class Battle extends StartHere
 
                 //Start the fight again.
                 P7Fight.addActionListener(Fight);
-
-
                 return;
             }
             //If ASleepTurn equals 3 Pokemon wakes up.
