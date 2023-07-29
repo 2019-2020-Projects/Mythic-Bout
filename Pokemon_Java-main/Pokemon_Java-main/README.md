@@ -22,7 +22,7 @@ Pokemon Java is a Pokemon battle game built with Java Swing for the GUI. The gam
 
 The main classes and files:
 
-* <span style="background-color: gray; color: red;">highlighted</span> StartHere - Sets up the initial JFrame and contains the main method to launch the game
+* StartHere - Sets up the initial JFrame and contains the main method to launch the game
 * PlayerOne - Handles the player's Pokemon selection and customization
 * PlayerTwo - Handles the CPU opponent's Pokemon selection
 * Pokemon - Base Pokemon class for creating Pokemon objects
