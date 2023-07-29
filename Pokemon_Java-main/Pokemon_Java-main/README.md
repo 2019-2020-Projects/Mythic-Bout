@@ -6,7 +6,7 @@ Features
 
 * Single player gameplay against a CPU opponent
 * Choice of starting Pokemon
-Bulbasaur
+  * Bulbasaur
 Charmander
 Charmeleon
 Charizard
