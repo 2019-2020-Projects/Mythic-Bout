@@ -2,7 +2,7 @@
 
 Pokemon Java is a Pokemon battle game built with Java Swing for the GUI. The game allows the player to battle a CPU opponent using Pokemon of their choice.
 
-Features
+## Features
 
 * Single player gameplay against a CPU opponent
 * Choice of starting Pokemon
@@ -18,7 +18,7 @@ Features
 * Nickname and customize your Pokemon's moves
 * Win by defeating the opponent's Pokemon
 
-Code Overview
+## Code Overview
 
 The main classes and files:
 
@@ -37,7 +37,7 @@ The battle system calculates type effectiveness and processes turn order. Pokemo
 
 The player progresses through selecting their Pokemon, customizing moves, and nicknaming them. Then the battle phase begins where the player takes turns selecting attacks against the CPU opponent. The battle ends when one player's Pokemon faints.
 
-How to Run
+## How to Run
 
 This project requires Java 11 or higher. To run the game:
 
@@ -49,7 +49,7 @@ This project requires Java 11 or higher. To run the game:
    
 The game window will initialize and you can begin your Pokemon journey!
 
-Future Improvements
+## Future Improvements
 
 Some potential expansions for the game:
 * Add more Pokemon types and selections
@@ -58,6 +58,6 @@ Some potential expansions for the game:
 * Implement trainable stats that grow as Pokemon level up
 * Support additional gameplay modes like multiplayer
 * Add persistent saving of Pokemon teams and progression
-Credits
+## Credits
 
 Pokemon Java was created by Wilson Neira. The project serves as a code sample to demonstrate Java skills.
