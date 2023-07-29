@@ -4,8 +4,8 @@ Pokemon Java is a Pokemon battle game built with Java Swing for the GUI. The gam
 
 Features
 
-Single player gameplay against a CPU opponent
-Choice of starting Pokemon
+* Single player gameplay against a CPU opponent
+* Choice of starting Pokemon
 Bulbasaur
 Charmander
 Charmeleon
