@@ -21,16 +21,6 @@ public class StartHere {
     public static int pokemonCount;
     public static JTextField pokeNickName;
     public static int pokemonNumber, pokemonNumber2;
-    public static JCheckBox scratchBox, emberBox, dragonBreathBox, fireFangBox, slashBox;
-    public static JCheckBox scratch2Box, ember2Box, dragonBreath2Box, fireFang2Box, slash2Box;
-    public static JCheckBox flamethrowerBox, fireSpinBox;
-    public static JCheckBox flamethrower2Box, fireSpin2Box;
-    public static JCheckBox airSlashBox, dragonClawBox, infernoBox, flareBlitzBox;
-    public static JCheckBox airSlash2Box, dragonClaw2Box, inferno2Box, flareBlitz2Box;
-    public static JCheckBox tackleBox, vineWhipBox, sleepPowderBox, takeDownBox, razorLeafBox;
-    public static JCheckBox tackle2Box, vineWhip2Box, sleepPowder2Box, takeDown2Box, razorLeaf2Box;
-    public static JCheckBox bubbleBox, waterGunBox, biteBox, bubbleBeamBox;
-    public static JCheckBox bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box;
     public static String pokemonNick, pokemon2Nick;
     public static Button doneMoves;
     public static LinkedList<JCheckBox> disableMoves;

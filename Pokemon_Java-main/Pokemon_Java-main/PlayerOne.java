@@ -22,30 +22,14 @@ import java.util.LinkedList;
 public class PlayerOne extends StartHere
 {
     private static Button nickEnterBTN;
+    private static JCheckBox[] bulbasaurMoves;
+    private static JCheckBox[] charmanderMoves;
+    private static JCheckBox[] charmeleonMoves;
+    private static JCheckBox[] charizardMoves;
+    private static JCheckBox[] squirtleMoves;
     //This method creates the Pokemon on the gui based on what buttons are clicked.
     public static void PCharOne()
     {
-        scratchBox = new JCheckBox("Scratch");
-        emberBox = new JCheckBox("Ember");
-        dragonBreathBox = new JCheckBox("Dragon Breath");
-        fireFangBox = new JCheckBox("Fire Fang");
-        slashBox = new JCheckBox("Slash");
-        flamethrowerBox = new JCheckBox("Flamethrower");
-        fireSpinBox = new JCheckBox("Fire Spin");
-        airSlashBox = new JCheckBox("Air Slash");
-        dragonClawBox = new JCheckBox("Dragon Claw");
-        infernoBox = new JCheckBox("Inferno");
-        flareBlitzBox = new JCheckBox("Flare Blitz");
-        tackleBox = new JCheckBox("Tackle");
-        vineWhipBox = new JCheckBox("Vine Whip");
-        sleepPowderBox = new JCheckBox("Sleep Powder");
-        takeDownBox = new JCheckBox("Take Down");
-        razorLeafBox = new JCheckBox("Razor Leaf");
-        bubbleBox = new JCheckBox("Bubble");
-        waterGunBox = new JCheckBox("Water Gun");
-        biteBox = new JCheckBox("Bite");
-        bubbleBeamBox = new JCheckBox("Bubble Beam");
-
         pokemonPanel.removeAll();
         pokemonPanel.repaint();
         JLabel PokemonChooser = new JLabel("Choose your Pokemon:");
@@ -58,7 +42,8 @@ public class PlayerOne extends StartHere
                 Color.green, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] bulbasaurMoves = {tackleBox, vineWhipBox, sleepPowderBox, takeDownBox, razorLeafBox};
+        bulbasaurMoves = new JCheckBox[] {new JCheckBox("Tackle"), new JCheckBox("Vine Whip"),
+                new JCheckBox("Sleep Powder"), new JCheckBox("Take Down"), new JCheckBox("Razor Leaf")};
         Color[] bulbasaurColors = {Color.lightGray, Color.green, Color.green, Color.lightGray, Color.green};
         addPokeButtonListener(bulbasaurBTN, 1, bulbasaurMoves, bulbasaurColors);
         // Add Pokemon Buttons to pokemonPanel here
@@ -70,7 +55,8 @@ public class PlayerOne extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charmanderMoves = {scratchBox, emberBox, dragonBreathBox, fireFangBox, slashBox};
+        charmanderMoves = new JCheckBox[] {new JCheckBox("Scratch"), new JCheckBox("Ember"),
+                new JCheckBox("Dragon Breath"), new JCheckBox("Fire Fang"), new JCheckBox("Slash")};
         Color[] charmanderColors = {Color.lightGray, Color.red, getBlueviolet(), Color.red, Color.lightGray};
         addPokeButtonListener(charmanderBTN, 4, charmanderMoves, charmanderColors);
         // Add Pokemon Buttons to pokemonPanel here
@@ -81,7 +67,8 @@ public class PlayerOne extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charmeleonMoves = {dragonBreathBox, fireFangBox, slashBox, flamethrowerBox, fireSpinBox};
+        charmeleonMoves = new JCheckBox[] {new JCheckBox("Dragon Breath"), new JCheckBox("Fire Fang"),
+                new JCheckBox("Slash"), new JCheckBox("Flamethrower"), new JCheckBox("Fire Spin")};
         Color[] charmeleonColors = {getBlueviolet(), Color.red, Color.lightGray, Color.red, Color.red};
         addPokeButtonListener(charmeleonBTN, 5, charmeleonMoves, charmeleonColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -93,7 +80,8 @@ public class PlayerOne extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charizardBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charizardMoves = {airSlashBox, dragonClawBox, flamethrowerBox, infernoBox, flareBlitzBox};
+        charizardMoves = new JCheckBox[] {new JCheckBox("Air Slash"), new JCheckBox("Dragon Claw"),
+                new JCheckBox("Flamethrower"), new JCheckBox("Inferno"), new JCheckBox("Flare Blitz")};
         Color[] charizardColors = {Color.cyan, getBlueviolet(), Color.red, Color.red, Color.red};
         addPokeButtonListener(charizardBTN, 6, charizardMoves, charizardColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -104,7 +92,8 @@ public class PlayerOne extends StartHere
                 Color.blue, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] squirtleMoves = {tackleBox, bubbleBox, waterGunBox, biteBox, bubbleBeamBox};
+        squirtleMoves = new JCheckBox[] {new JCheckBox("Tackle"), new JCheckBox("Bubble"),
+                new JCheckBox("Water Gun"), new JCheckBox("Bite"), new JCheckBox("Bubble Beam")};
         Color[] squirtleColors = {Color.lightGray, Color.blue, Color.blue, Color.black, Color.blue};
         addPokeButtonListener(squirtleBTN, 7, squirtleMoves, squirtleColors);
 
@@ -158,10 +147,10 @@ public class PlayerOne extends StartHere
                nickEnterBTN.addActionListener(new ActionListener() {
                    @Override
                    public void actionPerformed(ActionEvent e) {
-                       //This counts how many Pokemon Moves are checked.
+                       // This counts how many Pokemon Moves are checked.
                        pokemonCount = 0;
 
-                       //This sets pokemonNick to equal the input of the nickname entry.
+                       // This sets pokemonNick to equal the input of the nickname entry.
                        pokemonNick = pokeNickName.getText();
                        pokemonPanel.removeAll();
                        pokemonPanel.repaint();
@@ -170,10 +159,10 @@ public class PlayerOne extends StartHere
                        PokemonChooser.setBounds(5,5,600,50);
                        PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
                        pokemonPanel.add(PokemonChooser);
-                       //Add all moves to a list to later be disabled when the amount of selected exceeds four.
+                       // Add all moves to a list to later be disabled when the amount of selected exceeds four.
                        disableMoves = new LinkedList<JCheckBox>();
-                       //Pokemon Move Button Selection
-                       //Creates button to add tackle attack to the attacks list in the battle class.
+                       // Pokemon Move Button Selection
+                       // Creates button to add tackle attack to the attacks list in the battle class.
                        for(int i = 0; i < pokemonMoves.length; i++) {
                            if(i == 0) {
                                pokemonMoves[i].setBounds(170, 70, 240, 40);
@@ -210,12 +199,12 @@ public class PlayerOne extends StartHere
                        doneMoves.setBackground(Color.green);
                        doneMoves.setForeground(Color.white);
                        doneMoves.setFont(new Font("Arial", Font.BOLD, 30));
-                       //Continue game to player two Pokemon selection screen.
+                       // Continue game to player two Pokemon selection screen.
                        doneMoves.addActionListener(new ActionListener() {
                            @Override
                            public void actionPerformed(ActionEvent e) {
 
-                               //Starts Player Two Pokemon Selection
+                               // Starts Player Two Pokemon Selection
                                PlayerTwo.PCharTwo();
                            }
                        });
@@ -261,6 +250,26 @@ public class PlayerOne extends StartHere
             throw new IllegalArgumentException
                     ("Number of moves for MoveDisabler exceeds or is less than the number of available moves for the Pokemon");
         }
+    }
+
+    public static JCheckBox[] getBulbasaurMoves () {
+        return bulbasaurMoves;
+    }
+
+    public static JCheckBox[] getCharmanderMoves () {
+        return charmanderMoves;
+    }
+
+    public static JCheckBox[] getCharmeleonMoves () {
+        return charmeleonMoves;
+    }
+
+    public static JCheckBox[] getCharizardMoves () {
+        return charizardMoves;
+    }
+
+    public static JCheckBox[] getSquirtleMoves () {
+        return squirtleMoves;
     }
 
 }

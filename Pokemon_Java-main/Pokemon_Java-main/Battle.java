@@ -211,63 +211,63 @@ public class Battle extends StartHere
             final Attack dragonclaw = new DamageAttack("Dragon Claw", PokemonType.DRAGON,80,1);
 
             // Create Bulbasaur for player one
-            JCheckBox[] bulbasaurMoves = {tackleBox, vineWhipBox, sleepPowderBox, takeDownBox, razorLeafBox};
+            JCheckBox[] bulbasaurMoves = PlayerOne.getBulbasaurMoves();
             Attack[] bulbasaurAttMoves = {tackle, vinewhip, sleeppowder, takedown, razorleaf};
             Pokemon_Abilities bulbasaur = createPokeChar(bulbasaurMoves, bulbasaurAttMoves, "Bulbasaur",
                     PokemonType.GRASS, PokemonType.POISON, 294, "Overgrow", pokemonNick);
 
 
             // Create Bulbasaur for cpu
-            JCheckBox[] bulbasaur2Moves = {tackle2Box, vineWhip2Box, sleepPowder2Box, takeDown2Box, razorLeaf2Box};
+            JCheckBox[] bulbasaur2Moves = PlayerTwo.getBulbasaurMoves();
             Attack[] bulbasaur2AttMoves = {tackle, vinewhip, sleeppowder, takedown, razorleaf};
             Pokemon_Abilities bulbasaur2 = createPokeChar(bulbasaur2Moves, bulbasaur2AttMoves, "Bulbasaur",
                     PokemonType.GRASS, PokemonType.POISON, 294, "Overgrow", pokemon2Nick);
 
 
             // Create Player One Charmander
-            JCheckBox[] charmanderMoves = {scratchBox, emberBox, dragonBreathBox, fireFangBox, slashBox};
+            JCheckBox[] charmanderMoves = PlayerOne.getCharmanderMoves();
             Attack[] charmanderAttMoves = {scratch, ember, dragonbreath, firefang, slash};
             Pokemon_Abilities charmander = createPokeChar(charmanderMoves, charmanderAttMoves, "Charmander",
                     PokemonType.FIRE, PokemonType.FIRE, 282, "Blaze", pokemonNick);
 
             // Create CPU Charmander
-            JCheckBox[] charmander2Moves = {scratch2Box, ember2Box, dragonBreath2Box, fireFang2Box, slash2Box};
+            JCheckBox[] charmander2Moves = PlayerTwo.getCharmanderMoves();
             Attack[] charmander2AttMoves = {scratch, ember, dragonbreath, firefang, slash};
             Pokemon_Abilities charmander2 = createPokeChar(charmander2Moves, charmander2AttMoves, "Charmander",
                     PokemonType.FIRE, PokemonType.FIRE, 282, "Blaze", pokemon2Nick);
 
             // Create Player One Charmeleon
-            JCheckBox[] charmeleonMoves = {dragonBreathBox, fireFangBox, slashBox, flamethrowerBox, fireSpinBox};
+            JCheckBox[] charmeleonMoves = PlayerOne.getCharmeleonMoves();
             Attack[] charmeleonAttMoves = {dragonbreath, firefang, slash, flamethrower, firefang};
             Pokemon_Abilities charmeleon = createPokeChar(charmeleonMoves, charmeleonAttMoves, "Charmeleon",
                     PokemonType.FIRE, PokemonType.FIRE, 320, "Blaze", pokemonNick);
 
             // Create CPU Charmeleon
-            JCheckBox[] charmeleon2Moves = {dragonBreath2Box, fireFang2Box, slash2Box, flamethrower2Box, fireSpin2Box};
+            JCheckBox[] charmeleon2Moves = PlayerTwo.getCharmeleonMoves();
             Attack[] charmeleon2AttMoves = {dragonbreath, firefang, slash, flamethrower, firefang};
             Pokemon_Abilities charmeleon2 = createPokeChar(charmeleon2Moves, charmeleon2AttMoves, "Charmeleon",
                     PokemonType.FIRE, PokemonType.FIRE, 320, "Blaze", pokemon2Nick);
 
             // Create Player One Charizard
-            JCheckBox[] charizardMoves = {airSlashBox, dragonClawBox, flamethrowerBox, infernoBox, flareBlitzBox};
+            JCheckBox[] charizardMoves = PlayerOne.getCharizardMoves();;
             Attack[] charizardAttMoves = {airslash, dragonclaw, flamethrower, inferno, flareblitz};
             Pokemon_Abilities charizard = createPokeChar(charizardMoves, charizardAttMoves, "Charizard",
                     PokemonType.FIRE, PokemonType.FIRE, 360, "Blaze", pokemonNick);
 
             // Create CPU Charizard
-            JCheckBox[] charizard2Moves = {airSlash2Box, dragonClaw2Box, flamethrower2Box, inferno2Box, flareBlitz2Box};
+            JCheckBox[] charizard2Moves = PlayerTwo.getCharizardMoves();
             Attack[] charizard2AttMoves = {airslash, dragonclaw, flamethrower, inferno, flareblitz};
             Pokemon_Abilities charizard2 = createPokeChar(charizard2Moves, charizard2AttMoves, "Charizard",
                     PokemonType.FIRE, PokemonType.FIRE, 360, "Blaze", pokemon2Nick);
 
             // Create Player One Squirtle
-            JCheckBox[] squirtleMoves = {tackleBox, bubbleBox, waterGunBox, biteBox, bubbleBeamBox};
+            JCheckBox[] squirtleMoves = PlayerOne.getSquirtleMoves();
             Attack[] squirtleAttMoves = {tackle, bubble, watergun, bite, bubblebeam};
             Pokemon_Abilities squirtle = createPokeChar(squirtleMoves, squirtleAttMoves, "Squirtle",
                     PokemonType.WATER, PokemonType.WATER, 292, "Torrent", pokemonNick);
 
             // Create CPU Squirtle
-            JCheckBox[] squirtle2Moves = {tackle2Box, bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box};
+            JCheckBox[] squirtle2Moves = PlayerTwo.getSquirtleMoves();;
             Attack[] squirtle2AttMoves = {tackle, bubble, watergun, bite, bubblebeam};
             Pokemon_Abilities squirtle2 = createPokeChar(squirtle2Moves, squirtle2AttMoves, "Squirtle",
                     PokemonType.WATER, PokemonType.WATER, 292, "Torrent", pokemon2Nick);
@@ -471,15 +471,15 @@ public class Battle extends StartHere
             List<Attack> Moves = Pone.getAttacks();
 
             //Depending on the number of attacks added to the Pokemon this for loop will add Buttons so the user could decide what attack to use.
-            for(int movedraw=0; movedraw<Moves.size(); movedraw++)
+            for(int movedraw = 0; movedraw < Moves.size(); movedraw++)
             {
                 //Create an attack button if Pokemon has a move.
-                if (movedraw==0)
+                if (movedraw == 0)
                 {
                     Attack Movack = Moves.get(movedraw);
 
                     FirstMove.setLabel(Movack.getName());
-                    //Get Button color depending on attack pokemon typing.
+                    //Get Button color depending on attack Pokemon typing.
                     Color ColorMove = MoreColor(Movack);
                     FirstMove.setBackground(ColorMove);
                     FirstMove.setBounds(0,0,142,46);
@@ -490,7 +490,7 @@ public class Battle extends StartHere
                 }
 
                 //Create two attack buttons if Pokemon has two moves.
-                if (movedraw==1)
+                if (movedraw == 1)
                 {
                     Attack Movack = Moves.get(movedraw);
 
@@ -521,7 +521,7 @@ public class Battle extends StartHere
                 }
 
                 //Create four attack buttons if Pokemon has four moves.
-                if (movedraw==3)
+                if (movedraw == 3)
                 {
                     Attack Movack = Moves.get(movedraw);
 
@@ -583,13 +583,13 @@ public class Battle extends StartHere
                     //Remove these three things so the game doesn't use these again.
                     PlayerTwo.TextBox.remove(P7Fight);
                     P7Fight.removeActionListener(Fight);
-                NextBattle.removeActionListener(Fight);
+                    NextBattle.removeActionListener(Fight);
 
-                //CPU attacks player one.
-                takeTurn2(Ptwo, Pone);
+                    //CPU attacks player one.
+                    takeTurn2(Ptwo, Pone);
 
 
-                // if CPU has fainted, player one wins and battle ends.
+                    // if CPU has fainted, player one wins and battle ends.
                     if (Ptwo.hasFainted()) {
                         //Remove these Button and action listeners to make the game not reuse them again.
                         P2Fight.removeActionListener(FighterP2);
@@ -832,7 +832,7 @@ public class Battle extends StartHere
                 return;
             }
             //If ASleepTurn equals 3 Pokemon wakes up.
-            if(ASleepTurn==3)
+            if(ASleepTurn == 3)
             {
                 //ASleepTurn counter restarts
                 ASleepTurn=0;
@@ -901,7 +901,7 @@ public class Battle extends StartHere
                                 Attack attack = attacker.chooseAttack();
 
                                 //If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
-                                if (attacker.hasHealth1_3()&&attacker.getAbility().equals("Blaze")&&attack.getType() == PokemonType.FIRE) {
+                                if (attacker.hasHealth1_3() && attacker.getAbility().equals("Blaze") && attack.getType() == PokemonType.FIRE) {
 
                                             //Remove BattleText to add new information about the battle.
                                             PlayerTwo.TextBox.remove(BattleText);
@@ -1273,7 +1273,7 @@ public class Battle extends StartHere
                     Attack attack = attacker.chooseAttack();
 
                     //If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
-                     if (attacker.hasHealth1_3()&&attacker.getAbility().equals("Blaze")&&attack.getType() == PokemonType.FIRE) {
+                     if (attacker.hasHealth1_3() &&attacker.getAbility().equals("Blaze") && attack.getType() == PokemonType.FIRE) {
                                 //Remove BattleText to add new information about the battle.
                                 PlayerTwo.TextBox.remove(BattleText);
                                 PlayerTwo.TextBox.repaint();
@@ -1357,7 +1357,7 @@ public class Battle extends StartHere
                             }
 
                      //If Pokemon has 1/3 of health and ability is Overgrow and the attack type is grass the damage will get boosted.
-                    else if (attacker.hasHealth1_3()&&attacker.getAbility().equals("Overgrow")&&attack.getType() == PokemonType.GRASS) {
+                    else if (attacker.hasHealth1_3() && attacker.getAbility().equals("Overgrow") && attack.getType() == PokemonType.GRASS) {
                                 //Remove BattleText to add new information about the battle.
                                 PlayerTwo.TextBox.remove(BattleText);
                                 PlayerTwo.TextBox.repaint();

@@ -35,30 +35,14 @@ public class PlayerTwo extends StartHere
     public static Panel TextBox;
     //This Panel contains the Pokemon attacks buttons.
     public static Panel MovesBox;
+    private static JCheckBox[] bulbasaurMoves;
+    private static JCheckBox[] charmanderMoves;
+    private static JCheckBox[] charmeleonMoves;
+    private static JCheckBox[] charizardMoves;
+    private static JCheckBox[] squirtleMoves;
     //This method creates the Pokemon on the gui based on what buttons are clicked.
     public static void PCharTwo()
     {
-        scratch2Box = new JCheckBox("Scratch");
-        ember2Box = new JCheckBox("Ember");
-        dragonBreath2Box = new JCheckBox("Dragon Breath");
-        fireFang2Box = new JCheckBox("Fire Fang");
-        slash2Box = new JCheckBox("Slash");
-        flamethrower2Box = new JCheckBox("Flamethrower");
-        fireSpin2Box = new JCheckBox("Fire Spin");
-        airSlash2Box = new JCheckBox("Air Slash");
-        dragonClaw2Box = new JCheckBox("Dragon Claw");
-        inferno2Box = new JCheckBox("Inferno");
-        flareBlitz2Box = new JCheckBox("Flare Blitz");
-        tackle2Box = new JCheckBox("Tackle");
-        vineWhip2Box = new JCheckBox("Vine Whip");
-        sleepPowder2Box = new JCheckBox("Sleep Powder");
-        takeDown2Box = new JCheckBox("Take Down");
-        razorLeaf2Box = new JCheckBox("Razor Leaf");
-        bubble2Box = new JCheckBox("Bubble");
-        waterGun2Box = new JCheckBox("Water Gun");
-        bite2Box = new JCheckBox("Bite");
-        bubbleBeam2Box = new JCheckBox("Bubble Beam");
-
         pokemonPanel.removeAll();
         pokemonPanel.repaint();
 
@@ -72,7 +56,8 @@ public class PlayerTwo extends StartHere
                 Color.green, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] bulbasaurMoves = {tackle2Box, vineWhip2Box, sleepPowder2Box, takeDown2Box, razorLeaf2Box};
+        bulbasaurMoves = new JCheckBox[] {new JCheckBox("Tackle"), new JCheckBox("Vine Whip"),
+                new JCheckBox("Sleep Powder"), new JCheckBox("Take Down"), new JCheckBox("Razor Leaf")};
         Color[] bulbasaurColors = {Color.lightGray, Color.green, Color.green, Color.lightGray, Color.green};
         addPokeButtonListener(bulbasaurBTN, 1, bulbasaurMoves, bulbasaurColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -83,7 +68,8 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charmanderMoves = {scratch2Box, ember2Box, dragonBreath2Box, fireFang2Box, slash2Box};
+        charmanderMoves = new JCheckBox[] {new JCheckBox("Scratch"), new JCheckBox("Ember"),
+                new JCheckBox("Dragon Breath"), new JCheckBox("Fire Fang"), new JCheckBox("Slash")};
         Color[] charmanderColors = {Color.lightGray, Color.red, getBlueviolet(), Color.red, Color.lightGray};
         addPokeButtonListener(charmanderBTN, 4, charmanderMoves, charmanderColors);
 
@@ -95,7 +81,8 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charmeleonMoves = {dragonBreath2Box, fireFang2Box, slash2Box, flamethrower2Box, fireSpin2Box};
+        charmeleonMoves = new JCheckBox[] {new JCheckBox("Dragon Breath"), new JCheckBox("Fire Fang"),
+                new JCheckBox("Slash"), new JCheckBox("Flamethrower"), new JCheckBox("Fire Spin")};
         Color[] charmeleonColors = {getBlueviolet(), Color.red, Color.lightGray, Color.red, Color.red};
         addPokeButtonListener(charmeleonBTN, 5, charmeleonMoves, charmeleonColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -107,7 +94,8 @@ public class PlayerTwo extends StartHere
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charizardBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] charizardMoves = {airSlash2Box, dragonClaw2Box, flamethrower2Box, inferno2Box, flareBlitz2Box};
+        charizardMoves = new JCheckBox[] {new JCheckBox("Air Slash"), new JCheckBox("Dragon Claw"),
+                new JCheckBox("Flamethrower"), new JCheckBox("Inferno"), new JCheckBox("Flare Blitz")};
         Color[] charizardColors = {Color.cyan, getBlueviolet(), Color.red, Color.red, Color.red};
         addPokeButtonListener(charizardBTN, 6, charizardMoves, charizardColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -118,7 +106,8 @@ public class PlayerTwo extends StartHere
                 Color.blue, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
-        JCheckBox[] squirtleMoves = {tackle2Box, bubble2Box, waterGun2Box, bite2Box, bubbleBeam2Box};
+        squirtleMoves = new JCheckBox[] {new JCheckBox("Tackle"), new JCheckBox("Bubble"),
+                new JCheckBox("Water Gun"), new JCheckBox("Bite"), new JCheckBox("Bubble Beam")};
         Color[] squirtleColors = {Color.lightGray, Color.blue, Color.blue, Color.black, Color.blue};
         addPokeButtonListener(squirtleBTN, 7, squirtleMoves, squirtleColors);
         //Add Pokemon Buttons to pokemonPanel here
@@ -263,6 +252,26 @@ public class PlayerTwo extends StartHere
             }
         });
         return btn;
+    }
+
+    public static JCheckBox[] getBulbasaurMoves () {
+        return bulbasaurMoves;
+    }
+
+    public static JCheckBox[] getCharmanderMoves () {
+        return charmanderMoves;
+    }
+
+    public static JCheckBox[] getCharmeleonMoves () {
+        return charmeleonMoves;
+    }
+
+    public static JCheckBox[] getCharizardMoves () {
+        return charizardMoves;
+    }
+
+    public static JCheckBox[] getSquirtleMoves () {
+        return squirtleMoves;
     }
 
 }
