@@ -36,10 +36,10 @@ public class Battle extends StartHere
     public static JLabel BattleText;
 
     //These four buttons will be the moves that will show up to the user to select to attack the defending Pokemon.
-    public static Button FirstMove=new Button();
-    public static Button SecondMove=new Button();
-    public static Button ThirdMove=new Button();
-    public static Button FourthMove=new Button();
+    public static Button FirstMove = new Button();
+    public static Button SecondMove = new Button();
+    public static Button ThirdMove = new Button();
+    public static Button FourthMove = new Button();
 
     //These Buttons make the battle sequence continue.
     public static Button NextBattle = new Button();
@@ -622,12 +622,8 @@ public class Battle extends StartHere
                         PlayerTwo.TextBox.add(BattleText);
                         PlayerTwo.TextBox.remove(NextBattle);
 
-                        //Disable Pokemon Moves buttons so they don't interfere with the game.
-                        FirstMove.disable();
-                        SecondMove.disable();
-                        ThirdMove.disable();
-                        FourthMove.disable();
-
+                        //Disable Pokemon Moves buttons, so they don't interfere with the game.
+                        disablePOneMoves();
 
                         NextBattle.setLabel("Continue");
                         //Remove this action listener to make the game not reuse it again.
@@ -638,23 +634,20 @@ public class Battle extends StartHere
                         HereWeGoAgain = new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                //Remove this action listeners to make the game not reuse it again.
+                                // Remove this action listeners to make the game not reuse it again.
                                 NextBattle.removeActionListener(HereWeGoAgain);
 
                                 pokemonPanel.removeAll();
                                 pokemonPanel.remove(rectanglePanel);
                                 pokemonPanel.repaint();
 
-                                //Re-enable Pokemon attack buttons to select a move to attack with.
-                                FirstMove.enable();
-                                SecondMove.enable();
-                                ThirdMove.enable();
-                                FourthMove.enable();
+                                // Re-enable Pokemon attack buttons to select a move to attack with.
+                                enablePOneMoves();
 
-                                //Indicates that this is not the games first run.
+                                // Indicates that this is not the games first run.
                                 gameState = false;
 
-                                //Restart the game.
+                                // Restart the game.
                                 StartHere.main(null);
                             }
                         };
@@ -668,29 +661,23 @@ public class Battle extends StartHere
           };
 
         NextBattle.addActionListener(Fight);
-        //Disable Pokemon Moves buttons so they don't interfere with the game.
-        FirstMove.disable();
-        SecondMove.disable();
-        ThirdMove.disable();
-        FourthMove.disable();
-        //Enable button to continue with the battle.
+        // Disable Pokemon Moves buttons, so they don't interfere with the game.
+        disablePOneMoves();
+        // Enable button to continue with the battle.
         NextBattle.enable();
 
-        //These action listeners are for when an attack is selected.
+        // These action listeners are for when an attack is selected.
 
-        Move1= new ActionListener() {
+        Move1 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Enable button or buttons to continue with the battle.
+                // Enable button or buttons to continue with the battle.
                 P5Fight.enable();
                 NextBattle.enable();
-                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                FirstMove.disable();
-                SecondMove.disable();
-                ThirdMove.disable();
-                FourthMove.disable();
+                // Disable Pokemon Moves buttons so they don't interfere with the game.
+                disablePOneMoves();
 
-                //The first move is selected.
+                // The first move is selected.
                 Movenumber=1;
 
             }
@@ -699,15 +686,12 @@ public class Battle extends StartHere
         Move2= new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Enable button or buttons to continue with the battle.
+                // Enable button or buttons to continue with the battle.
                 P5Fight.enable();
                 NextBattle.enable();
-                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                FirstMove.disable();
-                SecondMove.disable();
-                ThirdMove.disable();
-                FourthMove.disable();
-                //The second move is selected.
+                // Disable Pokemon Moves buttons so they don't interfere with the game.
+                disablePOneMoves();
+                // The second move is selected.
                 Movenumber=2;
 
             }
@@ -718,15 +702,12 @@ public class Battle extends StartHere
         Move3= new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Enable button or buttons to continue with the battle.
+                // Enable button or buttons to continue with the battle.
                 P5Fight.enable();
                 NextBattle.enable();
-                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                FirstMove.disable();
-                SecondMove.disable();
-                ThirdMove.disable();
-                FourthMove.disable();
-                //The third move is selected.
+                // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                disablePOneMoves();
+                // The third move is selected.
                 Movenumber=3;
 
             }
@@ -741,10 +722,7 @@ public class Battle extends StartHere
                 P5Fight.enable();
                 NextBattle.enable();
                 // Disable Pokemon Moves buttons so they don't interfere with the game.
-                FirstMove.disable();
-                SecondMove.disable();
-                ThirdMove.disable();
-                FourthMove.disable();
+                disablePOneMoves();
                 //The fourth move is selected.
                 Movenumber=4;
             }
@@ -867,7 +845,7 @@ public class Battle extends StartHere
                         PlayerTwo.TextBox.add(BattleText);
                         PlayerTwo.TextBox.repaint();
 
-                        //Add new button to continue the battle.
+                        // Add new button to continue the battle.
                         P5Fight.setLabel("Next");
                         P5Fight.setForeground(Color.white);
                         P5Fight.setBackground(Color.green);
@@ -875,35 +853,29 @@ public class Battle extends StartHere
                         P5Fight.setBounds(230, 60, 70, 30);
                         PlayerTwo.TextBox.add(P5Fight);
 
-                        //Disable button to not interfere with Move Choice.
+                        // Disable button to not interfere with Move Choice.
                         P5Fight.disable();
 
-                        //Re-enable Pokemon attack buttons to select a move to attack with.
-                        FirstMove.enable();
-                        SecondMove.enable();
-                        ThirdMove.enable();
-                        FourthMove.enable();
+                        // Re-enable Pokemon attack buttons to select a move to attack with.
+                        enablePOneMoves();
 
-                        //Continue Battle
+                        // Continue Battle
                         FighterP5 = new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                //Remove these action listeners and buttons to make the game not reuse them again.
+                                // Remove these action listeners and buttons to make the game not reuse them again.
                                 P5Fight.removeActionListener(FighterP5);
                                 PlayerTwo.TextBox.remove(P5Fight);
-                                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                FirstMove.disable();
-                                SecondMove.disable();
-                                ThirdMove.disable();
-                                FourthMove.disable();
+                                // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                disablePOneMoves();
 
-                                //Define attack that will be used based on which attack button was clicked.
+                                // Define attack that will be used based on which attack button was clicked.
                                 Attack attack = attacker.chooseAttack();
 
-                                //If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
+                                // If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
                                 if (attacker.hasHealth1_3() && attacker.getAbility().equals("Blaze") && attack.getType() == PokemonType.FIRE) {
 
-                                            //Remove BattleText to add new information about the battle.
+                                            // Remove BattleText to add new information about the battle.
                                             PlayerTwo.TextBox.remove(BattleText);
                                             PlayerTwo.TextBox.repaint();
                                             BattleText.setText("<html>"+attacker.getNickname() + " ability " + attacker.getAbility() + ":<br/>Fire type moves damage<br/>are boosted!<html>");
@@ -1247,41 +1219,35 @@ public class Battle extends StartHere
             P5Fight.setBounds(230, 60, 70, 30);
             PlayerTwo.TextBox.add(P5Fight);
 
-            //Disable button to not interfere with Move Choice.
+            // Disable button to not interfere with Move Choice.
             P5Fight.disable();
 
-            //Re-enable Pokemon attack buttons to select a move to attack with.
-            FirstMove.enable();
-            SecondMove.enable();
-            ThirdMove.enable();
-            FourthMove.enable();
+            // Re-enable Pokemon attack buttons to select a move to attack with.
+            enablePOneMoves();
 
-            //Continue Battle
+            // Continue Battle
             FighterP5 = new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //Remove these action listeners and buttons to make the game not reuse them again.
+                    // Remove these action listeners and buttons to make the game not reuse them again.
                     P5Fight.removeActionListener(FighterP5);
                     PlayerTwo.TextBox.remove(P5Fight);
-                    //Disable Pokemon Moves buttons so they don't interfere with the game.
-                    FirstMove.disable();
-                    SecondMove.disable();
-                    ThirdMove.disable();
-                    FourthMove.disable();
+                    // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                    disablePOneMoves();
 
-                    //Define attack that will be used based on which attack button was clicked.
+                    // Define attack that will be used based on which attack button was clicked.
                     Attack attack = attacker.chooseAttack();
 
-                    //If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
+                    // If Pokemon has 1/3 of health and ability is Blaze and the attack type is fire the damage will get boosted.
                      if (attacker.hasHealth1_3() &&attacker.getAbility().equals("Blaze") && attack.getType() == PokemonType.FIRE) {
-                                //Remove BattleText to add new information about the battle.
+                                // Remove BattleText to add new information about the battle.
                                 PlayerTwo.TextBox.remove(BattleText);
                                 PlayerTwo.TextBox.repaint();
                                 BattleText.setText("<html>"+attacker.getNickname() + " ability " + attacker.getAbility() + ":<br/>Fire type moves damage<br/>are boosted!<html>");
                                 PlayerTwo.TextBox.add(BattleText);
                                 PlayerTwo.TextBox.repaint();
 
-                                //Add new button to continue the battle.
+                                // Add new button to continue the battle.
                                 P5Fightsub2.setLabel("Next");
                                 P5Fightsub2.setForeground(Color.white);
                                 P5Fightsub2.setBackground(Color.green);
@@ -1653,49 +1619,41 @@ public class Battle extends StartHere
                             P23Fightsub2.removeActionListener(FighterP23sub2);
                             PlayerTwo.TextBox.remove(P23Fightsub2);
                             PlayerTwo.PokemonBox.remove(ImageBox);
-                            //Remove BattleText to add new information about the battle.
+                            // Remove BattleText to add new information about the battle.
                             PlayerTwo.TextBox.remove(BattleText);
                             PlayerTwo.TextBox.repaint();
-                            //Set BattleText to show that the pokemon has fainted and who won.
+                            // Set BattleText to show that the pokemon has fainted and who won.
                             BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                             PlayerTwo.TextBox.add(BattleText);
-                            //Disable Pokemon Moves buttons so they don't interfere with the game.
-                            FirstMove.disable();
-                            SecondMove.disable();
-                            ThirdMove.disable();
-                            FourthMove.disable();
+                            // Disable Pokemon Moves buttons so they don't interfere with the game.
+                            disablePOneMoves();
 
                             NextBattle.setLabel("Continue");
-                            //Remove these action listeners and buttons to make the game not reuse them again.
+                            // Remove these action listeners and buttons to make the game not reuse them again.
                             NextBattle.removeActionListener(Fight);
                             pokemonPanel.repaint();
-                            //Repeat the whole entire game.
+                            // Repeat the whole entire game.
                             HereWeGoAgain = new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    //Remove these action listeners and buttons to make the game not reuse them again.
+                                    // Remove these action listeners and buttons to make the game not reuse them again.
                                     NextBattle.removeActionListener(HereWeGoAgain);
 
                                     pokemonPanel.removeAll();
                                     pokemonPanel.remove(rectanglePanel);
                                     pokemonPanel.repaint();
 
-                                    //Re-enable Pokemon attack buttons to select a move to attack with.
-                                    FirstMove.enable();
-                                    SecondMove.enable();
-                                    ThirdMove.enable();
-                                    FourthMove.enable();
-                                    //Indicates that this is not the games first run.
+                                    // Re-enable Pokemon attack buttons to select a move to attack with.
+                                    enablePOneMoves();
+                                    // Indicates that this is not the games first run.
                                     gameState = false;
-                                    //Restart the game.
+                                    // Restart the game.
                                     StartHere.main(null);
 
                                 }
                             };
                             NextBattle.addActionListener(HereWeGoAgain);
                             PlayerTwo.TextBox.add(NextBattle);
-
-
                             return;
                         }
                     }
@@ -1868,50 +1826,41 @@ public class Battle extends StartHere
                                                                 PlayerTwo.TextBox.remove(P23Fightsub2);
                                                                 PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                                //Remove BattleText to add new information about the battle.
+                                                                // Remove BattleText to add new information about the battle.
                                                                 PlayerTwo.TextBox.remove(BattleText);
                                                                 PlayerTwo.TextBox.repaint();
-                                                                //Set BattleText to show that the pokemon has fainted and who won.
+                                                                // Set BattleText to show that the pokemon has fainted and who won.
                                                                 BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                                 PlayerTwo.TextBox.add(BattleText);
 
-                                                                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                                FirstMove.disable();
-                                                                SecondMove.disable();
-                                                                ThirdMove.disable();
-                                                                FourthMove.disable();
+                                                                // Disable Pokemon Moves buttons so they don't interfere with the game.
+                                                                disablePOneMoves();
 
                                                                 NextBattle.setLabel("Continue");
-                                                                //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                // Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
                                                                 pokemonPanel.repaint();
-                                                                //Repeat the whole entire game.
+                                                                // Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
                                                                     public void actionPerformed(ActionEvent e) {
-                                                                        //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                        // Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
                                                                         pokemonPanel.removeAll();
                                                                         pokemonPanel.remove(rectanglePanel);
                                                                         pokemonPanel.repaint();
 
-                                                                        //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                                        FirstMove.enable();
-                                                                        SecondMove.enable();
-                                                                        ThirdMove.enable();
-                                                                        FourthMove.enable();
-                                                                        //Indicates that this is not the games first run.
+                                                                        // Re-enable Pokemon attack buttons to select a move to attack with.
+                                                                        enablePOneMoves();
+                                                                        // Indicates that this is not the games first run.
                                                                         gameState = false;
-                                                                        //Restart the game.
+                                                                        // Restart the game.
                                                                         StartHere.main(null);
-
                                                                     }
                                                                 };
                                                                 NextBattle.addActionListener(HereWeGoAgain);
                                                                 PlayerTwo.TextBox.add(NextBattle);
-
-
                                                                 return;
                                                             }
                                                         }
@@ -1925,7 +1874,7 @@ public class Battle extends StartHere
                                     P23Fightsub2.addActionListener(FighterP23sub2);
                                 }
 
-                                //If Pokemon has 1/3 of health and ability is Overgrow and the attack type is grass the damage will get boosted.
+                                // If Pokemon has 1/3 of health and ability is Overgrow and the attack type is grass the damage will get boosted.
                                 else if (attacker.hasHealth1_3() && attacker.getAbility().equals("Overgrow") && attack.getType() == PokemonType.GRASS) {
                                     //Remove BattleText to add new information about the battle.
                                     PlayerTwo.TextBox.remove(BattleText);
@@ -2031,50 +1980,41 @@ public class Battle extends StartHere
                                                                 PlayerTwo.TextBox.remove(P23Fightsub2);
                                                                 PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                                //Remove BattleText to add new information about the battle.
+                                                                // Remove BattleText to add new information about the battle.
                                                                 PlayerTwo.TextBox.remove(BattleText);
                                                                 PlayerTwo.TextBox.repaint();
-                                                                //Set BattleText to show that the pokemon has fainted and who won.
+                                                                // Set BattleText to show that the pokemon has fainted and who won.
                                                                 BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                                 PlayerTwo.TextBox.add(BattleText);
 
-                                                                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                                FirstMove.disable();
-                                                                SecondMove.disable();
-                                                                ThirdMove.disable();
-                                                                FourthMove.disable();
+                                                                // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                                disablePOneMoves();
 
                                                                 NextBattle.setLabel("Continue");
-                                                                //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                // Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
                                                                 pokemonPanel.repaint();
-                                                                //Repeat the whole entire game.
+                                                                // Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
                                                                     public void actionPerformed(ActionEvent e) {
-                                                                        //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                        // Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
                                                                         pokemonPanel.removeAll();
                                                                         pokemonPanel.remove(rectanglePanel);
                                                                         pokemonPanel.repaint();
 
-                                                                        //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                                        FirstMove.enable();
-                                                                        SecondMove.enable();
-                                                                        ThirdMove.enable();
-                                                                        FourthMove.enable();
-                                                                        //Indicates that this is not the games first run.
+                                                                        // Re-enable Pokemon attack buttons to select a move to attack with.
+                                                                        enablePOneMoves();
+                                                                        // Indicates that this is not the games first run.
                                                                         gameState = false;
-                                                                        //Restart the game.
+                                                                        // Restart the game.
                                                                         StartHere.main(null);
-
                                                                     }
                                                                 };
                                                                 NextBattle.addActionListener(HereWeGoAgain);
                                                                 PlayerTwo.TextBox.add(NextBattle);
-
-
                                                                 return;
                                                             }
                                                         }
@@ -2193,49 +2133,40 @@ public class Battle extends StartHere
                                                                 PlayerTwo.TextBox.remove(P23Fightsub2);
                                                                 PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                                //Remove BattleText to add new information about the battle.
+                                                                // Remove BattleText to add new information about the battle.
                                                                 PlayerTwo.TextBox.remove(BattleText);
                                                                 PlayerTwo.TextBox.repaint();
-                                                                //Set BattleText to show that the pokemon has fainted and who won.
+                                                                // Set BattleText to show that the pokemon has fainted and who won.
                                                                 BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                                 PlayerTwo.TextBox.add(BattleText);
 
-                                                                //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                                FirstMove.disable();
-                                                                SecondMove.disable();
-                                                                ThirdMove.disable();
-                                                                FourthMove.disable();
+                                                                // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                                disablePOneMoves();
 
                                                                 NextBattle.setLabel("Continue");
-                                                                //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                // Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(Fight);
                                                                 pokemonPanel.repaint();
-                                                                //Repeat the whole entire game.
+                                                                // Repeat the whole entire game.
                                                                 HereWeGoAgain = new ActionListener() {
                                                                     @Override
                                                                     public void actionPerformed(ActionEvent e) {
-                                                                        //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                        // Remove these action listeners and buttons to make the game not reuse them again.
                                                                         NextBattle.removeActionListener(HereWeGoAgain);
 
                                                                         pokemonPanel.removeAll();
                                                                         pokemonPanel.remove(rectanglePanel);
                                                                         pokemonPanel.repaint();
-                                                                        //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                                        FirstMove.enable();
-                                                                        SecondMove.enable();
-                                                                        ThirdMove.enable();
-                                                                        FourthMove.enable();
-                                                                        //Indicates that this is not the games first run.
+                                                                        // Re-enable Pokemon attack buttons to select a move to attack with.
+                                                                        enablePOneMoves();
+                                                                        // Indicates that this is not the games first run.
                                                                         gameState = false;
-                                                                        //Restart the game.
+                                                                        // Restart the game.
                                                                         StartHere.main(null);
-
                                                                     }
                                                                 };
                                                                 NextBattle.addActionListener(HereWeGoAgain);
                                                                 PlayerTwo.TextBox.add(NextBattle);
-
-
                                                                 return;
                                                             }
                                                         }
@@ -2332,50 +2263,41 @@ public class Battle extends StartHere
                                                         PlayerTwo.TextBox.remove(P23Fightsub2);
                                                         PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                        //Remove BattleText to add new information about the battle.
+                                                        // Remove BattleText to add new information about the battle.
                                                         PlayerTwo.TextBox.remove(BattleText);
                                                         PlayerTwo.TextBox.repaint();
-                                                        //Set BattleText to show that the pokemon has fainted and who won.
+                                                        // Set BattleText to show that the pokemon has fainted and who won.
                                                         BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                         PlayerTwo.TextBox.add(BattleText);
 
-                                                        //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                        FirstMove.disable();
-                                                        SecondMove.disable();
-                                                        ThirdMove.disable();
-                                                        FourthMove.disable();
+                                                        // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                        disablePOneMoves();
 
                                                         NextBattle.setLabel("Continue");
-                                                        //Remove these action listeners and buttons to make the game not reuse them again.
+                                                        // Remove these action listeners and buttons to make the game not reuse them again.
                                                         NextBattle.removeActionListener(Fight);
                                                         pokemonPanel.repaint();
-                                                        //Repeat the whole entire game.
+                                                        // Repeat the whole entire game.
                                                         HereWeGoAgain = new ActionListener() {
                                                             @Override
                                                             public void actionPerformed(ActionEvent e) {
-                                                                //Remove these action listeners and buttons to make the game not reuse them again.
+                                                                // Remove these action listeners and buttons to make the game not reuse them again.
                                                                 NextBattle.removeActionListener(HereWeGoAgain);
 
                                                                 pokemonPanel.removeAll();
                                                                 pokemonPanel.remove(rectanglePanel);
                                                                 pokemonPanel.repaint();
-                                                                //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                                FirstMove.enable();
-                                                                SecondMove.enable();
-                                                                ThirdMove.enable();
-                                                                FourthMove.enable();
-                                                                //Indicates that this is not the games first run.
+                                                                // Re-enable Pokemon attack buttons to select a move to attack with.
+                                                                enablePOneMoves();
+                                                                // Indicates that this is not the games first run.
                                                                 gameState = false;
 
-                                                                //Restart the game.
+                                                                // Restart the game.
                                                                 StartHere.main(null);
-
                                                             }
                                                         };
                                                         NextBattle.addActionListener(HereWeGoAgain);
                                                         PlayerTwo.TextBox.add(NextBattle);
-
-
                                                         return;
                                                     }
                                                 }
@@ -2524,50 +2446,41 @@ public class Battle extends StartHere
                                                     PlayerTwo.TextBox.remove(P23Fightsub2);
                                                     PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                    //Remove BattleText to add new information about the battle.
+                                                    // Remove BattleText to add new information about the battle.
                                                     PlayerTwo.TextBox.remove(BattleText);
                                                     PlayerTwo.TextBox.repaint();
-                                                    //Set BattleText to show that the pokemon has fainted and who won.
+                                                    // Set BattleText to show that the pokemon has fainted and who won.
                                                     BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                     PlayerTwo.TextBox.add(BattleText);
 
-                                                    //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                    FirstMove.disable();
-                                                    SecondMove.disable();
-                                                    ThirdMove.disable();
-                                                    FourthMove.disable();
+                                                    // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                    disablePOneMoves();
 
                                                     NextBattle.setLabel("Continue");
-                                                    //Remove these action listeners and buttons to make the game not reuse them again.
+                                                    // Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
                                                     pokemonPanel.repaint();
 
-                                                    //Repeat the whole entire game.
+                                                    // Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
                                                         @Override
                                                         public void actionPerformed(ActionEvent e) {
-                                                            //Remove these action listeners and buttons to make the game not reuse them again.
+                                                            // Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
                                                             pokemonPanel.removeAll();
                                                             pokemonPanel.remove(rectanglePanel);
                                                             pokemonPanel.repaint();
                                                             //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                            FirstMove.enable();
-                                                            SecondMove.enable();
-                                                            ThirdMove.enable();
-                                                            FourthMove.enable();
+                                                            enablePOneMoves();
                                                             //Indicates that this is not the games first run.
                                                             gameState = false;
                                                             //Restart the game.
                                                             StartHere.main(null);
-
                                                         }
                                                     };
                                                     NextBattle.addActionListener(HereWeGoAgain);
                                                     PlayerTwo.TextBox.add(NextBattle);
-
-
                                                     return;
                                                 }
                                             }
@@ -2688,50 +2601,41 @@ public class Battle extends StartHere
                                                     PlayerTwo.TextBox.remove(P23Fightsub2);
                                                     PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                    //Remove BattleText to add new information about the battle.
+                                                    // Remove BattleText to add new information about the battle.
                                                     PlayerTwo.TextBox.remove(BattleText);
                                                     PlayerTwo.TextBox.repaint();
-                                                    //Set BattleText to show that the pokemon has fainted and who won.
+                                                    // Set BattleText to show that the pokemon has fainted and who won.
                                                     BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                     PlayerTwo.TextBox.add(BattleText);
 
-                                                    //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                    FirstMove.disable();
-                                                    SecondMove.disable();
-                                                    ThirdMove.disable();
-                                                    FourthMove.disable();
+                                                    // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                    disablePOneMoves();
 
                                                     NextBattle.setLabel("Continue");
-                                                    //Remove these action listeners and buttons to make the game not reuse them again.
+                                                    // Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
                                                     pokemonPanel.repaint();
 
-                                                    //Repeat the whole entire game.
+                                                    // Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
                                                         @Override
                                                         public void actionPerformed(ActionEvent e) {
-                                                            //Remove these action listeners and buttons to make the game not reuse them again.
+                                                            // Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
                                                             pokemonPanel.removeAll();
                                                             pokemonPanel.remove(rectanglePanel);
                                                             pokemonPanel.repaint();
-                                                            //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                            FirstMove.enable();
-                                                            SecondMove.enable();
-                                                            ThirdMove.enable();
-                                                            FourthMove.enable();
-                                                            //Indicates that this is not the games first run.
+                                                            // Re-enable Pokemon attack buttons to select a move to attack with.
+                                                            enablePOneMoves();
+                                                            // Indicates that this is not the games first run.
                                                             gameState = false;
-                                                            //Restart the game.
+                                                            // Restart the game.
                                                             StartHere.main(null);
-
                                                         }
                                                     };
                                                     NextBattle.addActionListener(HereWeGoAgain);
                                                     PlayerTwo.TextBox.add(NextBattle);
-
-
                                                     return;
                                                 }
                                             }
@@ -2852,50 +2756,41 @@ public class Battle extends StartHere
                                                     PlayerTwo.TextBox.remove(P23Fightsub2);
                                                     PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                                    //Remove BattleText to add new information about the battle.
+                                                    // Remove BattleText to add new information about the battle.
                                                     PlayerTwo.TextBox.remove(BattleText);
                                                     PlayerTwo.TextBox.repaint();
-                                                    //Set BattleText to show that the pokemon has fainted and who won.
+                                                    // Set BattleText to show that the pokemon has fainted and who won.
                                                     BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                                     PlayerTwo.TextBox.add(BattleText);
 
-                                                    //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                                    FirstMove.disable();
-                                                    SecondMove.disable();
-                                                    ThirdMove.disable();
-                                                    FourthMove.disable();
+                                                    //Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                                    disablePOneMoves();
 
                                                     NextBattle.setLabel("Continue");
-                                                    //Remove these action listeners and buttons to make the game not reuse them again.
+                                                    // Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(Fight);
                                                     pokemonPanel.repaint();
 
-                                                    //Repeat the whole entire game.
+                                                    // Repeat the whole entire game.
                                                     HereWeGoAgain = new ActionListener() {
                                                         @Override
                                                         public void actionPerformed(ActionEvent e) {
-                                                            //Remove these action listeners and buttons to make the game not reuse them again.
+                                                            // Remove these action listeners and buttons to make the game not reuse them again.
                                                             NextBattle.removeActionListener(HereWeGoAgain);
 
                                                             pokemonPanel.removeAll();
                                                             pokemonPanel.remove(rectanglePanel);
                                                             pokemonPanel.repaint();
                                                             //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                            FirstMove.enable();
-                                                            SecondMove.enable();
-                                                            ThirdMove.enable();
-                                                            FourthMove.enable();
+                                                            enablePOneMoves();
                                                             //Indicates that this is not the games first run.
                                                             gameState = false;
                                                             //Restart the game.
                                                             StartHere.main(null);
-
                                                         }
                                                     };
                                                     NextBattle.addActionListener(HereWeGoAgain);
                                                     PlayerTwo.TextBox.add(NextBattle);
-
-
                                                     return;
                                                 }
                                             }
@@ -2993,39 +2888,33 @@ public class Battle extends StartHere
                                             PlayerTwo.TextBox.remove(P23Fightsub2);
                                             PlayerTwo.PokemonBox.remove(ImageBox);
 
-                                            //Remove BattleText to add new information about the battle.
+                                            // Remove BattleText to add new information about the battle.
                                             PlayerTwo.TextBox.remove(BattleText);
                                             PlayerTwo.TextBox.repaint();
-                                            //Set BattleText to show that the pokemon has fainted and who won.
+                                            // Set BattleText to show that the pokemon has fainted and who won.
                                             BattleText.setText("<html>" + Pone.getNickname() + " has fainted!<br/>Opponent " + Ptwo.getNickname() + " wins!<html>");
                                             PlayerTwo.TextBox.add(BattleText);
 
-                                            //Disable Pokemon Moves buttons so they don't interfere with the game.
-                                            FirstMove.disable();
-                                            SecondMove.disable();
-                                            ThirdMove.disable();
-                                            FourthMove.disable();
+                                            // Disable Pokemon Moves buttons, so they don't interfere with the game.
+                                            disablePOneMoves();
 
                                             NextBattle.setLabel("Continue");
-                                            //Remove these action listeners and buttons to make the game not reuse them again.
+                                            // Remove these action listeners and buttons to make the game not reuse them again.
                                             NextBattle.removeActionListener(Fight);
                                             pokemonPanel.repaint();
 
-                                            //Repeat the whole entire game.
+                                            // Repeat the whole entire game.
                                             HereWeGoAgain = new ActionListener() {
                                                 @Override
                                                 public void actionPerformed(ActionEvent e) {
-                                                    //Remove these action listeners and buttons to make the game not reuse them again.
+                                                    // Remove these action listeners and buttons to make the game not reuse them again.
                                                     NextBattle.removeActionListener(HereWeGoAgain);
 
                                                     pokemonPanel.removeAll();
                                                     pokemonPanel.remove(rectanglePanel);
                                                     pokemonPanel.repaint();
                                                     //Re-enable Pokemon attack buttons to select a move to attack with.
-                                                    FirstMove.enable();
-                                                    SecondMove.enable();
-                                                    ThirdMove.enable();
-                                                    FourthMove.enable();
+                                                    enablePOneMoves();
                                                     //Indicates that this is not the games first run.
                                                     gameState = false;
                                                     //Restart the game.
@@ -3035,8 +2924,6 @@ public class Battle extends StartHere
                                             };
                                             NextBattle.addActionListener(HereWeGoAgain);
                                             PlayerTwo.TextBox.add(NextBattle);
-
-
                                             return;
                                         }
                                     }
@@ -3087,6 +2974,20 @@ public class Battle extends StartHere
         }
         return (MoveColor);
 
+    }
+
+    private static void disablePOneMoves() {
+        FirstMove.disable();
+        SecondMove.disable();
+        ThirdMove.disable();
+        FourthMove.disable();
+    }
+
+    private static void enablePOneMoves() {
+        FirstMove.enable();
+        SecondMove.enable();
+        ThirdMove.enable();
+        FourthMove.enable();
     }
 
 }

@@ -28,7 +28,7 @@ public class StartHere {
     public static ImageIcon pokemonJ;
     public static JPanel rectanglePanel = new JPanel();
     public static Color brown = new Color(165, 42, 42);
-    private static Color blueviolet = new Color(138, 43, 226);
+    final private static Color blueviolet = new Color(138, 43, 226);
     public static Color darkblue = new Color(0, 0, 139);
     public static boolean gameState = true;
 
