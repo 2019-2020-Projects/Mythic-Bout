@@ -47,7 +47,7 @@ public class StartHere {
     }
 
     // Creates a window
-    private static void createWindow() {
+    static void createWindow() {
         pokemonWindow = new JFrame("Pokemon Java");
         pokemonWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pokemonWindow.setVisible(true);
@@ -62,7 +62,7 @@ public class StartHere {
     }
 
     // Sets up the Pokemon Java label
-    private static void setupPokemonJavaLabel() {
+    static void setupPokemonJavaLabel() {
         pokemonJava.setBounds(30, 50, 500, 180);
         pokemonJava.setForeground(Color.orange);
         pokemonJava.setFont(new Font("Arial", Font.BOLD, 65));
@@ -81,7 +81,7 @@ public class StartHere {
     }
 
     // Sets up the Single Player button
-    private static void setupSinglePlayerButton() {
+    static void setupSinglePlayerButton() {
         singlePlayer = new JButton("Play");
         singlePlayer.setBounds(200, 240, 200, 200);
         singlePlayer.setBackground(brown);
