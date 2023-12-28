@@ -47,7 +47,7 @@ public class DamageAttack implements Attack {
     }
 
     //This method will be used to attack the defending Pokemon. it has two parameters pokemon target which is the defender and pokemon shooter which is the attacker.
-    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter)
+    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle)
     {
         //This integer will calculate the damage of an attack.
         final int damage = calculateDamage(target.getType(),target.getType2(),shooter);
@@ -58,19 +58,19 @@ public class DamageAttack implements Attack {
         if (succeeds) {
             //This will deal the damage to the defending Pokemon.
             target.doDamage(damage);
-            PlayerTwo.TextBox.remove(Battle.BattleText);
-            PlayerTwo.TextBox.repaint();
-            Battle.BattleText.setText("<html>"+target.getNickname() + " took " + damage + " damage!<html>");
-            PlayerTwo.TextBox.add(Battle.BattleText);
+            playerTwo.TextBox.remove(battle.BattleText);
+            playerTwo.TextBox.repaint();
+            battle.BattleText.setText("<html>"+target.getNickname() + " took " + damage + " damage!<html>");
+            playerTwo.TextBox.add(battle.BattleText);
         }
 
         //Else if it fails the game will output that the attack has failed.
         else
         {
-            PlayerTwo.TextBox.remove(Battle.BattleText);
-            PlayerTwo.TextBox.repaint();
-            Battle.BattleText.setText("<html>The attack failed!<html>");
-            PlayerTwo.TextBox.add(Battle.BattleText);
+            playerTwo.TextBox.remove(battle.BattleText);
+            playerTwo.TextBox.repaint();
+            battle.BattleText.setText("<html>The attack failed!<html>");
+            playerTwo.TextBox.add(battle.BattleText);
         }
     }
     //This method will calculate the success of an attack.

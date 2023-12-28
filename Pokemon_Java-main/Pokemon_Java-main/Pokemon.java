@@ -58,23 +58,23 @@ public class Pokemon
         this.nickname = nickname;
     }
     //This method chooses an attack for the user based on the move button they clicked on.
-    public Attack chooseAttack()
+    public Attack chooseAttack(Battle battle)
     {
         //In the battle class buttons get created based on how many attacks are chosen.
         //If one of those buttons are clicked BattleNumber will equal a certain number based on the attacks order.
-        if(Battle.Movenumber ==1)
+        if(battle.Movenumber == 1)
         {
             return attacks.get(0);
         }
-        if(Battle.Movenumber ==2)
+        if(battle.Movenumber == 2)
         {
             return attacks.get(1);
         }
-        if(Battle.Movenumber ==3)
+        if(battle.Movenumber == 3)
         {
             return attacks.get(2);
         }
-        if(Battle.Movenumber ==4)
+        if(battle.Movenumber == 4)
         {
             return attacks.get(3);
         }

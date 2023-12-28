@@ -14,6 +14,6 @@ public interface Attack
     public PokemonType getType();
 
 
-    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter);
+    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle);
 
 }

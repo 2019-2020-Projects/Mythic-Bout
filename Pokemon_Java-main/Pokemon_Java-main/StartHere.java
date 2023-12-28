@@ -16,38 +16,49 @@ import java.util.LinkedList;
 public class StartHere {
 
     // Variables declaration
-    public static JButton singlePlayer;
-    public static JFrame pokemonWindow;
-    public static JPanel pokemonPanel;
-    public static int pokemonCount;
-    public static JTextField pokeNickName;
-    public static int pokemonNumber, pokemonNumber2;
-    public static String pokemonNick, pokemon2Nick;
-    public static Button doneMoves;
-    public static LinkedList<JCheckBox> disableMoves;
-    public static JLabel pokemonJava = new JLabel();
-    public static ImageIcon pokemonJ;
-    public static JPanel rectanglePanel = new JPanel();
-    public static Color brown = new Color(165, 42, 42);
-    final private static Color blueviolet = new Color(138, 43, 226);
-    public static Color darkblue = new Color(0, 0, 139);
-    public static boolean gameState = true;
+    public JButton singlePlayer;
+    public JFrame pokemonWindow;
+    public JPanel pokemonPanel;
+    public int pokemonCount;
+    public JTextField pokeNickName;
+    public int pokemonNumber, pokemonNumber2;
+    public String pokemonNick, pokemonNick2;
+    public  Button doneMoves;
+    public  LinkedList<JCheckBox> disableMoves;
+    public  JLabel pokemonJava = new JLabel();
+    public  ImageIcon pokemonJ;
+    public  JPanel rectanglePanel = new JPanel();
+    public  Color brown = new Color(165, 42, 42);
+    final private  Color blueviolet = new Color(138, 43, 226);
+    public  Color darkblue = new Color(0, 0, 139);
+
+    public StartHere () {
+        this.pokemonPanel = pokemonPanel;
+        this.disableMoves = disableMoves;
+    }
 
     public static void main(String[] args) {
-        //Check and see if this is the first run, if its not the part of the code inside the if statement won't run.
-        if (gameState) {
-            createWindow();
-        }
+        StartHere startHere = new StartHere();
+        // Check and see if this is the first run, if its not the part of the code inside the if statement won't run.
+        startHere.createWindow(startHere);
 
         // Set up the Pokemon Java label
-        setupPokemonJavaLabel();
+        startHere.setupPokemonJavaLabel();
 
         // Set up the Single Player button
-        setupSinglePlayerButton();
+        startHere.setupSinglePlayerButton(startHere);
+    }
+
+    public void restartGame(StartHere startHere) {
+        // Set up the Pokemon Java label
+        startHere.setupPokemonJavaLabel();
+
+        // Set up the Single Player button
+        startHere.setupSinglePlayerButton(startHere);
     }
 
     // Creates a window
-    static void createWindow() {
+    void createWindow(StartHere startHere) {
         pokemonWindow = new JFrame("Pokemon Java");
         pokemonWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pokemonWindow.setVisible(true);
@@ -62,7 +73,7 @@ public class StartHere {
     }
 
     // Sets up the Pokemon Java label
-    static void setupPokemonJavaLabel() {
+    void setupPokemonJavaLabel() {
         pokemonJava.setBounds(30, 50, 500, 180);
         pokemonJava.setForeground(Color.orange);
         pokemonJava.setFont(new Font("Arial", Font.BOLD, 65));
@@ -81,7 +92,7 @@ public class StartHere {
     }
 
     // Sets up the Single Player button
-    static void setupSinglePlayerButton() {
+    void setupSinglePlayerButton(StartHere startHere) {
         singlePlayer = new JButton("Play");
         singlePlayer.setBounds(200, 240, 200, 200);
         singlePlayer.setBackground(brown);
@@ -109,7 +120,8 @@ public class StartHere {
             public void actionPerformed(ActionEvent e) {
                 //Starts Player One Pokemon Selection
                 pokemonPanel.setBackground(Color.WHITE);
-                PlayerOne.PCharOne();
+                PlayerOne playerOne = new PlayerOne();
+                playerOne.PCharOne(startHere, playerOne);
             }
         });
 
@@ -117,7 +129,7 @@ public class StartHere {
         pokemonPanel.repaint();
     }
 
-    public static Color getBlueviolet() {
+    public Color getBlueviolet() {
         return blueviolet;
     }
 }

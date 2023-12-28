@@ -15,7 +15,7 @@ public class StartHereTest {
 
     @Test
     public void testCreateWindow() {
-        startHere.createWindow();
+        startHere.createWindow(startHere);
         assertNotNull(startHere.pokemonWindow);
     }
 
@@ -28,13 +28,13 @@ public class StartHereTest {
 
     @Test
     public void testSetupSinglePlayerButton() {
-        startHere.setupSinglePlayerButton();
+        startHere.setupSinglePlayerButton(startHere);
         assertNotNull(startHere.singlePlayer);
     }
 
     @Test
     public void testGetBlueviolet() {
         Color blueviolet = new Color(138, 43, 226);
-        assertEquals(StartHere.getBlueviolet(), blueviolet);
+        assertEquals(startHere.getBlueviolet(), blueviolet);
     }
 }

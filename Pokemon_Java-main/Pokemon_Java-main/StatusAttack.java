@@ -47,7 +47,7 @@ public class StatusAttack implements Attack
     }
 
     //This method will be used to attack the defending Pokemon. it has two parameters pokemon target which is the defender and pokemon shooter which is the attacker.
-    public void useAttack(Pokemon_Abilities target, Pokemon_Abilities shooter)
+    public void useAttack(Pokemon_Abilities target, Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle)
     {
         //The boolean succeeds will calculate the success of the attack hitting.
         final boolean succeeds = calculateSuccess();
@@ -55,28 +55,28 @@ public class StatusAttack implements Attack
         if (succeeds) {
             if (target.getCurrentStatus() == Status.ASLEEP)
             {
-                PlayerTwo.TextBox.remove(Battle.BattleText);
-                PlayerTwo.TextBox.repaint();
-                Battle.BattleText.setText(target.getNickname() + " is already " + status.toString().toLowerCase() + "!");
-                PlayerTwo.TextBox.add(Battle.BattleText);
+                playerTwo.TextBox.remove(battle.BattleText);
+                playerTwo.TextBox.repaint();
+                battle.BattleText.setText(target.getNickname() + " is already " + status.toString().toLowerCase() + "!");
+                playerTwo.TextBox.add(battle.BattleText);
             }
             //If it succeeds and the Pokemon status is something else the output will be that the defending pokemon is now asleep.
             else
             {
                 target.setCurrentStatus(status);
-                PlayerTwo.TextBox.remove(Battle.BattleText);
-                PlayerTwo.TextBox.repaint();
-                Battle.BattleText.setText(target.getNickname() + " is now " + status.toString().toLowerCase() + "!");
-                PlayerTwo.TextBox.add(Battle.BattleText);
+                playerTwo.TextBox.remove(battle.BattleText);
+                playerTwo.TextBox.repaint();
+                battle.BattleText.setText(target.getNickname() + " is now " + status.toString().toLowerCase() + "!");
+                playerTwo.TextBox.add(battle.BattleText);
             }
         }
         //If the attack fails the game will output that the attack failed.
         else
         {
-            PlayerTwo.TextBox.remove(Battle.BattleText);
-            PlayerTwo.TextBox.repaint();
-            Battle.BattleText.setText("<html>The attack failed!<html>");
-            PlayerTwo.TextBox.add(Battle.BattleText);
+            playerTwo.TextBox.remove(battle.BattleText);
+            playerTwo.TextBox.repaint();
+            battle.BattleText.setText("<html>The attack failed!<html>");
+            playerTwo.TextBox.add(battle.BattleText);
         }
     }
     //This method calculates the success of an attack.

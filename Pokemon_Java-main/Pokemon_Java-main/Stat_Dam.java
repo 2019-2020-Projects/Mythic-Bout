@@ -6,7 +6,7 @@ import java.util.Random;
  * @version 1.0
  * @since 11/29/2019
  */
-public class Stat_Dam implements Attack {
+public class Stat_Dam {
 
     //This variable will hold the attack name.
     private final String name;
