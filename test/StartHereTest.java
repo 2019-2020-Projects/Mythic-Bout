@@ -16,7 +16,7 @@ public class StartHereTest {
     @Test
     public void testCreateWindow() {
         startHere.createWindow(startHere);
-        assertNotNull(startHere.pokemonWindow);
+        assertNotNull(startHere.getPokemonWindow());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class StartHereTest {
     @Test
     public void testSetupSinglePlayerButton() {
         startHere.setupSinglePlayerButton(startHere);
-        assertNotNull(startHere.singlePlayer);
+        assertNotNull(startHere.getSinglePlayer());
     }
 
     @Test

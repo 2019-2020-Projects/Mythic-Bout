@@ -5,8 +5,8 @@ import java.util.Random;
  * lets us create Pokemon and get information
  * related to these Pokemon.
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 
 public class Pokemon

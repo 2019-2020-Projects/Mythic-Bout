@@ -2,8 +2,8 @@
  * The Pokemon_Abilities subclass
  * creates Pokemon with abilities.
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 import java.util.List;
 public class Pokemon_Abilities extends Pokemon

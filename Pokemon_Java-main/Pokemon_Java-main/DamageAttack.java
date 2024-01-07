@@ -3,8 +3,8 @@ import java.util.Random;
  * The DamageAttack class creates
  * Attacks.
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 
 public class DamageAttack implements Attack {

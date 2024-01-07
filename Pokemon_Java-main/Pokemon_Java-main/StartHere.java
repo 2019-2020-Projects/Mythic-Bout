@@ -10,15 +10,15 @@ import java.util.LinkedList;
  * initializes the Pokemon game. Then the class calls
  * PlayerOne.PCharOne().
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 public class StartHere {
 
     // Variables declaration
-    public JButton singlePlayer;
-    public JFrame pokemonWindow;
-    public JPanel pokemonPanel;
+    private JButton singlePlayer;
+    private JFrame pokemonWindow;
+    private JPanel pokemonPanel;
     public int pokemonCount;
     public JTextField pokeNickName;
     public int pokemonNumber, pokemonNumber2;
@@ -30,7 +30,7 @@ public class StartHere {
     public  JPanel rectanglePanel = new JPanel();
     public  Color brown = new Color(165, 42, 42);
     final private  Color blueviolet = new Color(138, 43, 226);
-    public  Color darkblue = new Color(0, 0, 139);
+    public  Color darkblue = new Color(0, 0, 102);
 
     public StartHere () {
         this.pokemonPanel = pokemonPanel;
@@ -42,11 +42,7 @@ public class StartHere {
         // Check and see if this is the first run, if its not the part of the code inside the if statement won't run.
         startHere.createWindow(startHere);
 
-        // Set up the Pokemon Java label
-        startHere.setupPokemonJavaLabel();
-
-        // Set up the Single Player button
-        startHere.setupSinglePlayerButton(startHere);
+        startHere.restartGame(startHere);
     }
 
     public void restartGame(StartHere startHere) {
@@ -59,7 +55,7 @@ public class StartHere {
 
     // Creates a window
     void createWindow(StartHere startHere) {
-        pokemonWindow = new JFrame("Pokemon Java");
+        pokemonWindow = new JFrame("Mythic Bout");
         pokemonWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pokemonWindow.setVisible(true);
         pokemonWindow.setSize(600, 600);
@@ -79,13 +75,13 @@ public class StartHere {
         pokemonJava.setFont(new Font("Arial", Font.BOLD, 65));
         pokemonJava.setText("Pokemon Java");
 
-        pokemonJ = new ImageIcon(StartHere.class.getResource("PokemonImages/PokemonJava.png"));
+        pokemonJ = new ImageIcon(StartHere.class.getResource("PokemonImages/MythicBout.png"));
         Image pokeBack = pokemonJ.getImage();
         Image pokeBackReSize = pokeBack.getScaledInstance(500,180, Image.SCALE_SMOOTH);
         pokemonJ = new ImageIcon(pokeBackReSize);
 
         pokemonJava.setIcon(pokemonJ);
-        pokemonPanel.setBackground(Color.BLUE);
+        pokemonPanel.setBackground(darkblue);
         pokemonPanel.add(pokemonJava);
         pokemonPanel.repaint();
         rectanglePanel.repaint();
@@ -129,6 +125,18 @@ public class StartHere {
         pokemonPanel.repaint();
     }
 
+    public JButton getSinglePlayer() {
+        return singlePlayer;
+    }
+    public JFrame getPokemonWindow() {
+        return pokemonWindow;
+    }
+    public JPanel getPokemonPanel() {
+        return pokemonPanel;
+    }
+    public void setPokemonPanel(JPanel panel) {
+        pokemonPanel = panel;
+    }
     public Color getBlueviolet() {
         return blueviolet;
     }

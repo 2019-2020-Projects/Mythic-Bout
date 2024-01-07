@@ -13,15 +13,15 @@ import java.util.LinkedList;
  * the player create a Pokemon.
  * Then the class calls PlayerTwo.PCharTwo().
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 
 public class PlayerOne extends StartHere
 {
     private  Button nickEnterBTN;
     private  JCheckBox[] bulbasaurMoves;
-    private  JCheckBox[] charmanderMoves;
+    private  JCheckBox[] dragonCubMoves;
     private  JCheckBox[] charmeleonMoves;
     private  JCheckBox[] charizardMoves;
     private  JCheckBox[] squirtleMoves;
@@ -29,7 +29,7 @@ public class PlayerOne extends StartHere
     public PlayerOne() {
         this.nickEnterBTN = nickEnterBTN;
         this.bulbasaurMoves = bulbasaurMoves;
-        this.charmanderMoves = charmanderMoves;
+        this.dragonCubMoves = dragonCubMoves;
         this.charmeleonMoves = charmeleonMoves;
         this.charizardMoves = charizardMoves;
         this.squirtleMoves = squirtleMoves;
@@ -39,15 +39,15 @@ public class PlayerOne extends StartHere
     //This method creates the Pokemon on the gui based on what buttons are clicked.
     public void PCharOne(StartHere startHere, PlayerOne playerOne)
     {
-        startHere.pokemonPanel.removeAll();
-        startHere.pokemonPanel.repaint();
-        JLabel PokemonChooser = new JLabel("Choose your Pokemon:");
+        startHere.getPokemonPanel().removeAll();
+        startHere.getPokemonPanel().repaint();
+        JLabel PokemonChooser = new JLabel("Choose your Monster:");
         PokemonChooser.setBounds(20,10,300,25);
         PokemonChooser.setFont(new Font("Arial", Font.BOLD, 25));
-        startHere.pokemonPanel.add(PokemonChooser);
+        startHere.getPokemonPanel().add(PokemonChooser);
 
         //Create bulbasaurBTN select button.
-        Button bulbasaurBTN = createButton("Bulbasaur", 20, 55, 160, 85,
+        Button bulbasaurBTN = createButton("Wyrmling", 20, 55, 160, 85,
                 Color.green, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If bulbasaurBTN button is clicked the game will continue to the nickname selection screen.
@@ -56,23 +56,23 @@ public class PlayerOne extends StartHere
         Color[] bulbasaurColors = {Color.lightGray, Color.green, Color.green, Color.lightGray, Color.green};
         addPokeButtonListener(bulbasaurBTN, 1, bulbasaurMoves, bulbasaurColors, startHere, playerOne);
         // Add Pokemon Buttons to pokemonPanel here
-        startHere.pokemonPanel.add(bulbasaurBTN);
+        startHere.getPokemonPanel().add(bulbasaurBTN);
 
 
-        //Create Charmander select button.
-        Button charmanderBTN = createButton("Charmander", 20, 160, 160, 85,
+        //Create dragonCub select button.
+        Button dragonCubBTN = createButton("Dragon Cub", 20, 160, 160, 85,
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
-        //If charmanderBTN button is clicked the game will continue to the nickname selection screen.
-        charmanderMoves = new JCheckBox[] {new JCheckBox("Scratch"), new JCheckBox("Ember"),
+        //If dragonCubBTN button is clicked the game will continue to the nickname selection screen.
+        dragonCubMoves = new JCheckBox[] {new JCheckBox("Scratch"), new JCheckBox("Ember"),
                 new JCheckBox("Dragon Breath"), new JCheckBox("Fire Fang"), new JCheckBox("Slash")};
-        Color[] charmanderColors = {Color.lightGray, Color.red, getBlueviolet(), Color.red, Color.lightGray};
-        addPokeButtonListener(charmanderBTN, 4, charmanderMoves, charmanderColors, startHere, playerOne);
+        Color[] dragonCubColors = {Color.lightGray, Color.red, getBlueviolet(), Color.red, Color.lightGray};
+        addPokeButtonListener(dragonCubBTN, 4, dragonCubMoves, dragonCubColors, startHere, playerOne);
         // Add Pokemon Buttons to pokemonPanel here
-        startHere.pokemonPanel.add(charmanderBTN);
+        startHere.getPokemonPanel().add(dragonCubBTN);
 
         //Create charmeleonBTN select button.
-        Button charmeleonBTN = createButton("Charmeleon", 200, 160, 160, 85,
+        Button charmeleonBTN = createButton("Young Dragon", 200, 160, 160, 85,
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charmeleonBTN button is clicked the game will continue to the nickname selection screen.
@@ -81,11 +81,11 @@ public class PlayerOne extends StartHere
         Color[] charmeleonColors = {getBlueviolet(), Color.red, Color.lightGray, Color.red, Color.red};
         addPokeButtonListener(charmeleonBTN, 5, charmeleonMoves, charmeleonColors, startHere, playerOne);
         //Add Pokemon Buttons to pokemonPanel here
-        startHere.pokemonPanel.add(charmeleonBTN);
+        startHere.getPokemonPanel().add(charmeleonBTN);
 
 
         //Create charizardBTN select button.
-        Button charizardBTN = createButton("Charizard", 380, 160, 160, 85,
+        Button charizardBTN = createButton("Dragon", 380, 160, 160, 85,
                 Color.red, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If charizardBTN button is clicked the game will continue to the nickname selection screen.
@@ -94,10 +94,10 @@ public class PlayerOne extends StartHere
         Color[] charizardColors = {Color.cyan, getBlueviolet(), Color.red, Color.red, Color.red};
         addPokeButtonListener(charizardBTN, 6, charizardMoves, charizardColors, startHere, playerOne);
         //Add Pokemon Buttons to pokemonPanel here
-        startHere.pokemonPanel.add(charizardBTN);
+        startHere.getPokemonPanel().add(charizardBTN);
 
         //Create squirtleBTN select button.
-        Button squirtleBTN = createButton("Squirtle", 20, 265, 160, 85,
+        Button squirtleBTN = createButton("Sea Serpentling", 20, 265, 160, 85,
                 Color.blue, Color.white, new Font("Arial", Font.BOLD, 25));
 
         //If squirtleBTN button is clicked the game will continue to the nickname selection screen.
@@ -107,7 +107,7 @@ public class PlayerOne extends StartHere
         addPokeButtonListener(squirtleBTN, 7, squirtleMoves, squirtleColors, startHere, playerOne);
 
         //Add Pokemon Buttons to pokemonPanel here
-        startHere.pokemonPanel.add(squirtleBTN);
+        startHere.getPokemonPanel().add(squirtleBTN);
     }
 
     private  Button createButton(String label, int x, int y, int width,
@@ -127,27 +127,27 @@ public class PlayerOne extends StartHere
            public void actionPerformed(ActionEvent e) {
                //This sets what number of Pokemon in the pokedex player one will be.
                startHere.pokemonNumber = pokeNum;
-               startHere.pokemonPanel.removeAll();
-               startHere.pokemonPanel.repaint();
+               startHere.getPokemonPanel().removeAll();
+               startHere.getPokemonPanel().repaint();
 
                JLabel PokemonChooser = new JLabel("<html>Choose your Pokemon nickname:<br/>Leave the entry blank if you do not want a Pokemon nickname.<html>");
                PokemonChooser.setBounds(5,5,600,50);
                PokemonChooser.setFont(new Font("Arial", Font.BOLD, 19));
-               startHere.pokemonPanel.add(PokemonChooser);
+               startHere.getPokemonPanel().add(PokemonChooser);
 
                //Input your Pokemon nickname here.
-               pokeNickName = new JTextField();
-               pokeNickName.setBounds(175,150,250,50);
-               pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
+               startHere.pokeNickName = new JTextField();
+               startHere.pokeNickName.setBounds(175,150,250,50);
+               startHere.pokeNickName.setFont(new Font("Arial", Font.BOLD, 30));
                //Make Pokemon nickname entry only accept 12 characters.
-               pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
+               startHere.pokeNickName.addKeyListener(new java.awt.event.KeyAdapter() {
                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                       if(pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       if(startHere.pokeNickName.getText().length()>=12&&!(evt.getKeyChar()== KeyEvent.VK_DELETE||evt.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
                            evt.consume();
                        }
                    }
                });
-               startHere.pokemonPanel.add(pokeNickName);
+               startHere.getPokemonPanel().add(startHere.pokeNickName);
 
                nickEnterBTN = createButton("Enter", 200, 270, 200, 60,
                        Color.green, Color.white, new Font("Arial", Font.BOLD, 30));
@@ -160,14 +160,14 @@ public class PlayerOne extends StartHere
                        startHere.pokemonCount = 0;
 
                        // This sets pokemonNick to equal the input of the nickname entry.
-                       startHere.pokemonNick = pokeNickName.getText();
-                       startHere.pokemonPanel.removeAll();
-                       startHere.pokemonPanel.repaint();
+                       startHere.pokemonNick = startHere.pokeNickName.getText();
+                       startHere.getPokemonPanel().removeAll();
+                       startHere.getPokemonPanel().repaint();
 
                        JLabel PokemonChooser = new JLabel("<html>Choose four Pokemon moves:<html>");
                        PokemonChooser.setBounds(5,5,600,50);
                        PokemonChooser.setFont(new Font("Arial", Font.BOLD, 20));
-                       startHere.pokemonPanel.add(PokemonChooser);
+                       startHere.getPokemonPanel().add(PokemonChooser);
                        // Add all moves to a list to later be disabled when the amount of selected exceeds four.
                        startHere.disableMoves = new LinkedList<JCheckBox>();
                        // Pokemon Move Button Selection
@@ -191,7 +191,7 @@ public class PlayerOne extends StartHere
                            pokemonMoves[i].setBackground(pokemonColors[i]);
                            pokemonMoves[i].setForeground(Color.white);
                            pokemonMoves[i].setFont(new Font("Arial", Font.BOLD, 30));
-                           startHere.pokemonPanel.add(pokemonMoves[i]);
+                           startHere.getPokemonPanel().add(pokemonMoves[i]);
                            pokemonMoves[i].setSelected(false);
                            //If clicked and the moves selected are more than four, all moves will be disabled until other moves are unchecked.
                            int finalI = i;
@@ -218,12 +218,12 @@ public class PlayerOne extends StartHere
                                playerTwo.PCharTwo(startHere, playerOne, playerTwo);
                            }
                        });
-                       startHere.pokemonPanel.add(doneMoves);
+                       startHere.getPokemonPanel().add(doneMoves);
 
                    }
                });
 
-               startHere.pokemonPanel.add(nickEnterBTN);
+               startHere.getPokemonPanel().add(nickEnterBTN);
            }
        });
 
@@ -258,7 +258,7 @@ public class PlayerOne extends StartHere
         catch (IndexOutOfBoundsException e)
         {
             throw new IllegalArgumentException
-                    ("Number of moves for MoveDisabler exceeds or is less than the number of available moves for the Pokemon");
+                    ("Number of moves for MoveDisabler exceeds or is less than the number of available moves for the Monster");
         }
     }
 
@@ -266,8 +266,8 @@ public class PlayerOne extends StartHere
         return bulbasaurMoves;
     }
 
-    public  JCheckBox[] getCharmanderMoves () {
-        return charmanderMoves;
+    public  JCheckBox[] getdragonCubMoves () {
+        return dragonCubMoves;
     }
 
     public  JCheckBox[] getCharmeleonMoves () {

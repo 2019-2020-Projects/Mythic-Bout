@@ -3,8 +3,8 @@ import java.util.Random;
  * The Stat_Dam class creates
  * Status Attacks that produce damage.
  * @author Wilson Neira
- * @version 1.0
- * @since 11/29/2019
+ * @version 1.8
+ * @since 11/29/2023
  */
 public class Stat_Dam {
 
