@@ -13,17 +13,17 @@ public class StatusAttack implements Attack
     //This variable will hold the attack name.
     private final String name;
 
-    //This variable wll gold the attack Pokemon type.
-    private final PokemonType type;
+    //This variable wll gold the attack Monster type.
+    private final MonsterType type;
 
     //This variable will hold the status that this attack will inflict.
     private final Status status;
 
-    //This variable will hold the probability that this attack will have on hitting the defending Pokemon.
+    //This variable will hold the probability that this attack will have on hitting the defending Monster.
     private final float probability;
 
     //This method creates new status attacks.
-    public StatusAttack(String aName, PokemonType aType, Status aStatus, float aProbability) {
+    public StatusAttack(String aName, MonsterType aType, Status aStatus, float aProbability) {
         name = aName;
         type = aType;
         status = aStatus;
@@ -40,18 +40,18 @@ public class StatusAttack implements Attack
         return name;
     }
 
-    //This method will get the Pokemon type.
-    public PokemonType getType()
+    //This method will get the Monster type.
+    public MonsterType getType()
     {
         return type;
     }
 
-    //This method will be used to attack the defending Pokemon. it has two parameters pokemon target which is the defender and pokemon shooter which is the attacker.
-    public void useAttack(Pokemon_Abilities target, Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle)
+    //This method will be used to attack the defending Monster. it has two parameters monster target which is the defender and monster shooter which is the attacker.
+    public void useAttack(Monster_Abilities target, Monster_Abilities shooter, PlayerTwo playerTwo, Battle battle)
     {
         //The boolean succeeds will calculate the success of the attack hitting.
         final boolean succeeds = calculateSuccess();
-        //If it succeeds and the Pokemon status is ASLEEP it will output that the pokemon is already asleep.
+        //If it succeeds and the Monster status is ASLEEP it will output that the monster is already asleep.
         if (succeeds) {
             if (target.getCurrentStatus() == Status.ASLEEP)
             {
@@ -60,7 +60,7 @@ public class StatusAttack implements Attack
                 battle.BattleText.setText(target.getNickname() + " is already " + status.toString().toLowerCase() + "!");
                 playerTwo.TextBox.add(battle.BattleText);
             }
-            //If it succeeds and the Pokemon status is something else the output will be that the defending pokemon is now asleep.
+            //If it succeeds and the Monster status is something else the output will be that the defending monster is now asleep.
             else
             {
                 target.setCurrentStatus(status);

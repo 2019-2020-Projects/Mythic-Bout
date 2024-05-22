@@ -1,6 +1,6 @@
 /**
  * In this enum we create the
- * status that we want our Pokemon
+ * status that we want our Monster
  * to have after an attack or ability.
  * @author Wilson Neira
  * @version 1.8

@@ -16,14 +16,14 @@ public class StartHereTest {
     @Test
     public void testCreateWindow() {
         startHere.createWindow(startHere);
-        assertNotNull(startHere.getPokemonWindow());
+        assertNotNull(startHere.getMonsterWindow());
     }
 
     @Test
-    public void testSetupPokemonJavaLabel() {
-        startHere.setupPokemonJavaLabel();
-        assertNotNull(startHere.pokemonJ);
-        assertNotNull(startHere.pokemonJava.getIcon());
+    public void testSetupMonsterJavaLabel() {
+        startHere.setupMonsterJavaLabel();
+        assertNotNull(startHere.monsterJ);
+        assertNotNull(startHere.monsterJava.getIcon());
     }
 
     @Test

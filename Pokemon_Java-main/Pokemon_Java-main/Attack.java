@@ -11,9 +11,9 @@ public interface Attack
 
     public String getName();
 
-    public PokemonType getType();
+    public MonsterType getType();
 
 
-    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle);
+    public void useAttack(Monster_Abilities target,Monster_Abilities shooter, PlayerTwo playerTwo, Battle battle);
 
 }

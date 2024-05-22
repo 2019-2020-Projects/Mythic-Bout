@@ -12,17 +12,17 @@ public class DamageAttack implements Attack {
     //This variable will hold the attack name.
     private final String name;
 
-    //This variable wll gold the attack Pokemon type.
-    private final PokemonType type;
+    //This variable wll gold the attack Monster type.
+    private final MonsterType type;
 
-    //This variable will hold the amount of damage that the attacker will inflict to the defending Pokemon.
+    //This variable will hold the amount of damage that the attacker will inflict to the defending Monster.
     public int damage;
 
-    //This variable will hold the probability that this attack will have on hitting the defending Pokemon.
+    //This variable will hold the probability that this attack will have on hitting the defending Monster.
     private final float probability;
 
     //This method will create new damage attacks.
-    public DamageAttack(String aName, PokemonType aType, int aDamage, float aProbability)
+    public DamageAttack(String aName, MonsterType aType, int aDamage, float aProbability)
     {
         this.name = aName;
         this.type = aType;
@@ -40,23 +40,23 @@ public class DamageAttack implements Attack {
         return name;
     }
 
-    //This method will get the Pokemon type.
-    public PokemonType getType()
+    //This method will get the Monster type.
+    public MonsterType getType()
     {
         return type;
     }
 
-    //This method will be used to attack the defending Pokemon. it has two parameters pokemon target which is the defender and pokemon shooter which is the attacker.
-    public void useAttack(Pokemon_Abilities target,Pokemon_Abilities shooter, PlayerTwo playerTwo, Battle battle)
+    //This method will be used to attack the defending Monster. it has two parameters monster target which is the defender and monster shooter which is the attacker.
+    public void useAttack(Monster_Abilities target,Monster_Abilities shooter, PlayerTwo playerTwo, Battle battle)
     {
         //This integer will calculate the damage of an attack.
         final int damage = calculateDamage(target.getType(),target.getType2(),shooter);
 
         //This boolean will calculate te success of attack hitting.
         final boolean succeeds = calculateSuccess();
-        //If it succeeds the attack will deal damage to the defending Pokemon.
+        //If it succeeds the attack will deal damage to the defending Monster.
         if (succeeds) {
-            //This will deal the damage to the defending Pokemon.
+            //This will deal the damage to the defending Monster.
             target.doDamage(damage);
             playerTwo.TextBox.remove(battle.BattleText);
             playerTwo.TextBox.repaint();
@@ -80,20 +80,20 @@ public class DamageAttack implements Attack {
         return (random < probability);
     }
 
-    //This method will calculate the amount of damage dealt to the defending pokemon.
-    private int calculateDamage(final PokemonType defenderType,final PokemonType defenderType2,final Pokemon_Abilities attacker)
+    //This method will calculate the amount of damage dealt to the defending monster.
+    private int calculateDamage(final MonsterType defenderType,final MonsterType defenderType2,final Monster_Abilities attacker)
     {
 
 
         if(defenderType==defenderType2) {
-            if ((type == PokemonType.FIRE && defenderType == PokemonType.GRASS) ||
-                    (type == PokemonType.WATER && defenderType == PokemonType.FIRE) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.FLYING && defenderType == PokemonType.GRASS)) {
+            if ((type == MonsterType.FIRE && defenderType == MonsterType.GRASS) ||
+                    (type == MonsterType.WATER && defenderType == MonsterType.FIRE) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.FLYING && defenderType == MonsterType.GRASS)) {
                 // defender is vulnerable and attacker has ability Blaze - triple damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Blaze")) {
-                        if(type==PokemonType.FIRE){
+                        if(type==MonsterType.FIRE){
                             return damage*3;
                         }
                     }
@@ -102,7 +102,7 @@ public class DamageAttack implements Attack {
                 // defender is vulnerable and attacker has ability Overgrow - triple damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Overgrow")) {
-                        if(type==PokemonType.GRASS){
+                        if(type==MonsterType.GRASS){
                             return damage*3;
                         }
                     }
@@ -111,7 +111,7 @@ public class DamageAttack implements Attack {
                 // defender is vulnerable and attacker has ability Torrent - triple damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Torrent")) {
-                        if(type==PokemonType.WATER){
+                        if(type==MonsterType.WATER){
                             return damage*3;
                         }
                     }
@@ -122,19 +122,19 @@ public class DamageAttack implements Attack {
             }
 
 
-            if ((type == PokemonType.GRASS && defenderType == PokemonType.FIRE) ||
-                    (type == PokemonType.FIRE && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.WATER && defenderType == PokemonType.GRASS) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.FLYING) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.GRASS)||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.POISON)||
-                    (type == PokemonType.WATER && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.FIRE && defenderType == PokemonType.FIRE)) {
+            if ((type == MonsterType.GRASS && defenderType == MonsterType.FIRE) ||
+                    (type == MonsterType.FIRE && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.WATER && defenderType == MonsterType.GRASS) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.FLYING) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.GRASS)||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.POISON)||
+                    (type == MonsterType.WATER && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.FIRE && defenderType == MonsterType.FIRE)) {
 
                 // defender is resistant and attacker has ability Blaze - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Blaze")) {
-                        if(type==PokemonType.FIRE){
+                        if(type==MonsterType.FIRE){
                             return damage*3/4;
                         }
                     }
@@ -143,7 +143,7 @@ public class DamageAttack implements Attack {
                 // defender is resistant and attacker has ability Overgrow - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Overgrow")) {
-                        if(type==PokemonType.GRASS){
+                        if(type==MonsterType.GRASS){
                             return damage*3/4;
                         }
                     }
@@ -152,7 +152,7 @@ public class DamageAttack implements Attack {
                 // defender is resistant and attacker has ability Torrent - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Torrent")) {
-                        if(type==PokemonType.WATER){
+                        if(type==MonsterType.WATER){
                             return damage*3/4;
                         }
                     }
@@ -164,20 +164,20 @@ public class DamageAttack implements Attack {
         }
         if(defenderType!=defenderType2)
         {
-            if ((type == PokemonType.FIRE && defenderType == PokemonType.GRASS) ||
-                    (type == PokemonType.WATER && defenderType == PokemonType.FIRE) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.FLYING && defenderType == PokemonType.GRASS)) {
+            if ((type == MonsterType.FIRE && defenderType == MonsterType.GRASS) ||
+                    (type == MonsterType.WATER && defenderType == MonsterType.FIRE) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.FLYING && defenderType == MonsterType.GRASS)) {
 
-                if ((type == PokemonType.FIRE && defenderType2 == PokemonType.GRASS) ||
-                        (type == PokemonType.WATER && defenderType2 == PokemonType.FIRE) ||
-                        (type == PokemonType.GRASS && defenderType2 == PokemonType.WATER) ||
-                        (type == PokemonType.FLYING && defenderType == PokemonType.GRASS)) {
+                if ((type == MonsterType.FIRE && defenderType2 == MonsterType.GRASS) ||
+                        (type == MonsterType.WATER && defenderType2 == MonsterType.FIRE) ||
+                        (type == MonsterType.GRASS && defenderType2 == MonsterType.WATER) ||
+                        (type == MonsterType.FLYING && defenderType == MonsterType.GRASS)) {
 
                     // defender is vulnerable on two types and attacker has ability Blaze - times six damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Blaze")) {
-                            if(type==PokemonType.FIRE){
+                            if(type==MonsterType.FIRE){
                                 return damage*6;
                             }
                         }
@@ -186,7 +186,7 @@ public class DamageAttack implements Attack {
                     // defender is vulnerable on two types and attacker has ability Overgrow - times six damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Overgrow")) {
-                            if(type==PokemonType.GRASS){
+                            if(type==MonsterType.GRASS){
                                 return damage*6;
                             }
                         }
@@ -195,7 +195,7 @@ public class DamageAttack implements Attack {
                     // defender is vulnerable on two types and attacker has ability Torrent - times six damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Torrent")) {
-                            if(type==PokemonType.WATER){
+                            if(type==MonsterType.WATER){
                                 return damage*6;
                             }
                         }
@@ -203,19 +203,19 @@ public class DamageAttack implements Attack {
                     // defender is vulnerable on two types - times four damage
                     return damage * 4;
                 }
-                if ((type == PokemonType.GRASS && defenderType2 == PokemonType.FIRE) ||
-                        (type == PokemonType.FIRE && defenderType2 == PokemonType.WATER) ||
-                        (type == PokemonType.WATER && defenderType2 == PokemonType.GRASS) ||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.FLYING) ||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.GRASS)||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.POISON)||
-                        (type == PokemonType.WATER && defenderType == PokemonType.WATER) ||
-                        (type == PokemonType.FIRE && defenderType == PokemonType.FIRE)) {
+                if ((type == MonsterType.GRASS && defenderType2 == MonsterType.FIRE) ||
+                        (type == MonsterType.FIRE && defenderType2 == MonsterType.WATER) ||
+                        (type == MonsterType.WATER && defenderType2 == MonsterType.GRASS) ||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.FLYING) ||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.GRASS)||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.POISON)||
+                        (type == MonsterType.WATER && defenderType == MonsterType.WATER) ||
+                        (type == MonsterType.FIRE && defenderType == MonsterType.FIRE)) {
 
                     // defender is vulnerable on one type and resistant on the other and attacker has ability Blaze - times 3/2 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Blaze")) {
-                            if(type==PokemonType.FIRE){
+                            if(type==MonsterType.FIRE){
                                 return damage*3/2;
                             }
                         }
@@ -224,7 +224,7 @@ public class DamageAttack implements Attack {
                     // defender is vulnerable on one type and resistant on the other and attacker has ability Overgrow - times 3/2 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Overgrow")) {
-                            if(type==PokemonType.GRASS){
+                            if(type==MonsterType.GRASS){
                                 return damage*3/2;
                             }
                         }
@@ -233,7 +233,7 @@ public class DamageAttack implements Attack {
                     // defender is vulnerable on one type and resistant on the other and attacker has ability Torrent - times 3/2 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Torrent")) {
-                            if(type==PokemonType.WATER){
+                            if(type==MonsterType.WATER){
                                 return damage*3/2;
                             }
                         }
@@ -246,7 +246,7 @@ public class DamageAttack implements Attack {
                 // defender is vulnerable on one type attacker has ability Blaze - times 3 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Blaze")) {
-                        if(type==PokemonType.FIRE){
+                        if(type==MonsterType.FIRE){
                             return damage*3;
                         }
                     }
@@ -255,7 +255,7 @@ public class DamageAttack implements Attack {
                 // defender is vulnerable on one type and attacker has ability Overgrow - times 3 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Overgrow")) {
-                        if(type==PokemonType.GRASS){
+                        if(type==MonsterType.GRASS){
                             return damage*3;
                         }
                     }
@@ -264,7 +264,7 @@ public class DamageAttack implements Attack {
                 // defender is vulnerable on one type and attacker has ability Torrent - times 3 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Torrent")) {
-                        if(type==PokemonType.WATER){
+                        if(type==MonsterType.WATER){
                             return damage*3;
                         }
                     }
@@ -274,23 +274,23 @@ public class DamageAttack implements Attack {
 
             }
 
-            if ((type == PokemonType.GRASS && defenderType == PokemonType.FIRE) ||
-                    (type == PokemonType.FIRE && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.WATER && defenderType == PokemonType.GRASS) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.FLYING) ||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.GRASS)||
-                    (type == PokemonType.GRASS && defenderType == PokemonType.POISON)||
-                    (type == PokemonType.WATER && defenderType == PokemonType.WATER) ||
-                    (type == PokemonType.FIRE && defenderType == PokemonType.FIRE) ){
+            if ((type == MonsterType.GRASS && defenderType == MonsterType.FIRE) ||
+                    (type == MonsterType.FIRE && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.WATER && defenderType == MonsterType.GRASS) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.FLYING) ||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.GRASS)||
+                    (type == MonsterType.GRASS && defenderType == MonsterType.POISON)||
+                    (type == MonsterType.WATER && defenderType == MonsterType.WATER) ||
+                    (type == MonsterType.FIRE && defenderType == MonsterType.FIRE) ){
 
                 // defender is resistant on one type and vulnerable on the other and attacker has ability Blaze - times 3/2 damage
-                if ((type == PokemonType.FIRE && defenderType2 == PokemonType.GRASS) ||
-                        (type == PokemonType.WATER && defenderType2 == PokemonType.FIRE) ||
-                        (type == PokemonType.GRASS && defenderType2 == PokemonType.WATER) ||
-                        (type == PokemonType.FLYING && defenderType2 == PokemonType.GRASS)) {
+                if ((type == MonsterType.FIRE && defenderType2 == MonsterType.GRASS) ||
+                        (type == MonsterType.WATER && defenderType2 == MonsterType.FIRE) ||
+                        (type == MonsterType.GRASS && defenderType2 == MonsterType.WATER) ||
+                        (type == MonsterType.FLYING && defenderType2 == MonsterType.GRASS)) {
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Blaze")) {
-                            if(type==PokemonType.FIRE){
+                            if(type==MonsterType.FIRE){
                                 return damage*3/2;
                             }
                         }
@@ -299,7 +299,7 @@ public class DamageAttack implements Attack {
                     // defender is resistant on one type and vulnerable on the other and attacker has ability Overgrow - times 3/2 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Overgrow")) {
-                            if(type==PokemonType.GRASS){
+                            if(type==MonsterType.GRASS){
                                 return damage*3/2;
                             }
                         }
@@ -308,7 +308,7 @@ public class DamageAttack implements Attack {
                     // defender is resistant on one type and vulnerable on the other and attacker has ability Torrent - times 3/2 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Torrent")) {
-                            if(type==PokemonType.WATER){
+                            if(type==MonsterType.WATER){
                                 return damage*3/2;
                             }
                         }
@@ -317,19 +317,19 @@ public class DamageAttack implements Attack {
                     // defender is resistant on one type and vulnerable on the other - times damage
                     return damage;
                 }
-                if ((type == PokemonType.GRASS && defenderType2 == PokemonType.FIRE) ||
-                        (type == PokemonType.FIRE && defenderType2 == PokemonType.WATER) ||
-                        (type == PokemonType.WATER && defenderType2 == PokemonType.GRASS) ||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.FLYING) ||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.GRASS)||
-                        (type == PokemonType.GRASS && defenderType == PokemonType.POISON)||
-                        (type == PokemonType.WATER && defenderType == PokemonType.WATER) ||
-                        (type == PokemonType.FIRE && defenderType == PokemonType.FIRE)) {
+                if ((type == MonsterType.GRASS && defenderType2 == MonsterType.FIRE) ||
+                        (type == MonsterType.FIRE && defenderType2 == MonsterType.WATER) ||
+                        (type == MonsterType.WATER && defenderType2 == MonsterType.GRASS) ||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.FLYING) ||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.GRASS)||
+                        (type == MonsterType.GRASS && defenderType == MonsterType.POISON)||
+                        (type == MonsterType.WATER && defenderType == MonsterType.WATER) ||
+                        (type == MonsterType.FIRE && defenderType == MonsterType.FIRE)) {
 
                     // defender is resistant on two types and attacker has ability Blaze - times 3/8 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Blaze")) {
-                            if(type==PokemonType.FIRE){
+                            if(type==MonsterType.FIRE){
                                 return damage*3/8;
                             }
                         }
@@ -338,7 +338,7 @@ public class DamageAttack implements Attack {
                     // defender is resistant on two types and attacker has ability Overgrow - times 3/8 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Overgrow")) {
-                            if(type==PokemonType.GRASS){
+                            if(type==MonsterType.GRASS){
                                 return damage*3/8;
                             }
                         }
@@ -347,7 +347,7 @@ public class DamageAttack implements Attack {
                     // defender is resistant on two types and attacker has ability Torrent - times 3/8 damage
                     if(attacker.hasHealth1_3()) {
                         if (attacker.getAbility().equals("Torrent")) {
-                            if(type==PokemonType.WATER){
+                            if(type==MonsterType.WATER){
                                 return damage*3/8;
                             }
                         }
@@ -360,7 +360,7 @@ public class DamageAttack implements Attack {
                 // defender is resistant on one type and attacker has ability Blaze - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Blaze")) {
-                        if(type==PokemonType.FIRE){
+                        if(type==MonsterType.FIRE){
                             return damage*3/4;
                         }
                     }
@@ -369,7 +369,7 @@ public class DamageAttack implements Attack {
                 // defender is resistant on one type and attacker has ability Overgrow - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Overgrow")) {
-                        if(type==PokemonType.GRASS){
+                        if(type==MonsterType.GRASS){
                             return damage*3/4;
                         }
                     }
@@ -378,7 +378,7 @@ public class DamageAttack implements Attack {
                 // defender is resistant on one type and attacker has ability Torrent - times 3/4 damage
                 if(attacker.hasHealth1_3()) {
                     if (attacker.getAbility().equals("Torrent")) {
-                        if(type==PokemonType.WATER){
+                        if(type==MonsterType.WATER){
                             return damage*3/4;
                         }
                     }
@@ -392,7 +392,7 @@ public class DamageAttack implements Attack {
         // attacker has ability Blaze - times 3/2 damage
         if(attacker.hasHealth1_3()) {
             if (attacker.getAbility().equals("Blaze")) {
-                if(type==PokemonType.FIRE){
+                if(type==MonsterType.FIRE){
                     return damage*3/2;
                 }
             }
@@ -401,7 +401,7 @@ public class DamageAttack implements Attack {
         // attacker has ability Overgrow - times 3/2 damage
         if(attacker.hasHealth1_3()) {
             if (attacker.getAbility().equals("Overgrow")) {
-                if(type==PokemonType.GRASS){
+                if(type==MonsterType.GRASS){
                     return damage*3/2;
                 }
             }
@@ -410,7 +410,7 @@ public class DamageAttack implements Attack {
         // attacker has ability Torrent - times 3/2 damage
         if(attacker.hasHealth1_3()) {
             if (attacker.getAbility().equals("Torrent")) {
-                if(type==PokemonType.WATER){
+                if(type==MonsterType.WATER){
                     return damage*3/2;
                 }
             }
